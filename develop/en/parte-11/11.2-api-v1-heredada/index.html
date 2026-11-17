@@ -1,0 +1,4305 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pandora ITSM product documentation">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/en/parte-11/11.2-api-v1-heredada/">
+      
+      
+        <link rel="prev" href="../11.1-api-v2/">
+      
+      
+        <link rel="next" href="../11.3-integracion-con-pandora-fms/">
+      
+      
+        
+          <link rel="alternate" href="../../../parte-11/11.2-api-v1-heredada/" hreflang="es">
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../../fr/parte-11/11.2-api-v1-heredada/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>2. API v1 (legacy) - Pandora ITSM — Product documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-v1-legacy" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>Under construction.</strong> This documentation is still being
+      written: content may be incomplete or change without notice.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    You are viewing a version that is not the current one (a version older than
+    the last published one).
+    <a href="../../../..">
+      <strong>Go to the latest published version.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../" title="Pandora ITSM — Product documentation" class="md-header__button md-logo" aria-label="Pandora ITSM — Product documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Product documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2. API v1 (legacy)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../parte-11/11.2-api-v1-heredada/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../fr/parte-11/11.2-api-v1-heredada/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Pandora ITSM — Product documentation" class="md-nav__button md-logo" aria-label="Pandora ITSM — Product documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Product documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 01. Quick start
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 01. Quick start
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.1-instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Updating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versions and support lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. First steps and interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 02. Users, permissions and organization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 02. Users, permissions and organization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Users, groups and profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Authentication and security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Companies and contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 03. Tickets and support
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 03. Tickets and support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets and incidents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Workflow and statuses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLAs, escalation and quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Email and support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Knowledge base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Downloads and directories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 04. Inventory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 04. Inventory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-4/4.1-inventario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 05. Change management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 05. Change management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Change management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 06. Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 06. Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-6/6.1-proyectos-y-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Projects and tasks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 07. Time management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 07. Time management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Time management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Companies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Invoices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campaigns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Email and email lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Forms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 10. Reports and dashboards
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 10. Reports and dashboards
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-10/10.1-informes-y-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Reports and dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 11. Automation and integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 11. Automation and integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (legacy)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (legacy)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is-and-how-to-call-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and how to call it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-and-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User and password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bearer-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bearer token
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_exists_in_group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        user_exists_in_group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delete_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_inventory_to_ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        add_inventory_to_ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents_resolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents_resolutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_priorities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_priorities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_tickets_count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_tickets_count
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_workunits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_workunits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_workunit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_workunit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        download_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attach_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        attach_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delete_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validate_user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delete_user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        user_exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents_summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents_summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_last_cron_execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_last_cron_execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_previous_cron_execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_previous_cron_execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_num_queued_emails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_num_queued_emails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_last_invoice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_last_invoice_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_invoice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_invoice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_company" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_company
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark_created_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mark_created_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark_updated_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mark_updated_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ovo_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovo_manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset_double_factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset_double_factor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extending the API
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.3-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Integration with Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.4-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.5-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. AI and chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 12. Advanced administration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 12. Advanced administration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.1-configuracion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Advanced configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 13. Technical annexes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 13. Technical annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a1-glosario-de-terminos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glossary of terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Upgrading PHP versions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Upgrading MySQL 5.7 to MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Microsoft 365 integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 14. Frequently asked questions (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 14. Frequently asked questions (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation, updates and licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Users, access and organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, workflows and email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventory and changes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Projects, time, CRM and marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Reports, API and integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is-and-how-to-call-it" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and how to call it
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ip-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-and-password" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        User and password
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bearer-token" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bearer token
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#call-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Call format
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#functions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Functions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get_login" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_login
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_exists_in_group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        user_exists_in_group
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_details" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_details
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        update_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delete_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add_inventory_to_ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        add_inventory_to_ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents_resolutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents_resolutions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents_status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents_status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_priorities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_priorities
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_tickets_count" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_tickets_count
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_workunits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_workunits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_workunit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_workunit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incident_files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incident_files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#download_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        download_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attach_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        attach_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delete_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        validate_user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete_user" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        delete_user
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user_exists" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        user_exists
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_users
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_stats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_stats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_incidents_summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_incidents_summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_last_cron_execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_last_cron_execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_previous_cron_execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_previous_cron_execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_num_queued_emails" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_num_queued_emails
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_last_invoice_id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_last_invoice_id
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_invoice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_invoice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_invoice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create_company" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        create_company
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark_created_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mark_created_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mark_updated_incident" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mark_updated_incident
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ovo_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ovo_manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reset_double_factor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reset_double_factor
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extending-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extending the API
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="api-v1-legacy">API v1 (legacy)<a class="headerlink" href="#api-v1-legacy" title="Permanent link">¶</a></h1>
+<p>The Pandora ITSM 1.0 API is still alive for compatibility. It is not a REST API:
+it is an HTTP call to <code>include/api.php</code> with an operation (<code>op</code>) and a list of
+comma-separated parameters. It returns CSV by default, XML on request and, in
+some calls, JSON.</p>
+<p>If you are starting an integration, use the API v2 in chapter 11.1. This API is
+only maintained for old scripts and integrations that already speak its
+dialect. The source of truth is <code>include/api.php</code> and
+<code>include/functions_api.php</code>; whatever is not in the dispatcher does not exist,
+no matter how much old documentation mentions it.</p>
+<h2 id="what-it-is-and-how-to-call-it">What it is and how to call it<a class="headerlink" href="#what-it-is-and-how-to-call-it" title="Permanent link">¶</a></h2>
+<p>The base URL is the console URL followed by <code>include/api.php</code>:</p>
+<div class="highlight"><pre><span></span><code>https://&lt;Console_web_URL&gt;/pandoraitsm/include/api.php?&lt;parameters&gt;
+</code></pre></div>
+<p>The common parameters are:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>user</code></td>
+<td>Yes</td>
+<td>Pandora ITSM user running the call and subject to ACLs.</td>
+</tr>
+<tr>
+<td><code>user_pass</code></td>
+<td>Yes, except bearer token</td>
+<td>User password.</td>
+</tr>
+<tr>
+<td><code>pass</code></td>
+<td>Only if <code>api_password</code> is configured</td>
+<td>API-specific password.</td>
+</tr>
+<tr>
+<td><code>op</code></td>
+<td>Yes</td>
+<td>Operation to run.</td>
+</tr>
+<tr>
+<td><code>params</code></td>
+<td>Depends on the operation</td>
+<td>Operation parameters, separated by <code>token</code>.</td>
+</tr>
+<tr>
+<td><code>token</code></td>
+<td>No</td>
+<td>Separator for <code>params</code>; comma (<code>,</code>) by default.</td>
+</tr>
+<tr>
+<td><code>return_type</code></td>
+<td>No</td>
+<td><code>csv</code> (default), <code>xml</code> or <code>json</code> depending on the operation.</td>
+</tr>
+<tr>
+<td><code>info</code></td>
+<td>No</td>
+<td><code>info=version</code> returns the version without authentication.</td>
+</tr>
+</tbody>
+</table>
+<p>The information call needs no user, password or authorised IP:</p>
+<div class="highlight"><pre><span></span><code>…/include/api.php?info=version
+</code></pre></div>
+<p>It returns a string similar to:</p>
+<div class="highlight"><pre><span></span><code>Pandora ITSM Enterprise Edition 5.0.109 Build 260603 MR109
+</code></pre></div>
+<p>An unknown operation does not return a descriptive error: the dispatcher sleeps
+for 15 seconds and ends without a body. If a script hangs, check the <code>op</code> name
+first.</p>
+<h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">¶</a></h2>
+<p>API 1.0 chains several checks. Every call except <code>info=version</code> goes through the
+IP list and user authentication.</p>
+<h3 id="ip-list">IP list<a class="headerlink" href="#ip-list" title="Permanent link">¶</a></h3>
+<p>The list is configured under <code>Setup → Setup → General setup</code>, field
+<code>List of IP with access to API</code> (token <code>api_acl</code>). By default it only allows
+<code>127.0.0.1</code>.</p>
+<p>It accepts addresses separated by commas, spaces or line breaks, and an
+asterisk as a wildcard: <code>192.168.7.*</code> or <code>*</code>. The code uses a regular
+expression, so the wildcard can also match part of an address. Opening the API
+to <code>*</code> is convenient for testing and a bad idea in production.</p>
+<h3 id="api-password">API password<a class="headerlink" href="#api-password" title="Permanent link">¶</a></h3>
+<p>If <code>api_password</code> is not empty, it must be sent in the <code>pass</code> parameter. If it
+is empty, the check is skipped.</p>
+<p>The password travels unencrypted. If you use this method, the call must go over
+HTTPS; over HTTP anyone listening on the network can see it.</p>
+<h3 id="user-and-password">User and password<a class="headerlink" href="#user-and-password" title="Permanent link">¶</a></h3>
+<p><code>user</code> and <code>user_pass</code> are required in every call that does not use a bearer
+token. There is no way to disable this check: the API password is a second
+factor, not a replacement.</p>
+<h3 id="bearer-token">Bearer token<a class="headerlink" href="#bearer-token" title="Permanent link">¶</a></h3>
+<p>You can also authenticate with the HTTP header:</p>
+<div class="highlight"><pre><span></span><code><span class="err">Authorization: Bearer &lt;token&gt;</span>
+</code></pre></div>
+<p>The token is compared with the <code>api_key</code> field of the user named in <code>user</code>. The
+IP list still applies. If the header is present, the API does not use
+<code>user_pass</code> or <code>pass</code>; if the token does not match, the response is <code>401</code>.</p>
+<p>Example with <code>curl</code>:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-k<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer </span><span class="nv">$PITSM_API_TOKEN</span><span class="s2">"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">"https://192.0.2.10/pandoraitsm/include/api.php?user=admin&amp;op=get_groups&amp;return_type=xml"</span>
+</code></pre></div>
+<p>If authentication fails, the API responds <code>401</code> with no body. There is no
+different error message for a missing user, a wrong password or an unauthorised
+IP.</p>
+<h2 id="call-format">Call format<a class="headerlink" href="#call-format" title="Permanent link">¶</a></h2>
+<p><code>params</code> is an ordered list. The default separator is a comma, but it can be
+changed with <code>token</code>:</p>
+<div class="highlight"><pre><span></span><code>…&amp;op=create_workunit&amp;params=1,Description,0.5,0,1,1
+…&amp;op=create_workunit&amp;token=|&amp;params=1|Description|0.5|0|1|1
+</code></pre></div>
+<p>Two conventions recur in ticket calls:</p>
+<ul>
+<li>A comma inside a value is written as <code>:::</code>.</li>
+<li>A space is encoded as <code>%20</code> in the URL.</li>
+</ul>
+<p>For example, <code>Doe, John</code> is sent as <code>Doe:::%20John</code>. Not every function reverses
+the substitution; those that support it apply it to the title, description or
+name, depending on the case.</p>
+<p><code>return_type</code> accepts <code>csv</code> (default), <code>xml</code> and, only in calls that implement
+it, <code>json</code>: tickets, work units, statuses, groups, users, priorities, fields,
+types and ticket count.</p>
+<p>Successful responses are not always <code>1</code>: many calls return the created
+identifier, a <code>0</code> or a <code>-1</code>. ACLs are checked inside each function and may log an
+audit entry before exiting without a body.</p>
+<h2 id="functions">Functions<a class="headerlink" href="#functions" title="Permanent link">¶</a></h2>
+<p>Each call has its own entry. Parameters are shown in the exact order of <code>params</code>;
+a parameter marked as required must always be present, even if the format allows
+it to be empty.</p>
+<h3 id="get_login">get_login<a class="headerlink" href="#get_login" title="Permanent link">¶</a></h3>
+<p>Checks that credentials are valid. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_login
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code> if authentication is correct. On failure, the call has already
+returned <code>401</code> before reaching here.</p>
+<hr>
+<h3 id="create_user">create_user<a class="headerlink" href="#create_user" title="Permanent link">¶</a></h3>
+<p>Creates a user and assigns a group and profile. <strong>Parameters:</strong> user (required),
+group (required), profile (required), email (optional), password (optional; if
+empty, the calling user's name is used), description (optional), real name
+(optional), external (<code>0</code> or <code>1</code>).</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=admin&amp;user_pass=adminpass&amp;op=create_user&amp;params=jorge,3,4,jorge@example.com,userpass,description,Jorge%20Surname,1
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code> on success, <code>0</code> on failure. Requires <code>UM</code> permission.
+<code>external=1</code> creates level <code>-1</code> (Standalone); <code>external=0</code> creates level <code>0</code>
+(grouped).</p>
+<hr>
+<h3 id="get_incidents">get_incidents<a class="headerlink" href="#get_incidents" title="Permanent link">¶</a></h3>
+<p>Lists tickets visible to the user. <strong>Parameters:</strong> search string, status, group
+(required; <code>1</code> for all), priority, inventory, owner, creator, ticket id and
+Pandora inventory id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incidents&amp;params=day,-10,1,-1,0,admin,user1
+</code></pre></div>
+<p>Statuses: <code>0</code> all, <code>1</code> new, <code>2</code> unconfirmed, <code>3</code> assigned, <code>4</code> reopened, <code>5</code>
+pending closure, <code>6</code> pending third party, <code>7</code> closed, <code>-10</code> all except closed.
+Priorities: <code>10</code>, <code>0</code>, <code>1</code>, <code>2</code>, <code>3</code>, <code>4</code>, <code>-1</code>.</p>
+<p><strong>Returns:</strong> CSV, XML or JSON. Internal limit of 5,000 tickets. A
+non-administrator only sees tickets they own or created.</p>
+<hr>
+<h3 id="user_exists_in_group">user_exists_in_group<a class="headerlink" href="#user_exists_in_group" title="Permanent link">¶</a></h3>
+<p>Checks whether a user belongs to one or more groups. <strong>Parameters:</strong> user,
+group1, group2…</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=user_exists_in_group&amp;params=test,4,5
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code> or <code>0</code>. An administrator returns <code>1</code> without checking groups.</p>
+<hr>
+<h3 id="get_incident_details">get_incident_details<a class="headerlink" href="#get_incident_details" title="Permanent link">¶</a></h3>
+<p>Returns ticket details. <strong>Parameter:</strong> ticket id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incident_details&amp;params=2
+</code></pre></div>
+<p><strong>Returns:</strong> CSV or XML with the ticket fields.</p>
+<hr>
+<h3 id="create_incident">create_incident<a class="headerlink" href="#create_incident" title="Permanent link">¶</a></h3>
+<p>Creates a ticket. <strong>Parameters:</strong> title (required), group (required), priority,
+description, inventories separated by <code>:</code>, ticket type, email copy, owner,
+parent ticket, status (required), <code>extra_data</code>, resolution, <code>extra_data2</code>,
+<code>extra_data3</code>, <code>extra_data4</code> and the type custom fields from position 15.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=create_incident&amp;params=Title,2,1,Description%20of%20the%20incident,1:2:3,1,copy@example.com,admin,0,1
+</code></pre></div>
+<p><strong>Returns:</strong> the created ticket id or <code>-1</code> on failure. Requires <code>IW</code>
+permission. An empty title aborts the call. A comma in the title or description
+is sent as <code>:::</code>.</p>
+<hr>
+<h3 id="update_incident">update_incident<a class="headerlink" href="#update_incident" title="Permanent link">¶</a></h3>
+<p>Updates a ticket. <strong>Parameters:</strong> id, title, description, epilogue, group,
+priority, resolution, status, owner, parent, type, <code>extra_data</code>,
+<code>extra_data2</code>, <code>extra_data3</code>, <code>extra_data4</code> and custom fields from position 15.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=update_incident&amp;params=4,new%20title,new%20description,new%20epilog,4,2,1,3,admin,0,6
+</code></pre></div>
+<p><strong>Returns:</strong> update result. If the ticket is closed, the resolution is stored;
+otherwise it is forced to <code>0</code>. Only the owner, creator or an administrator can
+modify it.</p>
+<hr>
+<h3 id="delete_incident">delete_incident<a class="headerlink" href="#delete_incident" title="Permanent link">¶</a></h3>
+<p>Deletes a ticket. <strong>Parameter:</strong> ticket id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=delete_incident&amp;params=3
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code>. Requires access to the ticket.</p>
+<hr>
+<h3 id="add_inventory_to_ticket">add_inventory_to_ticket<a class="headerlink" href="#add_inventory_to_ticket" title="Permanent link">¶</a></h3>
+<p>Links an inventory object to a ticket. <strong>Parameters:</strong> ticket id, inventory id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=add_inventory_to_ticket&amp;params=1,2
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code> or <code>0</code>. Requires <code>VW</code> permission.</p>
+<hr>
+<h3 id="get_incident_tracking">get_incident_tracking<a class="headerlink" href="#get_incident_tracking" title="Permanent link">¶</a></h3>
+<p>Returns the ticket tracking history. <strong>Parameter:</strong> ticket id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incident_tracking&amp;params=2
+</code></pre></div>
+<p><strong>Returns:</strong> CSV or XML with tracking records.</p>
+<hr>
+<h3 id="get_incidents_resolutions">get_incidents_resolutions<a class="headerlink" href="#get_incidents_resolutions" title="Permanent link">¶</a></h3>
+<p>Returns the resolution catalogue. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incidents_resolutions
+</code></pre></div>
+<p><strong>Returns:</strong> CSV or XML with <code>id</code> and <code>name</code> for each resolution.</p>
+<hr>
+<h3 id="get_incidents_status">get_incidents_status<a class="headerlink" href="#get_incidents_status" title="Permanent link">¶</a></h3>
+<p>Returns the status catalogue. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incidents_status
+</code></pre></div>
+<p><strong>Returns:</strong> CSV, XML or JSON with <code>id</code> and <code>name</code> for each status.</p>
+<hr>
+<h3 id="get_incident_priorities">get_incident_priorities<a class="headerlink" href="#get_incident_priorities" title="Permanent link">¶</a></h3>
+<p>Returns the priority catalogue. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incident_priorities
+</code></pre></div>
+<p><strong>Returns:</strong> CSV, XML or JSON with <code>id</code> and <code>name</code> for each priority.</p>
+<hr>
+<h3 id="get_incident_fields">get_incident_fields<a class="headerlink" href="#get_incident_fields" title="Permanent link">¶</a></h3>
+<p>Returns the custom fields for a ticket type and, when a ticket is given, its
+values. <strong>Parameters:</strong> type id, ticket id (optional).</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incident_fields&amp;params=4,32
+</code></pre></div>
+<p><strong>Returns:</strong> CSV, XML or JSON with the fields. Without a ticket, it only
+returns the type definition.</p>
+<hr>
+<h3 id="get_types">get_types<a class="headerlink" href="#get_types" title="Permanent link">¶</a></h3>
+<p>Returns the ticket type catalogue. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_types
+</code></pre></div>
+<p><strong>Returns:</strong> CSV, XML or JSON with <code>id</code> and <code>name</code> for each type.</p>
+<hr>
+<h3 id="get_tickets_count">get_tickets_count<a class="headerlink" href="#get_tickets_count" title="Permanent link">¶</a></h3>
+<p>Counts tickets grouped by a column and period. <strong>Parameters:</strong> column, maximum
+days.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_tickets_count&amp;params=id_grupo,30
+</code></pre></div>
+<p><strong>Returns:</strong> JSON with the count by group. It is the only call that always
+returns JSON, even if another <code>return_type</code> is requested.</p>
+<hr>
+<h3 id="get_incident_workunits">get_incident_workunits<a class="headerlink" href="#get_incident_workunits" title="Permanent link">¶</a></h3>
+<p>Lists the ticket work units. <strong>Parameter:</strong> ticket id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incident_workunits&amp;params=3
+</code></pre></div>
+<p><strong>Returns:</strong> CSV, XML or JSON with the work units.</p>
+<hr>
+<h3 id="create_workunit">create_workunit<a class="headerlink" href="#create_workunit" title="Permanent link">¶</a></h3>
+<p>Adds a work unit to a ticket. <strong>Parameters:</strong> ticket id, description, hours,
+cost (<code>0</code> or <code>1</code>), public (<code>0</code> or <code>1</code>), profile id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=create_workunit&amp;params=1,Description,0.5,0,1,1
+</code></pre></div>
+<p><strong>Returns:</strong> <code>0</code> or an error message. It does not accept closed tickets or
+duplicate a work unit with the same description on the same ticket.</p>
+<hr>
+<h3 id="get_incident_files">get_incident_files<a class="headerlink" href="#get_incident_files" title="Permanent link">¶</a></h3>
+<p>Lists the ticket attachments. <strong>Parameter:</strong> ticket id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incident_files&amp;params=1
+</code></pre></div>
+<p><strong>Returns:</strong> CSV or XML with the attachments.</p>
+<hr>
+<h3 id="download_file">download_file<a class="headerlink" href="#download_file" title="Permanent link">¶</a></h3>
+<p>Downloads an attachment. <strong>Parameter:</strong> attachment id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=download_file&amp;params=32
+</code></pre></div>
+<p><strong>Returns:</strong> file content in Base64.</p>
+<hr>
+<h3 id="attach_file">attach_file<a class="headerlink" href="#attach_file" title="Permanent link">¶</a></h3>
+<p>Attaches a file to a ticket. <strong>Parameters:</strong> ticket id, name, size, description,
+Base64 content.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=attach_file&amp;params=1,example.txt,234,File%20of%20example,aW50ZWdyaWEgcm9ja3M=
+</code></pre></div>
+<p><strong>Returns:</strong> <code>0</code> on success, <code>-1</code> if it cannot write. If the file already exists
+on the ticket, it returns <code>0</code> without duplicating it.</p>
+<hr>
+<h3 id="delete_file">delete_file<a class="headerlink" href="#delete_file" title="Permanent link">¶</a></h3>
+<p>Deletes an attachment. <strong>Parameter:</strong> attachment id.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=delete_file&amp;params=32
+</code></pre></div>
+<p><strong>Returns:</strong> <code>0</code> on success, <code>-1</code> if the permission check fails, <code>-2</code> if it
+cannot delete the physical file.</p>
+<hr>
+<h3 id="validate_user">validate_user<a class="headerlink" href="#validate_user" title="Permanent link">¶</a></h3>
+<p>Checks user and password. <strong>Parameters:</strong> user, password.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=validate_user&amp;params=jorge,jorge_pass
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code> if correct, <code>0</code> if the user does not exist or is disabled, <code>-1</code>
+if the password is wrong.</p>
+<hr>
+<h3 id="delete_user">delete_user<a class="headerlink" href="#delete_user" title="Permanent link">¶</a></h3>
+<p>Deletes a user. <strong>Parameter:</strong> user.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=delete_user&amp;params=pepe
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code> or <code>0</code>. It does not allow deleting <code>admin</code>. Requires <code>UM</code>
+permission.</p>
+<hr>
+<h3 id="user_exists">user_exists<a class="headerlink" href="#user_exists" title="Permanent link">¶</a></h3>
+<p>Checks whether a user exists. <strong>Parameter:</strong> user.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=user_exists&amp;params=pepe
+</code></pre></div>
+<p><strong>Returns:</strong> <code>1</code> or <code>0</code>.</p>
+<hr>
+<h3 id="get_users">get_users<a class="headerlink" href="#get_users" title="Permanent link">¶</a></h3>
+<p>Lists users visible to the caller. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_users
+</code></pre></div>
+<p><strong>Returns:</strong> CSV, XML or JSON with the identifiers.</p>
+<hr>
+<h3 id="get_groups">get_groups<a class="headerlink" href="#get_groups" title="Permanent link">¶</a></h3>
+<p>Lists visible groups. <strong>Optional parameter:</strong> <code>params=1</code> to include group 1.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_groups
+…/api.php?user=user&amp;user_pass=userpass&amp;op=get_groups&amp;params=1
+</code></pre></div>
+<p><strong>Returns:</strong> CSV, XML or JSON with <code>id</code> and <code>name</code> for each group.</p>
+<hr>
+<h3 id="get_stats">get_stats<a class="headerlink" href="#get_stats" title="Permanent link">¶</a></h3>
+<p>Returns a ticket metric. <strong>Parameters:</strong> metric, string, status, user, group,
+company, inventory, priority.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_stats&amp;params=sla_compliance
+…/api.php?user=user&amp;user_pass=userpass&amp;op=get_stats&amp;params=opened,,1
+</code></pre></div>
+<p>Metrics: <code>total_incidents</code>, <code>opened</code>, <code>closed</code>, <code>avg_life</code>, <code>sla_compliance</code>,
+<code>avg_scoring</code> and <code>avg_worktime</code>. If no group is given, group 1 is used.</p>
+<p><strong>Returns:</strong> a CSV or XML value.</p>
+<hr>
+<h3 id="get_incidents_summary">get_incidents_summary<a class="headerlink" href="#get_incidents_summary" title="Permanent link">¶</a></h3>
+<p>Returns the summary by status. <strong>Optional parameter:</strong> <code>new</code>, <code>unconfirmed</code>,
+<code>assigned</code>, <code>reopened</code>, <code>verified</code>, <code>pending_third_person</code>, <code>closed</code>,
+<code>not_closed</code> or <code>total</code>.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incidents_summary
+…/api.php?user=user&amp;user_pass=userpass&amp;op=get_incidents_summary&amp;params=not_closed
+</code></pre></div>
+<p><strong>Returns:</strong> every counter or only the requested field, in CSV or XML.</p>
+<hr>
+<h3 id="get_last_cron_execution">get_last_cron_execution<a class="headerlink" href="#get_last_cron_execution" title="Permanent link">¶</a></h3>
+<p>Returns the minutes since the last cron run. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_last_cron_execution
+</code></pre></div>
+<p><strong>Returns:</strong> minutes, or <code>-1</code> if there is no record.</p>
+<hr>
+<h3 id="get_previous_cron_execution">get_previous_cron_execution<a class="headerlink" href="#get_previous_cron_execution" title="Permanent link">¶</a></h3>
+<p>Returns the minutes since the previous cron run. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_previous_cron_execution
+</code></pre></div>
+<p><strong>Returns:</strong> minutes, or <code>-1</code> if there is no record.</p>
+<hr>
+<h3 id="get_num_queued_emails">get_num_queued_emails<a class="headerlink" href="#get_num_queued_emails" title="Permanent link">¶</a></h3>
+<p>Returns pending emails in the queue. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_num_queued_emails
+</code></pre></div>
+<p><strong>Returns:</strong> number of emails.</p>
+<hr>
+<h3 id="get_last_invoice_id">get_last_invoice_id<a class="headerlink" href="#get_last_invoice_id" title="Permanent link">¶</a></h3>
+<p>Returns the last <code>bill_id</code> of a submitted invoice. It takes no parameters.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_last_invoice_id
+</code></pre></div>
+<p><strong>Returns:</strong> the identifier or an empty value.</p>
+<hr>
+<h3 id="get_invoice">get_invoice<a class="headerlink" href="#get_invoice" title="Permanent link">¶</a></h3>
+<p>Returns invoice data. <strong>Parameter:</strong> <code>bill_id</code>.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=get_invoice&amp;params=140601_0071
+</code></pre></div>
+<p><strong>Returns:</strong> CSV or XML with the invoice.</p>
+<hr>
+<h3 id="create_invoice">create_invoice<a class="headerlink" href="#create_invoice" title="Permanent link">¶</a></h3>
+<p>Creates an invoice. <strong>Parameters:</strong> user, task, company, <code>bill_id</code>, concept,
+amount, tax, currency, description, locked, locking user, creation date, payment
+date, status, reference, internal note, type (<code>Submitted</code> or <code>Received</code>),
+language.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=create_invoice&amp;params=admin,,1,140601_0082,paso,3.00,,EUR,,,,,,paid,,,Submitted,
+</code></pre></div>
+<p><strong>Returns:</strong> status and message, for example <code>1,"invoice created"</code> or
+<code>0,"invalid billing id"</code>. Requires <code>CW</code> permission.</p>
+<hr>
+<h3 id="create_company">create_company<a class="headerlink" href="#create_company" title="Permanent link">¶</a></h3>
+<p>Creates a company. <strong>Parameters:</strong> name, address, tax id, role, country,
+manager, parent company.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=create_company&amp;params=Artica,AlbertoAguilera,12312312,1,Spain,admin,0
+</code></pre></div>
+<p><strong>Returns:</strong> the created company id. Requires <code>CW</code> permission; the manager must
+exist or be empty.</p>
+<hr>
+<h3 id="mark_created_incident">mark_created_incident<a class="headerlink" href="#mark_created_incident" title="Permanent link">¶</a></h3>
+<p>Marks the ticket creation record with extra information. <strong>Parameters:</strong> ticket
+id, text.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=mark_created_incident&amp;params=10,External%20origin
+</code></pre></div>
+<p><strong>Returns:</strong> raw update result, without CSV or XML.</p>
+<hr>
+<h3 id="mark_updated_incident">mark_updated_incident<a class="headerlink" href="#mark_updated_incident" title="Permanent link">¶</a></h3>
+<p>Marks the ticket update record. <strong>Parameters:</strong> ticket id, text.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=mark_updated_incident&amp;params=10,Updated%20by%20API
+</code></pre></div>
+<p><strong>Returns:</strong> raw update result.</p>
+<hr>
+<h3 id="ovo_manager">ovo_manager<a class="headerlink" href="#ovo_manager" title="Permanent link">¶</a></h3>
+<p>Specific OVO integration. <strong>Parameters:</strong> title, group, priority, description,
+inventory, type, extra information, group message.</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=user&amp;user_pass=userpass&amp;op=ovo_manager&amp;params=Title,2,2,Description,10626,10,extra,msg
+</code></pre></div>
+<p>It uses group <code>11</code> and user <code>ovo</code> in a fixed way. <strong>Returns:</strong> a variable result
+depending on the updates it applies. It is not a general call.</p>
+<hr>
+<h3 id="reset_double_factor">reset_double_factor<a class="headerlink" href="#reset_double_factor" title="Permanent link">¶</a></h3>
+<p>Resets two-factor authentication. <strong>Parameter:</strong> encrypted hash in the console
+format (for administrators).</p>
+<div class="highlight"><pre><span></span><code>…/api.php?user=admin&amp;user_pass=adminpass&amp;op=reset_double_factor&amp;params=&lt;hash&gt;
+</code></pre></div>
+<p><strong>Returns:</strong> JSON with <code>status</code>. A normal user can only reset their own factor.</p>
+<hr>
+<h2 id="extending-the-api">Extending the API<a class="headerlink" href="#extending-the-api" title="Permanent link">¶</a></h2>
+<p>API 1.0 has no automatic router. Adding a call requires two pieces:</p>
+<ol>
+<li>A function in <code>include/functions_api.php</code> that receives <code>$return_type</code> and
+   the parameters, and returns or prints the result.</li>
+<li>A <code>case</code> in the <code>switch ($op)</code> of <code>include/api.php</code> that invokes it.</li>
+</ol>
+<p>The minimum skeleton is:</p>
+<div class="highlight"><pre><span></span><code><span class="x">function api_my_call($return_type, $user, $params)</span>
+<span class="x">{</span>
+<span class="x">    // ACL checks and validation.</span>
+<span class="x">    $result = 1;</span>
+
+<span class="x">    switch ($return_type) {</span>
+<span class="x">        case 'xml':</span>
+<span class="x">            echo xml_node($result);</span>
+<span class="x">            break;</span>
+<span class="x">        default:</span>
+<span class="x">            echo $result;</span>
+<span class="x">            break;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div>
+<p>And in the dispatcher:</p>
+<div class="highlight"><pre><span></span><code><span class="x">case 'my_call':</span>
+<span class="x">    $params = explode($token, $params);</span>
+<span class="x">    echo api_my_call($return_type, $user, $params);</span>
+<span class="x">    break;</span>
+</code></pre></div>
+<p>Keep the output format and ACL checks inside the function. API v1 does not
+provide any of that for you.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

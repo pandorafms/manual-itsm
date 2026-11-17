@@ -1,0 +1,3667 @@
+<!DOCTYPE html><html lang="es" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación de producto de Pandora ITSM">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/anexos/a1-glosario-de-terminos/">
+      
+      
+        <link rel="prev" href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/">
+      
+      
+        <link rel="next" href="../a2-actualizacion-de-versiones-de-php/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="es">
+        
+          <link rel="alternate" href="../../en/anexos/a1-glosario-de-terminos/" hreflang="en">
+        
+          <link rel="alternate" href="../../fr/anexos/a1-glosario-de-terminos/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>A1. Glosario de términos - Pandora ITSM — Documentación de producto</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#glosario-de-terminos" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>En construcción.</strong> Esta documentación aún se está
+      escribiendo: el contenido puede estar incompleto o cambiar sin previo
+      aviso.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    Estás viendo una versión que no es la vigente (una versión anterior a la
+    última publicada).
+    <a href="../../..">
+      <strong>Ir a la última versión publicada.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Pandora ITSM — Documentación de producto" class="md-header__button md-logo" aria-label="Pandora ITSM — Documentación de producto" data-md-component="logo">
+      
+  <img src="../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Documentación de producto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              A1. Glosario de términos
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Cambiar a modo oscuro" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Cambiar a modo claro" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/anexos/a1-glosario-de-terminos/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../fr/anexos/a1-glosario-de-terminos/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pandora ITSM — Documentación de producto" class="md-nav__button md-logo" aria-label="Pandora ITSM — Documentación de producto" data-md-component="logo">
+      
+  <img src="../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Documentación de producto
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 01. Arranque rápido
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 01. Arranque rápido
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.1-instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Actualización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versiones y ciclo de soporte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licenciamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Primeros pasos e interfaz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 02. Usuarios, permisos y organización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 02. Usuarios, permisos y organización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Usuarios, grupos y perfiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Autenticación y seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Empresas y contactos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 03. Tickets y soporte
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 03. Tickets y soporte
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets e incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Flujo de trabajo y estados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLA, escalado y control de calidad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Correo y soporte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de conocimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Descargas y directorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 04. Inventario
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 04. Inventario
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-4/4.1-inventario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 05. Gestión del cambio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 05. Gestión del cambio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestión del cambio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 06. Proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 06. Proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-6/6.1-proyectos-y-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Proyectos y tareas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 07. Gestión del tiempo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 07. Gestión del tiempo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestión del tiempo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contactos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Empresas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contratos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Facturas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campañas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Email y listas de email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Formularios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 10. Informes y dashboards
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 10. Informes y dashboards
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-10/10.1-informes-y-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Informes y dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 11. Automatización e integraciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 11. Automatización e integraciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.2-api-v1-heredada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (heredada)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Integración con Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Integración con Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. IA y chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 12. Administración avanzada
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 12. Administración avanzada
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.1-configuracion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Configuración avanzada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Mantenimiento y copias de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 13. Anexos técnicos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 13. Anexos técnicos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glosario de términos
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glosario de términos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#producto-y-ciclo-de-vida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Producto y ciclo de vida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usuarios-permisos-y-organizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usuarios, permisos y organización
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tickets-y-soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tickets y soporte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimiento-wiki-y-descargas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conocimiento, Wiki y descargas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyectos-y-tiempo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proyectos y tiempo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crm-y-marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRM y marketing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-e-integraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API e integraciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administracion-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administración y seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminos-tecnicos-y-formatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Términos técnicos y formatos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminos-ambiguos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Términos ambiguos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminos-relacionados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Términos relacionados
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Actualización de versiones de PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Actualización de MySQL 5.7 a MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Integración con Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 14. Preguntas frecuentes (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 14. Preguntas frecuentes (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Instalación, actualización y licencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Usuarios, accesos y organización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, flujos y correo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventario y cambios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Proyectos, tiempo, CRM y marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Informes, API e integraciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#producto-y-ciclo-de-vida" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Producto y ciclo de vida
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usuarios-permisos-y-organizacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usuarios, permisos y organización
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tickets-y-soporte" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tickets y soporte
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conocimiento-wiki-y-descargas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conocimiento, Wiki y descargas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#proyectos-y-tiempo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proyectos y tiempo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#crm-y-marketing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CRM y marketing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cambios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-e-integraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        API e integraciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#administracion-y-seguridad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Administración y seguridad
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminos-tecnicos-y-formatos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Términos técnicos y formatos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminos-ambiguos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Términos ambiguos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#terminos-relacionados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Términos relacionados
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="glosario-de-terminos">Glosario de términos<a class="headerlink" href="#glosario-de-terminos" title="Permanent link">¶</a></h1>
+<p>Este glosario reúne los términos que Pandora ITSM usa con un significado propio. No
+sustituye a los capítulos funcionales: fija el vocabulario para que dos personas no
+llamen «usuario» a cosas distintas. Cada bloque enlaza al capítulo donde se desarrolla
+el concepto.</p>
+<h2 id="producto-y-ciclo-de-vida">Producto y ciclo de vida<a class="headerlink" href="#producto-y-ciclo-de-vida" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Pandora ITSM / PITSM</strong></td>
+<td>Producto de gestión de servicios IT de Pandora FMS. «Pandora ITSM» es la marca; «PITSM» es la abreviatura que se usa después de la primera mención.</td>
+</tr>
+<tr>
+<td><strong>Pandora FMS / PFMS</strong></td>
+<td>Producto de monitorización de Pandora FMS. Se integra con Pandora ITSM para autenticación, inventario y tickets, pero no es el mismo producto.</td>
+</tr>
+<tr>
+<td><strong>Pandora RC</strong></td>
+<td>Producto de control remoto de Pandora. Se integra con Pandora ITSM para gestionar equipos.</td>
+</tr>
+<tr>
+<td><strong>Warp Update</strong></td>
+<td>Actualizador de Pandora ITSM. Permite actualizar online u offline, revisar opciones y consultar el journal.</td>
+</tr>
+<tr>
+<td><strong>OUM / MR / LTS / FR</strong></td>
+<td><strong>OUM</strong> es el Offline Update Manager, el paquete de actualización offline. <strong>MR</strong> es el Minor Release o nivel de migración de base de datos. <strong>LTS</strong> es una versión de soporte a largo plazo. <strong>FR</strong> es una Feature Release con funcionalidades nuevas.</td>
+</tr>
+<tr>
+<td><strong>Parche</strong></td>
+<td>Corrección puntual sobre una versión. No cambia el ciclo de soporte por sí mismo.</td>
+</tr>
+<tr>
+<td><strong>Licencia perpetua / suscripción</strong></td>
+<td>La licencia perpetua se adquiere una vez; la suscripción se renueva por periodo. Ambas pueden limitar el número de administradores.</td>
+</tr>
+<tr>
+<td><strong>Manager Count / Manager Limit</strong></td>
+<td>Términos de licencia: número de administradores usados y límite permitido.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="usuarios-permisos-y-organizacion">Usuarios, permisos y organización<a class="headerlink" href="#usuarios-permisos-y-organizacion" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usuario agrupado / independiente</strong></td>
+<td>El agrupado pertenece a un grupo y comparte visibilidad con sus compañeros; el independiente solo ve su propio contenido.</td>
+</tr>
+<tr>
+<td><strong>Contacto / empresa</strong></td>
+<td>El contacto es una persona del CRM sin acceso a la aplicación; la empresa es la entidad que agrupa contactos, contratos, facturas y tickets.</td>
+</tr>
+<tr>
+<td><strong>Grupo / perfil / rol</strong></td>
+<td>El grupo controla la visibilidad; el perfil concede permisos; el rol matiza funciones dentro de un proyecto o empresa. No son intercambiables.</td>
+</tr>
+<tr>
+<td><strong>User mode / ACL / bit de permiso</strong></td>
+<td>El <strong>User mode</strong> es el modo de un usuario sobre un grupo; la <strong>ACL</strong> es la lista de control de acceso resultante; el <strong>bit de permiso</strong> es cada permiso concreto del perfil.</td>
+</tr>
+<tr>
+<td><strong>Superadmin / administrador / Manager</strong></td>
+<td>El <strong>superadmin</strong> es el superusuario y siempre se autentica localmente; el <strong>administrador</strong> tiene perfil Administration; el <strong>Manager</strong> es el responsable de una empresa del CRM.</td>
+</tr>
+<tr>
+<td><strong>HR / UM / VCM</strong></td>
+<td>Permisos de personas: <strong>HR</strong> para recursos humanos, <strong>UM</strong> para gestión de usuarios y <strong>VCM</strong> para gestionar vacaciones.</td>
+</tr>
+<tr>
+<td><strong>CR / CW / CM</strong></td>
+<td>Permisos de CRM: leer, escribir y gestionar.</td>
+</tr>
+<tr>
+<td><strong>CIR / CIW / CIM</strong></td>
+<td>Permisos de facturas: leer, escribir y gestionar.</td>
+</tr>
+<tr>
+<td><strong>RR / RM</strong></td>
+<td>Permisos de informes: leer y gestionar.</td>
+</tr>
+<tr>
+<td><strong>KW / KM</strong></td>
+<td>Permisos de base de conocimiento: escribir y gestionar.</td>
+</tr>
+<tr>
+<td><strong>WR / WW / WM</strong></td>
+<td>Permisos de Wiki: leer, escribir y administrar.</td>
+</tr>
+<tr>
+<td><strong>PR / IR / VR / AR / WOR</strong></td>
+<td>Bits de visibilidad de proyectos, tickets, inventario, agenda y partes de trabajo.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tickets-y-soporte">Tickets y soporte<a class="headerlink" href="#tickets-y-soporte" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Ticket / incidencia</strong></td>
+<td>El <strong>ticket</strong> es el objeto que se abre, asigna y cierra en la consola. «Incidencia» se usa como concepto general, no como sinónimo del objeto.</td>
+</tr>
+<tr>
+<td><strong>Creador / editor / propietario</strong></td>
+<td>El <strong>creador</strong> describe el problema; el <strong>editor</strong> introduce el ticket; el <strong>propietario</strong> se encarga de resolverlo.</td>
+</tr>
+<tr>
+<td><strong>Colaborador / usuario asociado</strong></td>
+<td>El colaborador aporta información sin ser creador ni propietario; el usuario asociado ha participado y recibe notificaciones.</td>
+</tr>
+<tr>
+<td><strong>Equipo de soporte / Round Robin / Load Balanced / fallback</strong></td>
+<td>El equipo agrupa agentes; <strong>Round Robin</strong> reparte por turnos; <strong>Load Balanced</strong> asigna al de menos carga; el <strong>fallback</strong> recibe el ticket si nadie está disponible.</td>
+</tr>
+<tr>
+<td><strong>Estado / mapeo de estados</strong></td>
+<td>El estado indica la fase del ticket; el mapeo define qué transiciones están permitidas.</td>
+</tr>
+<tr>
+<td><strong>Resolución / epílogo</strong></td>
+<td>La resolución es el resultado; el epílogo explica qué se hizo al cerrar.</td>
+</tr>
+<tr>
+<td><strong>Prioridad / criticidad</strong></td>
+<td>La prioridad ordena el trabajo; la criticidad mide el impacto. No siempre coinciden.</td>
+</tr>
+<tr>
+<td><strong>SLA / FRT / TTR / escalado</strong></td>
+<td>El <strong>SLA</strong> es el acuerdo de nivel de servicio; <strong>FRT</strong> es el tiempo de primera respuesta; <strong>TTR</strong> es el tiempo de resolución; el escalado cambia propietario, grupo o prioridad.</td>
+</tr>
+<tr>
+<td><strong>Workflow / regla / condición / acción / macro</strong></td>
+<td>El workflow automatiza tickets; la regla contiene condiciones y acciones; la macro sustituye datos del ticket. No confundir con el workflow de CRM.</td>
+</tr>
+<tr>
+<td><strong>Unidad de trabajo / nota interna / nota privada</strong></td>
+<td>La unidad de trabajo registra tiempo y detalle; la nota interna no la ve el creador; la privada solo la ven administradores y su autor.</td>
+</tr>
+<tr>
+<td><strong>Parte de trabajo</strong></td>
+<td>Documento PDF generado desde una plantilla con datos del ticket, a modo de albarán o prueba de ejecución.</td>
+</tr>
+<tr>
+<td><strong>Tipo de ticket / campo personalizado / combo / linked</strong></td>
+<td>El tipo agrupa campos; el campo personalizado añade datos; <strong>combo</strong> es una lista de opciones; <strong>linked</strong> encadena un campo padre y uno hijo.</td>
+</tr>
+<tr>
+<td><strong>Q/A / encuesta / satisfacción</strong></td>
+<td>El aseguramiento de calidad valora el cierre; la encuesta amplía la valoración negativa; la satisfacción es la opinión del cliente.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="correo">Correo<a class="headerlink" href="#correo" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SMTP / POP / IMAP</strong></td>
+<td>Protocolos de envío (SMTP) y recepción (POP o IMAP) de correo.</td>
+</tr>
+<tr>
+<td><strong>OAuth 2.0 / Client ID / Tenant ID / Client Secret / Redirect URI</strong></td>
+<td>Autenticación delegada para Microsoft 365: identificadores de la aplicación, secreto y URL de retorno.</td>
+</tr>
+<tr>
+<td><strong>Cola de correo / Email destination / Email origin</strong></td>
+<td>La cola contiene mensajes pendientes; <strong>Email destination</strong> identifica el buzón que crea tickets; <strong>Email origin</strong> filtra los remitentes válidos.</td>
+</tr>
+<tr>
+<td><strong>Message delimiter / masking / blacklist</strong></td>
+<td>El delimitador corta el hilo; el enmascarado oculta direcciones; la lista negra descarta remitentes o dominios.</td>
+</tr>
+<tr>
+<td><strong>Microsoft 365 / Google Workspace</strong></td>
+<td>Servicios de correo corporativo compatibles con la integración.</td>
+</tr>
+<tr>
+<td><strong>PostMark / SPF / DKIM</strong></td>
+<td><strong>PostMark</strong> es un servidor de envío; <strong>SPF</strong> y <strong>DKIM</strong> son registros DNS que mejoran la entregabilidad.</td>
+</tr>
+<tr>
+<td><strong>Rebote</strong></td>
+<td>Correo que no se ha podido entregar. Se mide en las campañas.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="conocimiento-wiki-y-descargas">Conocimiento, Wiki y descargas<a class="headerlink" href="#conocimiento-wiki-y-descargas" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Base de conocimiento (KB) / artículo / categoría / tipo de producto</strong></td>
+<td>La base de conocimiento guarda soluciones en artículos clasificados por categoría y producto.</td>
+</tr>
+<tr>
+<td><strong>Wiki / ACL de página / side_menu / TOC</strong></td>
+<td>La Wiki es documentación interna; el ACL de página controla lectura y escritura; <code>side_menu</code> es el menú lateral; <code>TOC</code> es la tabla de contenido.</td>
+</tr>
+<tr>
+<td><strong>Descarga / release / carpeta / categoría de descarga / fichero interno o privado</strong></td>
+<td>Las descargas distribuyen ficheros y releases en carpetas y categorías; el fichero interno o privado tiene visibilidad limitada.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="inventario">Inventario<a class="headerlink" href="#inventario" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Inventario / CMDB</strong></td>
+<td>El inventario es la base de activos; la CMDB es la base de datos de gestión de configuración.</td>
+</tr>
+<tr>
+<td><strong>Objeto / tipo de objeto</strong></td>
+<td>El objeto es una instancia concreta; el tipo define sus campos y comportamiento.</td>
+</tr>
+<tr>
+<td><strong>Campo personalizado / campo externo</strong></td>
+<td>El campo personalizado lo define la organización; el externo se rellena con datos de otra fuente.</td>
+</tr>
+<tr>
+<td><strong>Relación / vista árbol / stock / estado / etiqueta</strong></td>
+<td>La relación vincula objetos; la vista árbol muestra jerarquía; el stock controla existencias; el estado y la etiqueta clasifican.</td>
+</tr>
+<tr>
+<td><strong>Inventario remoto / agente / módulo / nodo</strong></td>
+<td>El inventario remoto se sincroniza desde Pandora FMS; el agente envía datos; el módulo es una comprobación; el nodo es el servidor de monitorización.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="proyectos-y-tiempo">Proyectos y tiempo<a class="headerlink" href="#proyectos-y-tiempo" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Proyecto / tarea / subtarea</strong></td>
+<td>El proyecto agrupa trabajo; la tarea es una unidad planificable; la subtarea cuelga de otra tarea.</td>
+</tr>
+<tr>
+<td><strong>Hito / Gantt / tablero</strong></td>
+<td>El hito es una fecha de duración cero; el Gantt muestra la planificación temporal; el tablero organiza tareas por estado.</td>
+</tr>
+<tr>
+<td><strong>Dependencia start-to-start / finish-to-start / finish-to-finish</strong></td>
+<td>Reglas que impiden que una tarea empiece o termine antes que otra.</td>
+</tr>
+<tr>
+<td><strong>Imputación / coste / rentabilidad / desviación</strong></td>
+<td>La imputación registra horas; el coste las valora; la rentabilidad compara ingresos y costes; la desviación mide la diferencia con el plan.</td>
+</tr>
+<tr>
+<td><strong>Timetracker / fichaje / pausa / jornada</strong></td>
+<td>El Timetracker registra actividad; el fichaje marca entrada y salida; la pausa interrumpe la jornada; la jornada es el tiempo previsto.</td>
+</tr>
+<tr>
+<td><strong>Vacaciones / baja / teletrabajo</strong></td>
+<td>Ausencias y modalidad de trabajo que afectan a la disponibilidad y a los informes.</td>
+</tr>
+<tr>
+<td><strong>Bolsa de horas</strong></td>
+<td>Horas contratadas o presupuestadas para un proyecto, con consumo y saldo restante.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="crm-y-marketing">CRM y marketing<a class="headerlink" href="#crm-y-marketing" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Contrato / tipo de contrato / plantilla de contrato</strong></td>
+<td>El contrato cubre un servicio; el tipo define campos; la plantilla genera el PDF con macros.</td>
+</tr>
+<tr>
+<td><strong>Factura recibida / emitida</strong></td>
+<td><strong>Received</strong> es una factura recibida; <strong>Submitted</strong> es una factura emitida. La emitida se bloquea y genera PDF.</td>
+</tr>
+<tr>
+<td><strong>Quote / presupuesto</strong></td>
+<td>Propuesta económica formal vinculada a un deal o contacto.</td>
+</tr>
+<tr>
+<td><strong>Deal / oportunidad / pipeline / etapa</strong></td>
+<td>El deal es una oportunidad de venta; el pipeline es el embudo; la etapa es la fase dentro del embudo.</td>
+</tr>
+<tr>
+<td><strong>Deal registration</strong></td>
+<td>Registro de oportunidades por partners o resellers, separado del pipeline principal.</td>
+</tr>
+<tr>
+<td><strong>Campaña / template / lista estática / lista dinámica</strong></td>
+<td>La campaña envía un mensaje; la template es el diseño; la lista estática es fija; la dinámica se recalcula al enviar.</td>
+</tr>
+<tr>
+<td><strong>Formulario</strong></td>
+<td>Formulario web que capta contactos y los registra o actualiza en el CRM.</td>
+</tr>
+<tr>
+<td><strong>Etiqueta / tag</strong></td>
+<td>Marca transversal para clasificar y filtrar; no concede permisos.</td>
+</tr>
+<tr>
+<td><strong>Consentimiento</strong></td>
+<td>Autorización del contacto para recibir comunicaciones o aceptar una política.</td>
+</tr>
+<tr>
+<td><strong>Empresa padre / rol de empresa / servicio IT</strong></td>
+<td>La empresa padre organiza la jerarquía; el rol clasifica la empresa; el servicio IT clasifica los tickets.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cambios">Cambios<a class="headerlink" href="#cambios" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Cambio / solicitud de cambio</strong></td>
+<td>El cambio es una modificación controlada; la solicitud es su punto de entrada.</td>
+</tr>
+<tr>
+<td><strong>Autorización / planificación / tarea de cambio</strong></td>
+<td>La autorización aprueba; la planificación organiza; la tarea de cambio ejecuta el trabajo.</td>
+</tr>
+<tr>
+<td><strong>Revisión / cierre</strong></td>
+<td>La revisión comprueba el resultado; el cierre termina el ciclo.</td>
+</tr>
+<tr>
+<td><strong>Riesgo / impacto</strong></td>
+<td>El riesgo es la probabilidad de un efecto negativo; el impacto es su alcance.</td>
+</tr>
+<tr>
+<td><strong>Aprobador / equipo de cambio</strong></td>
+<td>Personas y equipos que autorizan y ejecutan el cambio.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="api-e-integraciones">API e integraciones<a class="headerlink" href="#api-e-integraciones" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>API v1 / API v2</strong></td>
+<td>Interfaces de programación de Pandora ITSM. v2 es la API actual; v1 es la heredada.</td>
+</tr>
+<tr>
+<td><strong>Token / endpoint</strong></td>
+<td>El token autentica la petición; el endpoint es la URL concreta del recurso.</td>
+</tr>
+<tr>
+<td><strong>JSON / OpenAPI / paginación</strong></td>
+<td>JSON es el formato de datos; OpenAPI describe la API; la paginación divide resultados largos.</td>
+</tr>
+<tr>
+<td><strong>Webhook / rate limit</strong></td>
+<td>El webhook notifica eventos; el rate limit limita peticiones por periodo.</td>
+</tr>
+<tr>
+<td><strong>ChatBot / IA / prompt / canal</strong></td>
+<td>El ChatBot atiende conversaciones; la IA genera respuestas; el prompt es la instrucción; el canal es el medio de contacto.</td>
+</tr>
+<tr>
+<td><strong>GitLab</strong></td>
+<td>Plataforma de repositorios que se integra para consultar tickets de un proyecto.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="administracion-y-seguridad">Administración y seguridad<a class="headerlink" href="#administracion-y-seguridad" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Setup / token</strong></td>
+<td><strong>Setup</strong> es la configuración; el <strong>token</strong> es cada parámetro que se guarda en ella.</td>
+</tr>
+<tr>
+<td><strong>Visibilidad</strong></td>
+<td>Nivel <strong>Oculto</strong> o <strong>Completo</strong> de una sección para un grupo.</td>
+</tr>
+<tr>
+<td><strong>2FA / TOTP</strong></td>
+<td>Segundo factor de autenticación basado en códigos temporales.</td>
+</tr>
+<tr>
+<td><strong>Sesión / timeout</strong></td>
+<td>Periodo desde el inicio de sesión hasta que caduca por inactividad.</td>
+</tr>
+<tr>
+<td><strong>HTTPS / SSL/TLS / certificado / CA</strong></td>
+<td>HTTPS cifra la conexión; SSL/TLS es el protocolo; el certificado identifica al servidor; la CA lo valida.</td>
+</tr>
+<tr>
+<td><strong>FQDN / IP / puerto</strong></td>
+<td>Nombre completo, dirección de red y puerto de conexión.</td>
+</tr>
+<tr>
+<td><strong>Backup / restore</strong></td>
+<td>Copia de seguridad y restauración de base de datos y adjuntos.</td>
+</tr>
+<tr>
+<td><strong>Cron</strong></td>
+<td>Tarea periódica del sistema que ejecuta procesos automáticos.</td>
+</tr>
+<tr>
+<td><strong>Auditoría / log / evento</strong></td>
+<td>La auditoría registra acciones de usuario; el log guarda errores; el evento registra actividad del sistema.</td>
+</tr>
+<tr>
+<td><strong>Diagnóstico / DB Manager</strong></td>
+<td>Diagnóstico muestra el estado del sistema; DB Manager permite ejecutar SQL con permisos elevados.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="terminos-tecnicos-y-formatos">Términos técnicos y formatos<a class="headerlink" href="#terminos-tecnicos-y-formatos" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Definición</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>CSV / PDF / JSON / XML / SQL</strong></td>
+<td>Formatos de intercambio, informe, datos y consulta usados por la aplicación.</td>
+</tr>
+<tr>
+<td><strong>HTML / URL / URI</strong></td>
+<td>Lenguaje de marcado, localizador y identificador de recursos.</td>
+</tr>
+<tr>
+<td><strong>PHP-FPM / Apache / MySQL / Percona</strong></td>
+<td>Componentes habituales del servidor web y de base de datos.</td>
+</tr>
+<tr>
+<td><strong>EL9 / EL10 / Ubuntu</strong></td>
+<td>Sistemas operativos soportados para la instalación.</td>
+</tr>
+<tr>
+<td><strong>MB / GB</strong></td>
+<td>Unidades de tamaño de fichero y almacenamiento.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="terminos-ambiguos">Términos ambiguos<a class="headerlink" href="#terminos-ambiguos" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Forma problemática</th>
+<th>Forma recomendada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compañía</td>
+<td><strong>empresa</strong></td>
+</tr>
+<tr>
+<td>workunit</td>
+<td><strong>unidad de trabajo</strong> (el identificador <code>workunit</code> se cita como código)</td>
+</tr>
+<tr>
+<td>KB</td>
+<td><strong>base de conocimiento</strong></td>
+</tr>
+<tr>
+<td>ticket / incidencia</td>
+<td><strong>ticket</strong> para el objeto; «incidencia» como concepto general</td>
+</tr>
+<tr>
+<td>usuario / contacto</td>
+<td><strong>usuario</strong> con acceso; <strong>contacto</strong> sin acceso</td>
+</tr>
+<tr>
+<td>perfil / rol</td>
+<td><strong>perfil</strong> concede permisos; <strong>rol</strong> matiza funciones</td>
+</tr>
+<tr>
+<td>grupo / equipo</td>
+<td><strong>grupo</strong> controla visibilidad; <strong>equipo</strong> reparte tickets</td>
+</tr>
+<tr>
+<td>consola</td>
+<td><strong>interfaz</strong></td>
+</tr>
+<tr>
+<td>SLA / ANS</td>
+<td><strong>SLA</strong>, desarrollado la primera vez</td>
+</tr>
+<tr>
+<td>PandoraFMS</td>
+<td><strong>Pandora FMS</strong></td>
+</tr>
+<tr>
+<td>Office 365</td>
+<td><strong>Microsoft 365</strong></td>
+</tr>
+<tr>
+<td>LTS / FR / OUM / MR</td>
+<td>Desarrollar cada sigla en su primera aparición</td>
+</tr>
+</tbody>
+</table>
+<h2 id="terminos-relacionados">Términos relacionados<a class="headerlink" href="#terminos-relacionados" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Dónde se desarrolla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Usuarios, grupos y perfiles</td>
+<td><a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/">2.1 Usuarios, grupos y perfiles</a></td>
+</tr>
+<tr>
+<td>Autenticación y sesión</td>
+<td><a href="../../parte-2/2.2-autenticacion-y-seguridad/">2.2 Autenticación y seguridad</a></td>
+</tr>
+<tr>
+<td>Empresa y contacto</td>
+<td><a href="../../parte-2/2.3-empresas-y-contactos/">2.3 Empresas y contactos</a></td>
+</tr>
+<tr>
+<td>Tickets y unidades de trabajo</td>
+<td><a href="../../parte-3/3.1-tickets-e-incidencias/">3.1 Tickets e incidencias</a></td>
+</tr>
+<tr>
+<td>Inventario y CMDB</td>
+<td><a href="../../parte-4/4.1-inventario/">4.1 Inventario</a></td>
+</tr>
+<tr>
+<td>Proyectos y tareas</td>
+<td><a href="../../parte-6/6.1-proyectos-y-tareas/">6.1 Proyectos y tareas</a></td>
+</tr>
+<tr>
+<td>Gestión del tiempo</td>
+<td><a href="../../parte-7/7.1-gestion-del-tiempo/">7.1 Gestión del tiempo</a></td>
+</tr>
+<tr>
+<td>CRM</td>
+<td><a href="../../parte-8/8.1-contactos/">8.1 Contactos</a></td>
+</tr>
+<tr>
+<td>Informes</td>
+<td><a href="../../parte-10/10.1-informes-y-dashboards/">10.1 Informes y dashboards</a></td>
+</tr>
+<tr>
+<td>API</td>
+<td><a href="../../parte-11/11.1-api-v2/">11.1 API v2</a></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

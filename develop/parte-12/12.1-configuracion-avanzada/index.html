@@ -1,0 +1,3548 @@
+<!DOCTYPE html><html lang="es" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentación de producto de Pandora ITSM">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/parte-12/12.1-configuracion-avanzada/">
+      
+      
+        <link rel="prev" href="../../parte-11/11.5-ia-y-chatbot/">
+      
+      
+        <link rel="next" href="../12.2-mantenimiento-y-copias-de-seguridad/">
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="es">
+        
+          <link rel="alternate" href="../../en/parte-12/12.1-configuracion-avanzada/" hreflang="en">
+        
+          <link rel="alternate" href="../../fr/parte-12/12.1-configuracion-avanzada/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Configuración avanzada - Pandora ITSM — Documentación de producto</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#configuracion-avanzada" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>En construcción.</strong> Esta documentación aún se está
+      escribiendo: el contenido puede estar incompleto o cambiar sin previo
+      aviso.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    Estás viendo una versión que no es la vigente (una versión anterior a la
+    última publicada).
+    <a href="../../..">
+      <strong>Ir a la última versión publicada.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Pandora ITSM — Documentación de producto" class="md-header__button md-logo" aria-label="Pandora ITSM — Documentación de producto" data-md-component="logo">
+      
+  <img src="../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Documentación de producto
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Configuración avanzada
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Cambiar a modo oscuro" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Cambiar a modo claro" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Seleccionar idioma">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../en/parte-12/12.1-configuracion-avanzada/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../fr/parte-12/12.1-configuracion-avanzada/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pandora ITSM — Documentación de producto" class="md-nav__button md-logo" aria-label="Pandora ITSM — Documentación de producto" data-md-component="logo">
+      
+  <img src="../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Documentación de producto
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 01. Arranque rápido
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 01. Arranque rápido
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.1-instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Instalación
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Actualización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versiones y ciclo de soporte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licenciamiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Primeros pasos e interfaz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 02. Usuarios, permisos y organización
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 02. Usuarios, permisos y organización
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Usuarios, grupos y perfiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Autenticación y seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Empresas y contactos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 03. Tickets y soporte
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 03. Tickets y soporte
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets e incidencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Flujo de trabajo y estados
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLA, escalado y control de calidad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Correo y soporte
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de conocimiento
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Descargas y directorios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 04. Inventario
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 04. Inventario
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-4/4.1-inventario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventario
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 05. Gestión del cambio
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 05. Gestión del cambio
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestión del cambio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 06. Proyectos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 06. Proyectos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-6/6.1-proyectos-y-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Proyectos y tareas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 07. Gestión del tiempo
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 07. Gestión del tiempo
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestión del tiempo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contactos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Empresas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contratos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Facturas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campañas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Email y listas de email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Formularios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 10. Informes y dashboards
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 10. Informes y dashboards
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-10/10.1-informes-y-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Informes y dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 11. Automatización e integraciones
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 11. Automatización e integraciones
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.2-api-v1-heredada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (heredada)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Integración con Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Integración con Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. IA y chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 12. Administración avanzada
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 12. Administración avanzada
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Configuración avanzada
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Configuración avanzada
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#donde-esta-la-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dónde está la configuración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración general
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración visual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politica-de-contrasenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Política de contraseñas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-incidencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de incidencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de cambios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correo-y-plantillas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo y plantillas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visibilidad-de-menus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visibilidad de menús
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventario-de-pandora-fms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario de Pandora FMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración CRM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración CRM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#facturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facturas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contratos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contratos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campañas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mantenimiento-de-datos-antiguos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mantenimiento de datos antiguos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-proyectos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de proyectos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integraciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas de administración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Mantenimiento y copias de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 13. Anexos técnicos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 13. Anexos técnicos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a1-glosario-de-terminos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glosario de términos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Actualización de versiones de PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Actualización de MySQL 5.7 a MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Integración con Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parte 14. Preguntas frecuentes (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Parte 14. Preguntas frecuentes (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Instalación, actualización y licencias
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Usuarios, accesos y organización
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, flujos y correo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventario y cambios
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Proyectos, tiempo, CRM y marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Informes, API e integraciones
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#donde-esta-la-configuracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dónde está la configuración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración general
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración visual
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#politica-de-contrasenas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Política de contraseñas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-incidencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de incidencias
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-de-cambios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración de cambios
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#correo-y-plantillas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correo y plantillas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visibilidad-de-menus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visibilidad de menús
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventario-de-pandora-fms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventario de Pandora FMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticación
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuracion-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuración CRM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuración CRM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#facturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Facturas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contratos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contratos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#campanas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Campañas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deals
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mantenimiento-de-datos-antiguos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mantenimiento de datos antiguos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-de-proyectos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestión de proyectos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integraciones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integraciones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#herramientas-de-administracion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Herramientas de administración
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#buenas-practicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Buenas prácticas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="configuracion-avanzada">Configuración avanzada<a class="headerlink" href="#configuracion-avanzada" title="Permanent link">¶</a></h1>
+<p>La configuración avanzada es donde Pandora ITSM deja de ser un producto recién
+instalado y se convierte en el sistema de la organización. Aquí se deciden el idioma,
+las URL, el correo, la autenticación, la visibilidad de menús y los valores que afectan
+a tickets, proyectos y CRM. Casi todo tiene un valor por defecto sensato; el problema
+empieza cuando alguien lo cambia sin saber qué depende de él.</p>
+<h2 id="donde-esta-la-configuracion">Dónde está la configuración<a class="headerlink" href="#donde-esta-la-configuracion" title="Permanent link">¶</a></h2>
+<p>Casi todo vive en <strong>Setup → Setup</strong>. Cada bloque tiene su propia pantalla y sus propios
+tokens. Después de modificar valores hay que pulsar <strong>Update</strong> para guardarlos en la
+base de datos. Un cambio sin guardar es una buena intención.</p>
+<p>Muchas secciones exigen ser superadministrador o tener un bit concreto del perfil. Si
+un ajuste no aparece, no es un fallo de la interfaz: probablemente falta permiso.</p>
+<h2 id="configuracion-general">Configuración general<a class="headerlink" href="#configuracion-general" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → General setup</strong> se concentran los parámetros globales:</p>
+<table>
+<thead>
+<tr>
+<th>Campo</th>
+<th>Qué controla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Language</strong></td>
+<td>Idioma global; el idioma del usuario prevalece.</td>
+</tr>
+<tr>
+<td><strong>Site name</strong></td>
+<td>Nombre visible en títulos y asuntos.</td>
+</tr>
+<tr>
+<td><strong>Enable error log</strong></td>
+<td>Registro de errores en <code>pandora_itsm.log</code>.</td>
+</tr>
+<tr>
+<td><strong>Timezone for Pandora ITSM</strong></td>
+<td>Huso horario; por defecto <code>Europe/Madrid</code>.</td>
+</tr>
+<tr>
+<td><strong>List of IP with access to API</strong></td>
+<td>IPs con acceso a la API, separadas por comas; <code>*</code> permite cualquiera.</td>
+</tr>
+<tr>
+<td><strong>Default admin user</strong></td>
+<td>Superadministrador para tareas periódicas.</td>
+</tr>
+<tr>
+<td><strong>API password</strong></td>
+<td>Contraseña para peticiones a la API.</td>
+</tr>
+<tr>
+<td><strong>First day of the week</strong></td>
+<td>Primer día de calendarios; lunes por defecto.</td>
+</tr>
+<tr>
+<td><strong>Welcome view</strong></td>
+<td>Periodo de la pantalla de bienvenida; 21 días por defecto.</td>
+</tr>
+<tr>
+<td><strong>Login hash password</strong></td>
+<td>Clave para generar una URL única de preautenticación.</td>
+</tr>
+<tr>
+<td><strong>Enable HTTPS access</strong></td>
+<td>Fuerza HTTPS.</td>
+</tr>
+<tr>
+<td><strong>Use SSL certificate</strong> y <strong>Path of SSL certificate</strong></td>
+<td>Certificado y ruta; por defecto <code>/etc/ssl/certs/pandoraitsm.pem</code>.</td>
+</tr>
+<tr>
+<td><strong>Access port</strong></td>
+<td>Puerto de acceso; 80 por defecto.</td>
+</tr>
+<tr>
+<td><strong>Public access to server</strong></td>
+<td>URL pública; debe incluir el sufijo <code>/pandoraitsm</code>.</td>
+</tr>
+<tr>
+<td><strong>CSV encoding type</strong> y <strong>Separator data in CSV</strong></td>
+<td>Codificación y separador de CSV.</td>
+</tr>
+<tr>
+<td><strong>Chromium path</strong></td>
+<td>Ruta del navegador para generar informes.</td>
+</tr>
+<tr>
+<td><strong>Maximum direct download size (MB)</strong></td>
+<td>Tamaño máximo de descarga.</td>
+</tr>
+<tr>
+<td><strong>Max. upload file size (MB)</strong></td>
+<td>Tamaño máximo de subida; también depende de PHP.</td>
+</tr>
+<tr>
+<td><strong>Max. Upload file size in CRM / incidents</strong></td>
+<td>Límites específicos de CRM y tickets.</td>
+</tr>
+<tr>
+<td><strong>Temporary directory for PDF files</strong></td>
+<td>Directorio temporal para PDF; <code>/tmp/</code> por defecto.</td>
+</tr>
+<tr>
+<td><strong>Hide version</strong></td>
+<td>Oculta la versión en pie y login.</td>
+</tr>
+<tr>
+<td><strong>Show modal last time logged</strong></td>
+<td>Muestra el último acceso al usuario.</td>
+</tr>
+<tr>
+<td><strong>Active automatic time tracking stop</strong></td>
+<td>Para el fichaje automáticamente al llegar a <strong>Stop time tracking after</strong> (8,5 horas por defecto).</td>
+</tr>
+</tbody>
+</table>
+<p>Si activas HTTPS, revisa el certificado y la cadena de confianza. PHP puede necesitar
+<code>openssl.cafile</code> en <code>php.ini</code>.</p>
+<p><strong>Public access to server</strong> es peligroso si se configura mal: la consola puede quedar
+inaccesible. La salida de emergencia es corregir el token en la base de datos:</p>
+<div class="highlight"><pre><span></span><code><span class="k">UPDATE</span><span class="w"> </span><span class="n">tconfig</span><span class="w"> </span><span class="k">SET</span><span class="w"> </span><span class="n">value</span><span class="o">=</span><span class="s1">'http://URL/pandoraitsm'</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">token</span><span class="o">=</span><span class="s1">'access_public'</span><span class="p">;</span>
+</code></pre></div>
+<h2 id="configuracion-visual">Configuración visual<a class="headerlink" href="#configuracion-visual" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Visual setup</strong> se ajusta la apariencia:</p>
+<ul>
+<li><strong>Theme</strong>: tema global y por usuario; <code>Default (Light)</code> por defecto.</li>
+<li><strong>Favicon</strong>: icono de la pestaña.</li>
+<li><strong>Block size for pagination</strong>: elementos por página; valores bajos evitan problemas de rendimiento.</li>
+<li><strong>Global dashboard (welcome message)</strong>: dashboard de bienvenida.</li>
+<li><strong>Font for ITSM</strong>: fuente de interfaz y PDF.</li>
+<li><strong>Tabs menu</strong>: pestañas, menú desplegable o ambos.</li>
+<li><strong>Global search limit</strong>: número de resultados por área.</li>
+</ul>
+<p>La búsqueda global busca en tickets abiertos, proyectos, personas, contactos,
+contratos, empresas, facturas, leads y Wiki. Cada usuario ve solo lo que su ACL le
+permite. Los logotipos y favicons personalizados se guardan en <code>images/custom_logos</code> y
+<code>images/favicon</code>.</p>
+<h2 id="politica-de-contrasenas">Política de contraseñas<a class="headerlink" href="#politica-de-contrasenas" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Password policy setup</strong>. La política <strong>no se aplica a los
+superadministradores</strong>. El interruptor <strong>Enable password policy</strong> manda: si está
+desactivado, el resto de opciones no hacen nada.</p>
+<p>Campos principales: longitud mínima (5 por defecto), números, símbolos, caducidad en
+días (0 = nunca), cambio obligatorio en el primer acceso, minutos de bloqueo (5 por
+defecto) y número de intentos fallidos. La generación automática de contraseñas también
+respeta la política cuando está activa. El detalle de autenticación está en
+<a href="../../parte-2/2.2-autenticacion-y-seguridad/">2.2 Autenticación y seguridad</a>.</p>
+<h2 id="configuracion-de-incidencias">Configuración de incidencias<a class="headerlink" href="#configuracion-de-incidencias" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Issue setup</strong> se agrupan los ajustes de tickets:</p>
+<ul>
+<li><strong>Ticket submission settings</strong>: modo Manual, Simplified o Smart.</li>
+<li><strong>Visual options</strong>: mostrar creador/propietario, límite de tickets por búsqueda (300 por defecto), edición rápida, formato de fecha, fecha de realización de unidades de trabajo y orden de comentarios.</li>
+<li><strong>Ticket behaviour</strong>: valoración, cambio de creador/propietario, unidad de trabajo automática al crear, cambio de tipo, tipo obligatorio, usuarios externos, autoasignación y validación del cliente antes del cierre.</li>
+<li><strong>Work unit options (WU)</strong>: cierre automático (45 días por defecto), tiempo por defecto (0,25 h), correo al gestionar unidades de trabajo, unidades internas por defecto y comentarios públicos.</li>
+<li><strong>Workflows</strong>: comprobar tickets cerrados y días a revisar (15 por defecto).</li>
+<li><strong>Email sending options</strong>: qué cambios generan correo, agrupación de notificaciones, adjuntos, unidades internas y avisos al creador de la unidad de trabajo.</li>
+<li><strong>Customization</strong>: estados, resoluciones, prioridades y días especiales.</li>
+<li><strong>Default custom columns</strong>: columnas del listado de tickets.</li>
+<li><strong>Survey Questions</strong>: encuesta cuando la valoración es negativa.</li>
+</ul>
+<p>El detalle funcional está en <a href="../../parte-3/3.1-tickets-e-incidencias/">3.1 Tickets e incidencias</a>,
+<a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/">3.2 Flujo de trabajo y estados</a> y
+<a href="../../parte-3/3.3-sla-escalado-y-calidad/">3.3 SLA, escalado y calidad</a>.</p>
+<h2 id="configuracion-de-cambios">Configuración de cambios<a class="headerlink" href="#configuracion-de-cambios" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Changes setup</strong> se ajustan las notificaciones y el comportamiento
+de los cambios. La lógica del módulo está en
+<a href="../../parte-5/5.1-gestion-del-cambio/">5.1 Gestión del cambio</a>.</p>
+<h2 id="correo-y-plantillas">Correo y plantillas<a class="headerlink" href="#correo-y-plantillas" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Email setup</strong> se configura el envío (SMTP) y la recepción
+(POP/IMAP):</p>
+<ul>
+<li><strong>Notification period</strong>: mínimo entre avisos de SLA (24 horas por defecto).</li>
+<li><strong>System email from address</strong>: remitente del sistema.</li>
+<li><strong>SMTP Host, Port, User, Password</strong> y cifrado.</li>
+<li><strong>OAuth 2.0</strong> para Microsoft 365, con Client ID, Tenant ID y Secret.</li>
+<li><strong>SMTP queue retries</strong>, <strong>Max. pending emails</strong> y <strong>Max. emails sent per execution</strong>.</li>
+<li><strong>POP/IMAP Host, Port, User, Password</strong>, protocolo y <strong>Message delimiter</strong>.</li>
+<li><strong>Accept any certificate</strong> desactivado por defecto; no lo actives salvo caso extremo.</li>
+</ul>
+<p>La recepción solo es necesaria si se crean o actualizan tickets por correo. Los
+detalles, proveedores y OAuth están en <a href="../../parte-3/3.4-correo-y-soporte/">3.4 Correo y soporte</a>.</p>
+<p>En <strong>Email templates setup</strong> se editan las plantillas <code>.tpl</code> y los asuntos. Las
+plantillas predeterminadas se pueden duplicar y convertir en predeterminadas. Las
+macros cubren ticket, cambio, tarea de cambio y unidad de trabajo; el listado completo
+está en la configuración de plantillas y en 3.4.</p>
+<p>En <strong>Email queue control</strong> se ven los correos pendientes, los intentos y el estado. Se
+pueden reactivar o borrar en masa.</p>
+<h2 id="visibilidad-de-menus">Visibilidad de menús<a class="headerlink" href="#visibilidad-de-menus" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Visibility management</strong> se ocultan secciones por grupo:</p>
+<ul>
+<li><strong>Oculto</strong>: no se muestra, ni siquiera por URL directa.</li>
+<li><strong>Completo</strong>: acceso completo.</li>
+</ul>
+<p>Si no hay configuración, el acceso es completo. Cada sección se cruza con un bit del
+perfil: proyectos <code>PR</code>, tickets <code>IR</code>, inventario <code>VR</code>, base de conocimiento <code>KR</code>, file
+releases <code>KR</code>, agenda <code>AR</code>, work orders <code>WOR</code>, personas y configuración cualquier
+perfil. El superadministrador siempre ve todo. Si un usuario tiene varios grupos, se
+aplica la visibilidad menos restrictiva. Crear una regla para <strong>All</strong> sustituye las
+anteriores de esa sección.</p>
+<h2 id="inventario-de-pandora-fms">Inventario de Pandora FMS<a class="headerlink" href="#inventario-de-pandora-fms" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Pandora FMS inventory</strong> se controla el inventario y la recepción
+remota:</p>
+<ul>
+<li><strong>Duplicate inventory name</strong>: permite nombres repetidos.</li>
+<li><strong>CSV compatibility import</strong>: controla el formato de importación/exportación.</li>
+<li><strong>Default owner</strong>, <strong>Associated company</strong> y <strong>Associated user</strong> para el inventario remoto.</li>
+</ul>
+<p>El inventario se documenta en <a href="../../parte-4/4.1-inventario/">4.1 Inventario</a>.</p>
+<h2 id="autenticacion">Autenticación<a class="headerlink" href="#autenticacion" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Authentication configuration</strong> se elige local, Active Directory,
+LDAP o Pandora FMS. Los superadministradores siempre se autentican localmente.
+<strong>Session timeout (secs)</strong> define la duración de la sesión (9000 segundos por defecto).
+La autenticación en dos pasos y el resto de detalles están en
+<a href="../../parte-2/2.2-autenticacion-y-seguridad/">2.2 Autenticación y seguridad</a>.</p>
+<h2 id="configuracion-crm">Configuración CRM<a class="headerlink" href="#configuracion-crm" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → CRM setup</strong> se ajustan cuatro bloques:</p>
+<h3 id="facturas">Facturas<a class="headerlink" href="#facturas" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Enable auto ID</strong> y <strong>Invoice ID pattern</strong>: patrón por defecto <code>21/[1000]</code>; la parte variable va entre corchetes y solo se aplica a facturas <code>Submitted</code>.</li>
+<li><strong>Invoice header logo</strong>: logo en <code>images/custom_logo</code>.</li>
+<li>Cabecera, impuestos, métodos de pago y pie.</li>
+</ul>
+<h3 id="contratos">Contratos<a class="headerlink" href="#contratos" title="Permanent link">¶</a></h3>
+<p><strong>Contract Statuses</strong> permite editar, borrar y añadir estados de contrato.</p>
+<h3 id="campanas">Campañas<a class="headerlink" href="#campanas" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Email batch campaigns</strong>: correos por bloque (500 por defecto).</li>
+<li><strong>Web tracking JavaScript</strong>: código de seguimiento.</li>
+<li><strong>Captcha</strong>: Cloudflare, con clave de sitio.</li>
+</ul>
+<h3 id="deals">Deals<a class="headerlink" href="#deals" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Default pipeline deal</strong>.</li>
+<li><strong>Time since last update (days)</strong>: ofertas obsoletas.</li>
+<li><strong>Schedule reminder repeat hours</strong>: 24 por defecto.</li>
+<li><strong>Days to expire schedule</strong>: 7 por defecto.</li>
+<li><strong>Notification email (Deal Registrations)</strong>.</li>
+</ul>
+<p>El detalle de CRM está en <a href="../../parte-8/8.1-contactos/">8.1–8.7</a>.</p>
+<h2 id="mantenimiento-de-datos-antiguos">Mantenimiento de datos antiguos<a class="headerlink" href="#mantenimiento-de-datos-antiguos" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Old data maintenance</strong> se decide cuánto se conserva. <code>0</code> significa
+conservar siempre. Valores por defecto:</p>
+<table>
+<thead>
+<tr>
+<th>Dato</th>
+<th>Días</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eventos</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Tickets cerrados</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Unidades de trabajo</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Partes de trabajo</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Auditoría</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Sesiones</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Eventos de workflow</td>
+<td>900</td>
+</tr>
+<tr>
+<td>Adjuntos de tickets</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Seguimiento de archivos</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Copias de seguridad</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Correos no válidos</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Informes</td>
+<td>365</td>
+</tr>
+<tr>
+<td>Salas de chatbot archivadas</td>
+<td>365</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Reset all data</strong> borra todos los datos y adjuntos. No es una limpieza: es empezar de
+cero.</p>
+<h2 id="gestion-de-proyectos">Gestión de proyectos<a class="headerlink" href="#gestion-de-proyectos" title="Permanent link">¶</a></h2>
+<p>En <strong>Setup → Setup → Project management</strong> se ajustan los valores por defecto:</p>
+<ul>
+<li>Usuarios sin autocompletado de unidades de trabajo.</li>
+<li>Horas de trabajo por día (8).</li>
+<li>Autocompletado de unidades de trabajo en días (0).</li>
+<li>Tiempo por defecto para unidad simple (4 h) y múltiple (4 h).</li>
+<li>Moneda (€).</li>
+<li>Días de vacaciones (22).</li>
+<li>Deshabilitar la adición de tickets y unidades de trabajo a tareas pendientes o verificadas.</li>
+<li>Usuario que recibe las notificaciones de solicitud de vacaciones.</li>
+<li>Aviso de unidades de trabajo semanales (40 h).</li>
+</ul>
+<p>El detalle está en <a href="../../parte-6/6.1-proyectos-y-tareas/">6.1 Proyectos y tareas</a> y
+<a href="../../parte-7/7.1-gestion-del-tiempo/">7.1 Gestión del tiempo</a>.</p>
+<h2 id="integraciones">Integraciones<a class="headerlink" href="#integraciones" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Pandora RC</strong>: activa la integración de gestión remota.</li>
+<li><strong>ChatBot</strong>: servidor y canales.</li>
+<li><strong>GitLab</strong>: token de acceso para consultar tickets de un proyecto en modo lectura.</li>
+</ul>
+<p>Los capítulos de integración están en la Parte 11.</p>
+<h2 id="herramientas-de-administracion">Herramientas de administración<a class="headerlink" href="#herramientas-de-administracion" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>File manager</strong>: sube y organiza ficheros en <code>attachment</code>, <code>attachment/downloads</code>, <code>images</code> e <code>images/custom_logos</code>.</li>
+<li><strong>Diagnostic info</strong>: versión, PHP, base de datos, sistema, rendimiento, logs, adjuntos y fecha del servidor.</li>
+<li><strong>News board</strong>: noticias globales por grupo y con caducidad; admite <code>_lastlogin_</code>.</li>
+<li><strong>DB Manager</strong>: consola SQL para superadministradores o perfil <code>DM</code>; su mal uso es irreversible.</li>
+<li><strong>Links</strong>: enlaces externos o internos del menú; los internos usan rutas como <code>wiki/operation/wiki/wiki</code>.</li>
+<li><strong>System events</strong>: histórico de cron, informes programados y fallos.</li>
+<li><strong>Audit log</strong>: acciones de usuario, búsqueda por texto y fecha, exportación CSV.</li>
+<li><strong>Error log</strong>: <code>pandora_itsm.log</code>, con opción de borrar.</li>
+<li><strong>Translate strings</strong>: traducciones personalizadas sobre el inglés original.</li>
+</ul>
+<h2 id="buenas-practicas">Buenas prácticas<a class="headerlink" href="#buenas-practicas" title="Permanent link">¶</a></h2>
+<ul>
+<li>Cambia un bloque cada vez y pulsa <strong>Update</strong>.</li>
+<li>Prueba los cambios en un entorno de pruebas antes de producción.</li>
+<li>Documenta quién cambió cada opción y por qué.</li>
+<li>Revisa HTTPS, correo y autenticación después de cualquier cambio de infraestructura.</li>
+<li>Haz copia de seguridad antes de tocar datos antiguos o el gestor de base de datos.</li>
+<li>No uses <code>Reset all data</code> como herramienta de limpieza.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

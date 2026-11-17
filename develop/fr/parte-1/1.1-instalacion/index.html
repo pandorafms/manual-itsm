@@ -1,0 +1,4003 @@
+<!DOCTYPE html><html lang="fr" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation produit de Pandora ITSM">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/fr/parte-1/1.1-instalacion/">
+      
+      
+        <link rel="prev" href="../../">
+      
+      
+        <link rel="next" href="../1.2-actualizacion/">
+      
+      
+        
+          <link rel="alternate" href="../../../parte-1/1.1-instalacion/" hreflang="es">
+        
+          <link rel="alternate" href="../../../en/parte-1/1.1-instalacion/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Installation - Pandora ITSM — Documentation produit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>En construction.</strong> Cette documentation est encore en cours
+      de rédaction : le contenu peut être incomplet ou changer sans préavis.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    Vous consultez une version qui n'est pas celle en vigueur (une version
+    antérieure à la dernière publiée).
+    <a href="../../../..">
+      <strong>Aller à la dernière version publiée.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../" title="Pandora ITSM — Documentation produit" class="md-header__button md-logo" aria-label="Pandora ITSM — Documentation produit" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Documentation produit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Installation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Passer en mode sombre" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Passer en mode clair" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../parte-1/1.1-instalacion/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../en/parte-1/1.1-instalacion/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Pandora ITSM — Documentation produit" class="md-nav__button md-logo" aria-label="Pandora ITSM — Documentation produit" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Documentation produit
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 01. Démarrage rapide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 01. Démarrage rapide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#ce-qui-est-installe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui est installé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avant-de-commencer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avant de commencer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-en-ligne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation en ligne
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis système
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prérequis système">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matériel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemes-dexploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systèmes d'exploitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logiciels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logiciels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions PHP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base de données
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-dinstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes d'installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-en-ligne-pas-a-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation en ligne pas à pas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation en ligne pas à pas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executer-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exécuter le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-pour-el10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple pour EL10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-fait-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que fait le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-hors-ligne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation hors ligne
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premier-acces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Premier accès
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Premier accès">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-de-la-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL de la console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licence-et-connexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Licence et connexion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changer-le-mot-de-passe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changer le mot de passe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donnees-initiales-et-reset-all-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Données initiales et « Reset all data »
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-et-apres-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification et après-installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vérification et après-installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#journaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Journaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securite-minimale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sécurité minimale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstallation-et-nettoyage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réinstallation et nettoyage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemes-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes fréquents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etapes-suivantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes suivantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Mise à jour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versions et cycle de support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Premiers pas et interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 02. Utilisateurs, permissions et organisation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 02. Utilisateurs, permissions et organisation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Utilisateurs, groupes et profils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Authentification et sécurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entreprises et contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 03. Tickets et support
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 03. Tickets et support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets et incidents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Flux de travail et états
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLA, escalade et qualité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Courriel et support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de connaissances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Téléchargements et répertoires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 04. Inventaire
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 04. Inventaire
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-4/4.1-inventario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 05. Gestion du changement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 05. Gestion du changement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestion du changement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 06. Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 06. Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-6/6.1-proyectos-y-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Projets et tâches
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 07. Gestion du temps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 07. Gestion du temps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestion du temps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Entreprises
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contrats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Factures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Modèles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campagnes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. E-mail et listes d'e-mails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Formulaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 10. Rapports et tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 10. Rapports et tableaux de bord
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-10/10.1-informes-y-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Rapports et tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 11. Automatisation et intégrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 11. Automatisation et intégrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.2-api-v1-heredada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (héritée)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Intégration avec Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Intégration avec Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. IA et chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 12. Administration avancée
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 12. Administration avancée
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.1-configuracion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Configuration avancée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Maintenance et sauvegardes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 13. Annexes techniques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 13. Annexes techniques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a1-glosario-de-terminos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glossaire des termes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Mise à jour des versions de PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Mise à jour de MySQL 5.7 vers MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Intégration avec Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 14. Questions fréquentes (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 14. Questions fréquentes (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation, mises à jour et licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Utilisateurs, accès et organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, flux et courriel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventaire et changements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Projets, temps, CRM et marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Rapports, API et intégrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#ce-qui-est-installe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce qui est installé
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#avant-de-commencer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avant de commencer
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-en-ligne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation en ligne
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis-systeme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prérequis système
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Prérequis système">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#materiel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matériel
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#systemes-dexploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Systèmes d'exploitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#logiciels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Logiciels
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extensions-php" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions PHP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#base-de-donnees" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Base de données
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#modes-dinstallation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modes d'installation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-en-ligne-pas-a-pas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation en ligne pas à pas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation en ligne pas à pas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#executer-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exécuter le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemple-pour-el10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple pour EL10
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ce-que-fait-le-script" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ce que fait le script
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Résultat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-hors-ligne" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation hors ligne
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#premier-acces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Premier accès
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Premier accès">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#url-de-la-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        URL de la console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#licence-et-connexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Licence et connexion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changer-le-mot-de-passe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changer le mot de passe
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#donnees-initiales-et-reset-all-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Données initiales et « Reset all data »
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verification-et-apres-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vérification et après-installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vérification et après-installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#services" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Services
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cron
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#journaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Journaux
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#securite-minimale" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sécurité minimale
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reinstallation-et-nettoyage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Réinstallation et nettoyage
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#problemes-frequents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problèmes fréquents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etapes-suivantes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Étapes suivantes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">¶</a></h1>
+<p>Installer Pandora ITSM comporte une partie simple et une partie qui se complique
+dès que quelqu'un décide d'improviser. Le script officiel fait presque tout :
+il installe les dépendances, crée la base de données, charge le schéma et laisse
+la console prête. Ce qu'il ne fait pas, c'est deviner si le serveur manque de
+mémoire, si la base de données se trouve ailleurs ou si quelqu'un va conserver
+le mot de passe par défaut jusqu'au jour de l'audit.</p>
+<p>La thèse de ce chapitre est simple : <strong>les installations échouent rarement à
+cause du logiciel ; elles échouent à cause de la précipitation</strong>. Avec deux
+gigaoctets de RAM, dix gigaoctets de disque et une décision claire sur la base
+de données, le reste consiste à suivre l'ordre. Sans cela, le script s'arrête,
+et il a raison de le faire.</p>
+<p>L'installation par défaut est l'<strong>installation en ligne</strong> : un script officiel
+exécuté en <code>root</code> qui installe les dépendances, crée la base de données, charge
+le schéma et les données initiales et laisse la console à l'adresse
+<code>http://&lt;IP-ou-FQDN&gt;/pandoraitsm</code>. Pour les environnements sans accès à Internet,
+il existe l'installation hors ligne.</p>
+<h2 id="ce-qui-est-installe">Ce qui est installé<a class="headerlink" href="#ce-qui-est-installe" title="Permanent link">¶</a></h2>
+<p>L'installateur laisse ces composants sur le serveur :</p>
+<ul>
+<li><strong>Console web</strong> dans <code>/var/www/html/pandoraitsm</code>.</li>
+<li><strong>Serveur web</strong> Apache et <strong>PHP-FPM</strong>.</li>
+<li><strong>Base de données</strong> MySQL ou Percona, locale ou externe.</li>
+<li><strong>Schéma et données initiales</strong> de Pandora ITSM.</li>
+<li><strong>Cron</strong> toutes les cinq minutes pour les tâches internes.</li>
+<li><strong>Serveur de chat</strong> et ses dépendances Node.js.</li>
+<li><strong>Configuration</strong> dans <code>include/config.inc.php</code>.</li>
+</ul>
+<p>Ce n'est ni un service géré ni une installation de bureau. Tout le produit
+s'utilise depuis le navigateur, et le serveur reste sous la responsabilité de
+celui qui l'administre : les correctifs, les sauvegardes et la supervision ne
+sont pas inclus dans le paquet.</p>
+<h2 id="avant-de-commencer">Avant de commencer<a class="headerlink" href="#avant-de-commencer" title="Permanent link">¶</a></h2>
+<p>Avant d'exécuter l'installateur, vérifiez ces points :</p>
+<ul>
+<li>Vous disposez d'un accès <code>root</code> ou <code>sudo</code> sur le serveur.</li>
+<li>Le serveur a un nom d'hôte ou un FQDN résolvable.</li>
+<li>Le fuseau horaire est correct ; l'installateur le définit avec <code>TZ</code>.</li>
+<li>Il y a un accès à Internet et à <code>packages.pandorafms.com</code>.</li>
+<li>Les ports 80 et 443 sont libres. Si la base de données est externe, le port
+  3306 doit aussi être accessible depuis le serveur.</li>
+<li>SELinux et le pare-feu autorisent le trafic web.</li>
+<li>Vous avez décidé si la base de données sera locale ou externe.</li>
+<li>Si vous avez décidé d'installer la base de données en externe, vous avez ses
+  mots de passe prêts et ils respectent la politique de MySQL.</li>
+<li>Si vous réinstallez, vous avez une sauvegarde ou un instantané de la machine.</li>
+</ul>
+<p>L'installateur s'arrête s'il trouve des paquets Pandora ITSM, le répertoire
+<code>/var/www/html/pandoraitsm</code> ou une base de données du même nom. Il ne nettoie
+pas une installation précédente de lui-même. Si votre plan était « on verra »,
+l'installateur en a un autre : s'arrêter.</p>
+<h2 id="installation-en-ligne">Installation en ligne<a class="headerlink" href="#installation-en-ligne" title="Permanent link">¶</a></h2>
+<p>L'installation en ligne se lance avec une seule commande, quelle que soit la
+distribution. Exécutez-la en <code>root</code> :</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-SsL<span class="w"> </span>https://pfms.me/deploy-pandora-itsm<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</code></pre></div>
+<p>Le script détecte le système et télécharge l'installateur correspondant. Le reste
+de ce chapitre explique ce qu'il fait, quelles variables il accepte et comment
+vérifier le résultat.</p>
+<h2 id="prerequis-systeme">Prérequis système<a class="headerlink" href="#prerequis-systeme" title="Permanent link">¶</a></h2>
+<h3 id="materiel">Matériel<a class="headerlink" href="#materiel" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Prérequis</th>
+<th>Minimum</th>
+<th>Recommandé</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Processeur</td>
+<td>2,4 GHz, double cœur</td>
+<td>Quatre cœurs ou plus selon les utilisateurs simultanés</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td><strong>2 GB</strong></td>
+<td>4 GB</td>
+</tr>
+<tr>
+<td>Disque</td>
+<td>10 GB libres</td>
+<td>20 GB ou plus, selon l'historique et les pièces jointes</td>
+</tr>
+<tr>
+<td>Réseau</td>
+<td>100 Mbps</td>
+<td>1 Gbps</td>
+</tr>
+</tbody>
+</table>
+<p>L'installateur vérifie la mémoire et l'espace disque avant de modifier quoi que
+ce soit. Sur EL9 et EL10, il exige 9 GB libres dans <code>/var</code> et 1 GB dans <code>/usr</code>.
+Si le serveur ne respecte pas le minimum, le script s'arrête. Ce n'est pas une
+suggestion : c'est une condition.</p>
+<h3 id="systemes-dexploitation">Systèmes d'exploitation<a class="headerlink" href="#systemes-dexploitation" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Système</th>
+<th>Versions prises en charge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RHEL, Rocky Linux ou AlmaLinux</td>
+<td><strong>EL 9 et EL 10</strong></td>
+</tr>
+<tr>
+<td>Ubuntu Server</td>
+<td>22.04 et 24.04</td>
+</tr>
+</tbody>
+</table>
+<h3 id="logiciels">Logiciels<a class="headerlink" href="#logiciels" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Composant</th>
+<th>Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHP</td>
+<td><strong>8.2 ou 8.4</strong></td>
+</tr>
+<tr>
+<td>MySQL ou Percona</td>
+<td>8.0 ou 8.4 selon la distribution</td>
+</tr>
+<tr>
+<td>Serveur web</td>
+<td>Apache avec PHP-FPM</td>
+</tr>
+<tr>
+<td>Navigateur</td>
+<td>Chrome, Edge, Firefox ou Safari à jour ; résolution minimale 1280 × 720</td>
+</tr>
+</tbody>
+</table>
+<p>EL10 n'accepte que MySQL/Percona 8.4. EL9 et Ubuntu acceptent 8.0 et 8.4.
+L'installateur définit les versions de PHP et de MySQL avec les variables
+<code>PHPVER</code> et <code>MYVER</code>. Il n'y a pas de récompense pour utiliser la version qui
+n'est plus prise en charge.</p>
+<h3 id="extensions-php">Extensions PHP<a class="headerlink" href="#extensions-php" title="Permanent link">¶</a></h3>
+<p>La console a besoin des extensions <code>mysqli</code>, <code>gd</code>, <code>session</code>, <code>mbstring</code>,
+<code>ldap</code>, <code>gettext</code>, <code>imap</code>, <code>phar</code> et <code>zip</code>. L'installateur les ajoute avec les
+paquets PHP ; si vous installez manuellement, vérifiez qu'elles sont actives
+avant d'ouvrir la console. Une erreur d'extension se déguise en écran blanc, et
+un écran blanc n'annonce jamais une bonne nouvelle.</p>
+<h3 id="base-de-donnees">Base de données<a class="headerlink" href="#base-de-donnees" title="Permanent link">¶</a></h3>
+<p>Pandora ITSM a besoin d'une base de données MySQL ou Percona. Elle peut se
+trouver sur le même serveur ou sur un serveur dédié. Une base de données
+partagée est valide, mais les performances dépendent de la capacité du serveur
+et du volume d'historique : les tickets, leurs pièces jointes et l'audit
+augmentent avec l'usage.</p>
+<p>Si la base de données est externe, préparez d'abord l'hôte, le port,
+l'utilisateur et les permissions. L'installateur peut créer la base de données
+et l'utilisateur, ou utiliser des éléments existants avec
+<code>SKIP_DATABASE_INSTALL=1</code>.</p>
+<h2 id="modes-dinstallation">Modes d'installation<a class="headerlink" href="#modes-dinstallation" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Quand l'utiliser</th>
+<th>Nécessite Internet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>En ligne</td>
+<td>Nouvelle installation sur un serveur avec accès Internet</td>
+<td>Oui</td>
+</tr>
+<tr>
+<td>Hors ligne</td>
+<td>Serveurs isolés ou à accès restreint</td>
+<td>Non</td>
+</tr>
+<tr>
+<td>Installateur web manuel</td>
+<td>Débogage ou installation pièce par pièce avec <code>install.php</code></td>
+<td>Selon le cas</td>
+</tr>
+</tbody>
+</table>
+<p>L'installateur web manuel n'est pas la voie recommandée pour la production. Il
+aide à comprendre chaque étape et convient aux environnements très contrôlés ;
+le script en ligne est la procédure prise en charge. Ne confondez pas « je peux
+le faire à la main » avec « je dois le faire à la main ».</p>
+<h2 id="installation-en-ligne-pas-a-pas">Installation en ligne pas à pas<a class="headerlink" href="#installation-en-ligne-pas-a-pas" title="Permanent link">¶</a></h2>
+<h3 id="executer-le-script">Exécuter le script<a class="headerlink" href="#executer-le-script" title="Permanent link">¶</a></h3>
+<p>Le script générique lit sa configuration dans des variables d'environnement et
+détecte le système pour télécharger l'installateur correspondant. Voici les
+valeurs que vous pouvez ajuster :</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Valeur par défaut</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TZ</code></td>
+<td><code>Europe/Madrid</code></td>
+<td>Fuseau horaire du système</td>
+</tr>
+<tr>
+<td><code>MYVER</code></td>
+<td><code>84</code></td>
+<td>Version de MySQL/Percona : <code>80</code> ou <code>84</code></td>
+</tr>
+<tr>
+<td><code>PHPVER</code></td>
+<td><code>8.4</code></td>
+<td>Version de PHP : <code>8.2</code> ou <code>8.4</code></td>
+</tr>
+<tr>
+<td><code>DBHOST</code></td>
+<td><code>127.0.0.1</code></td>
+<td>Hôte de la base de données</td>
+</tr>
+<tr>
+<td><code>DBNAME</code></td>
+<td><code>pandoraitsm</code></td>
+<td>Nom de la base de données</td>
+</tr>
+<tr>
+<td><code>DBUSER</code></td>
+<td><code>pandoraitsm</code></td>
+<td>Utilisateur de la base de données</td>
+</tr>
+<tr>
+<td><code>DBPASS</code></td>
+<td><code>P4ndor4.itsm</code></td>
+<td>Mot de passe de l'utilisateur de la base de données</td>
+</tr>
+<tr>
+<td><code>DBPORT</code></td>
+<td><code>3306</code></td>
+<td>Port MySQL</td>
+</tr>
+<tr>
+<td><code>DBROOTPASS</code></td>
+<td><code>P4ndor4.itsm</code></td>
+<td>Mot de passe de <code>root</code> MySQL</td>
+</tr>
+<tr>
+<td><code>DBROOTUSER</code></td>
+<td><code>root</code></td>
+<td>Utilisateur administrateur MySQL</td>
+</tr>
+<tr>
+<td><code>SKIP_PRECHECK</code></td>
+<td><code>0</code></td>
+<td>Ignore la vérification d'une installation précédente</td>
+</tr>
+<tr>
+<td><code>SKIP_KERNEL_OPTIMIZATIONS</code></td>
+<td><code>0</code></td>
+<td>Ignore les réglages du noyau</td>
+</tr>
+<tr>
+<td><code>SKIP_DATABASE_INSTALL</code></td>
+<td><code>0</code></td>
+<td>Utilise une base de données déjà créée</td>
+</tr>
+<tr>
+<td><code>POOL_SIZE</code></td>
+<td>Calculé selon la RAM</td>
+<td>Taille du pool PHP-FPM</td>
+</tr>
+</tbody>
+</table>
+<p>Remplacez toujours les mots de passe d'exemple. Si vous utilisez MySQL 8 avec la
+politique de mots de passe active, <code>P4ndor4.itsm</code> peut ne pas respecter les
+exigences ; choisissez un mot de passe plus long avec majuscules, minuscules,
+chiffres et symboles. La commodité d'aujourd'hui est l'incident de demain.</p>
+<h3 id="exemple-pour-el10">Exemple pour EL10<a class="headerlink" href="#exemple-pour-el10" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>env<span class="w"> </span><span class="nv">TZ</span><span class="o">=</span><span class="s1">'Europe/Madrid'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">MYVER</span><span class="o">=</span><span class="s1">'84'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">PHPVER</span><span class="o">=</span><span class="s1">'8.4'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">DBHOST</span><span class="o">=</span><span class="s1">'127.0.0.1'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">DBNAME</span><span class="o">=</span><span class="s1">'pandoraitsm'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">DBUSER</span><span class="o">=</span><span class="s1">'pandoraitsm'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">DBPASS</span><span class="o">=</span><span class="s1">'ChangezCeMotDePasse'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">DBPORT</span><span class="o">=</span><span class="s1">'3306'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">DBROOTPASS</span><span class="o">=</span><span class="s1">'ChangezCeMotDePasseRoot'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">DBROOTUSER</span><span class="o">=</span><span class="s1">'root'</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">SKIP_PRECHECK</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">SKIP_KERNEL_OPTIMIZATIONS</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">SKIP_DATABASE_INSTALL</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>bash<span class="w"> </span>itsm_deploy_enterprise_entrypoint.sh
+</code></pre></div>
+<p>Le script générique détecte EL10 et télécharge l'installateur EL10. Pour utiliser
+PHP 8.2, changez <code>PHPVER='8.2'</code>. Sur EL10, l'installateur n'accepte que
+<code>MYVER=84</code> ; sur EL9, vous pouvez utiliser <code>MYVER='80'</code> si votre base de données
+est MySQL 8.0.</p>
+<h3 id="ce-que-fait-le-script">Ce que fait le script<a class="headerlink" href="#ce-que-fait-le-script" title="Permanent link">¶</a></h3>
+<ol>
+<li>Vérifie le système d'exploitation, la mémoire, le disque et les permissions.</li>
+<li>Ajoute les dépôts Pandora et Remi pour PHP.</li>
+<li>Installe Apache, PHP-FPM, MySQL ou Percona, Node.js et les extensions.</li>
+<li>Crée la base de données et l'utilisateur, ou réutilise des éléments existants.</li>
+<li>Charge <code>integria_db.sql</code> et <code>integria_dbdata.sql</code>.</li>
+<li>Écrit <code>include/config.inc.php</code> avec les paramètres de connexion.</li>
+<li>Configure la tâche cron <code>integria_cron.php</code> toutes les cinq minutes.</li>
+<li>Installe et démarre le serveur de chat.</li>
+<li>Applique des réglages au noyau et à PHP-FPM.</li>
+<li>Affiche l'URL d'accès et les identifiants initiaux.</li>
+</ol>
+<p>Le script écrit le détail dans
+<code>/tmp/pandoraitsm-deploy-enterprise-el9-AAAA-MM-JJ.log</code> (ou le nom correspondant
+à votre système). En cas d'échec, ce journal est la première chose à lire.
+Deviner l'erreur coûte plus cher que d'ouvrir le fichier.</p>
+<h3 id="resultat">Résultat<a class="headerlink" href="#resultat" title="Permanent link">¶</a></h3>
+<p>À la fin, le script affiche une adresse semblable à :</p>
+<div class="highlight"><pre><span></span><code>http://192.0.2.10/pandoraitsm
+</code></pre></div>
+<p>et les identifiants initiaux. Ouvrez cette adresse depuis un navigateur ayant
+accès au serveur.</p>
+<h2 id="installation-hors-ligne">Installation hors ligne<a class="headerlink" href="#installation-hors-ligne" title="Permanent link">¶</a></h2>
+<p>L'installation hors ligne utilise un paquet avec les dépendances et un script
+local. Le déroulement est le suivant :</p>
+<ol>
+<li>Téléchargez le paquet de dépendances et le script de votre distribution.</li>
+<li>Copiez-les sur le serveur isolé.</li>
+<li>Décompressez le paquet.</li>
+<li>Exécutez <code>itsm_deploy_enterprise_local_el10.sh</code> en <code>root</code>, avec les mêmes
+   variables que pour l'installation en ligne.</li>
+</ol>
+<p>L'installation hors ligne n'est pas prise en charge sur Ubuntu avec les scripts
+actuels.</p>
+<h2 id="premier-acces">Premier accès<a class="headerlink" href="#premier-acces" title="Permanent link">¶</a></h2>
+<h3 id="url-de-la-console">URL de la console<a class="headerlink" href="#url-de-la-console" title="Permanent link">¶</a></h3>
+<p>La console est disponible à l'adresse :</p>
+<div class="highlight"><pre><span></span><code>http://&lt;IP-ou-FQDN&gt;/pandoraitsm
+</code></pre></div>
+<p>Si vous avez configuré TLS, utilisez <code>https://</code>. Le chemin <code>/pandoraitsm</code> est
+celui que l'installateur écrit dans <code>config.inc.php</code> ; ne le changez pas sans
+mettre à jour la configuration Apache.</p>
+<h3 id="licence-et-connexion">Licence et connexion<a class="headerlink" href="#licence-et-connexion" title="Permanent link">¶</a></h3>
+<p>Si vous utilisez l'installateur web manuel, le premier écran demande d'accepter
+la licence. Avec le script en ligne, le premier accès est directement l'écran de
+connexion.</p>
+<p>Les identifiants initiaux sont :</p>
+<table>
+<thead>
+<tr>
+<th>Utilisateur</th>
+<th>Mot de passe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>admin</code></td>
+<td><code>pandoraitsm</code></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Changez le mot de passe au premier accès</p>
+<p>Le compte <code>admin</code> est un utilisateur d'installation. Changez son mot de passe
+avant de connecter la console au réseau de production et créez ensuite vos
+propres utilisateurs. Ne partagez pas le compte <code>admin</code> entre plusieurs
+personnes.</p>
+</div>
+<p>Un mot de passe par défaut est une bienvenue, pas une politique de sécurité. Plus
+tôt il disparaît, mieux c'est.</p>
+<h3 id="changer-le-mot-de-passe">Changer le mot de passe<a class="headerlink" href="#changer-le-mot-de-passe" title="Permanent link">¶</a></h3>
+<p>Connectez-vous avec <code>admin</code>, ouvrez le menu utilisateur et changez le mot de
+passe. Créez ensuite un utilisateur à votre nom, attribuez-lui le profil et le
+groupe nécessaires et réservez <code>admin</code> aux tâches d'administration.</p>
+<h2 id="donnees-initiales-et-reset-all-data">Données initiales et « Reset all data »<a class="headerlink" href="#donnees-initiales-et-reset-all-data" title="Permanent link">¶</a></h2>
+<p>L'installation charge <code>integria_dbdata.sql</code>, qui contient des données d'exemple :
+entreprises, contacts, tickets et autres enregistrements qui permettent de voir
+la console avec du contenu dès le premier jour.</p>
+<p>Si vous voulez démarrer avec un système propre :</p>
+<ol>
+<li>Ouvrez <strong>Setup → Setup → Old data maintenance</strong>.</li>
+<li>Cliquez sur <strong>Reset all data</strong>.</li>
+<li>Confirmez deux fois dans les boîtes de dialogue.</li>
+</ol>
+<div class="admonition danger">
+<p class="admonition-title">Reset all data supprime les données et les pièces jointes</p>
+<p>L'option supprime les données de la base et les fichiers joints. Elle
+conserve l'utilisateur <code>admin</code> actuel et certains réglages de configuration.
+Il n'y a pas de retour en arrière : faites une sauvegarde si vous devez
+conserver quelque chose.</p>
+</div>
+<p>Les données d'exemple sont parfaites pour une démonstration et un passif en
+production. Le bouton existe pour que vous n'ayez pas à les supprimer à la main,
+table par table.</p>
+<h2 id="verification-et-apres-installation">Vérification et après-installation<a class="headerlink" href="#verification-et-apres-installation" title="Permanent link">¶</a></h2>
+<h3 id="services">Services<a class="headerlink" href="#services" title="Permanent link">¶</a></h3>
+<p>Vérifiez que le serveur web, PHP-FPM et la base de données sont actifs :</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL, Rocky Linux et AlmaLinux</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>httpd<span class="w"> </span>php-fpm<span class="w"> </span>mysqld
+
+<span class="c1"># Ubuntu</span>
+systemctl<span class="w"> </span>status<span class="w"> </span>apache2<span class="w"> </span>php8.4-fpm<span class="w"> </span>mysql
+</code></pre></div>
+<p>Adaptez le nom de PHP-FPM à la version installée (<code>php8.2-fpm</code> ou
+<code>php8.4-fpm</code>). Un service que vous ne vérifiez pas est un service qui tombe le
+lundi.</p>
+<h3 id="cron">Cron<a class="headerlink" href="#cron" title="Permanent link">¶</a></h3>
+<p>L'installateur laisse trois tâches planifiées, toutes les cinq minutes :</p>
+<div class="highlight"><pre><span></span><code>*/5 * * * * root php /var/www/html/pandoraitsm/include/integria_cron.php
+*/5 * * * * php /var/www/html/pandoraitsm/include/crm_cron.php
+*/5 * * * * php /var/www/html/pandoraitsm/include/campaign_cron.php
+</code></pre></div>
+<p>Chacune a son rôle :</p>
+<table>
+<thead>
+<tr>
+<th>Tâche</th>
+<th>Rôle</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>integria_cron.php</code></td>
+<td>Cœur : vérifications quotidiennes (calendrier, projets, tâches, changements, autowu, clôture automatique des tickets, nettoyage et notifications), file de courriel, rappels des tâches CRM et inventaire, cron Enterprise, SLA et règles de workflow du temps.</td>
+</tr>
+<tr>
+<td><code>crm_cron.php</code></td>
+<td>CRM : Gmail envoyé et reçu, workflows des contacts et des opportunités, échéances des planifications, courriels des tâches dues, notifications d'activité, transcriptions Google Meet et appels Zadarma.</td>
+</tr>
+<tr>
+<td><code>campaign_cron.php</code></td>
+<td>Campagnes : exécute les campagnes en attente et vérifie les rebonds de courriel.</td>
+</tr>
+</tbody>
+</table>
+<p>L'inventaire dispose aussi de son propre script, <code>inventory_cron.php</code> : il
+synchronise l'inventaire des nœuds Pandora FMS, expire les planifications en
+retard et nettoie les objets orphelins. L'installateur actuel ne l'ajoute pas à
+<code>/etc/crontab</code> ; ajoutez son entrée si vous en avez besoin :</p>
+<div class="highlight"><pre><span></span><code>*/5 * * * * php /var/www/html/pandoraitsm/include/inventory_cron.php
+</code></pre></div>
+<p>Vérifiez que les tâches sont actives et que les fichiers existent :</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span>pandoraitsm<span class="w"> </span>/etc/crontab
+ls<span class="w"> </span>-l<span class="w"> </span>/var/www/html/pandoraitsm/include/*_cron.php
+</code></pre></div>
+<p>Si une tâche manque, vérifiez <code>/etc/crontab</code> et le journal de l'application. Un
+cron qui ne s'exécute pas ne prévient pas ; il cesse simplement de faire son
+travail.</p>
+<h3 id="journaux">Journaux<a class="headerlink" href="#journaux" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Journal</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/var/www/html/pandoraitsm/pandora_itsm.log</code></td>
+<td>Erreurs de l'application</td>
+</tr>
+<tr>
+<td><code>/var/log/php-fpm/www-error.log</code></td>
+<td>Erreurs de PHP et PHP-FPM</td>
+</tr>
+<tr>
+<td><code>/tmp/pandoraitsm-deploy-enterprise-&lt;système&gt;-AAAA-MM-JJ.log</code></td>
+<td>Installation</td>
+</tr>
+</tbody>
+</table>
+<p>Si PHP ne démarre pas ou si la console renvoie une erreur 500, commencez par
+<code>/var/log/php-fpm/www-error.log</code> : l'erreur réelle s'y trouve, pas dans le
+message générique affiché par le navigateur.</p>
+<h3 id="securite-minimale">Sécurité minimale<a class="headerlink" href="#securite-minimale" title="Permanent link">¶</a></h3>
+<ul>
+<li>Changez le mot de passe de <code>admin</code>.</li>
+<li>Créez vos propres utilisateurs et supprimez ou désactivez ceux de démonstration.</li>
+<li>Décidez si vous conservez les données d'exemple.</li>
+<li>Vérifiez le pare-feu : seuls 80/443 doivent être ouverts vers Internet.</li>
+<li>Configurez TLS si la console est accessible hors du réseau interne.</li>
+<li>Assurez-vous que la base de données n'est pas exposée à Internet.</li>
+<li>Programmez des sauvegardes avant de charger des données réelles.</li>
+</ul>
+<h2 id="reinstallation-et-nettoyage">Réinstallation et nettoyage<a class="headerlink" href="#reinstallation-et-nettoyage" title="Permanent link">¶</a></h2>
+<p>L'installateur n'écrase pas une installation existante. S'il trouve des paquets,
+<code>/var/www/html/pandoraitsm</code> ou la base de données, il s'arrête. Pour réinstaller
+depuis zéro, retirez d'abord :</p>
+<ul>
+<li>Les paquets Pandora ITSM.</li>
+<li>Le répertoire <code>/var/www/html/pandoraitsm</code>.</li>
+<li>La base de données et l'utilisateur de la base de données.</li>
+<li>L'entrée cron.</li>
+<li>La configuration Apache et PHP-FPM si vous l'avez personnalisée.</li>
+</ul>
+<p>Il n'y a pas de désinstalleur automatique. Si vous voulez seulement repartir de
+zéro avec les données, utilisez <strong>Reset all data</strong> au lieu de réinstaller. Si
+vous devez conserver quelque chose, sauvegardez la base de données et les pièces
+jointes avant de supprimer.</p>
+<h2 id="problemes-frequents">Problèmes fréquents<a class="headerlink" href="#problemes-frequents" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptôme</th>
+<th>Cause probable</th>
+<th>Vérification</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Le script dit que le système n'est pas pris en charge</td>
+<td>Distribution ou version autre que EL9, EL10 ou Ubuntu 22.04/24.04</td>
+<td>Vérifiez <code>/etc/os-release</code> et utilisez le bon script</td>
+</tr>
+<tr>
+<td>La vérification de mémoire ou de disque échoue</td>
+<td>Moins de 2 GB de RAM ou moins de 10 GB libres</td>
+<td>Augmentez le serveur ou libérez de l'espace</td>
+</tr>
+<tr>
+<td>Impossible de joindre <code>packages.pandorafms.com</code></td>
+<td>Pas d'accès Internet ou problème DNS</td>
+<td>Testez <code>ping</code> et vérifiez le proxy</td>
+</tr>
+<tr>
+<td>PHP ou MySQL non pris en charge</td>
+<td>Version hors de 8.2/8.4 ou 8.0/8.4</td>
+<td>Ajustez <code>PHPVER</code> et <code>MYVER</code></td>
+</tr>
+<tr>
+<td>MySQL refuse le mot de passe</td>
+<td>Politique de mots de passe de MySQL 8</td>
+<td>Utilisez un mot de passe plus fort</td>
+</tr>
+<tr>
+<td>L'installateur détecte une installation précédente</td>
+<td>Paquets, répertoire ou base de données existants</td>
+<td>Nettoyez ou utilisez une autre machine</td>
+</tr>
+<tr>
+<td>La console ne répond pas après le script</td>
+<td>Apache, PHP-FPM ou SELinux</td>
+<td>Vérifiez les services et les journaux</td>
+</tr>
+<tr>
+<td>La console s'ouvre mais ne charge pas les données</td>
+<td>Base de données ou configuration</td>
+<td>Vérifiez <code>config.inc.php</code> et le journal de l'application</td>
+</tr>
+</tbody>
+</table>
+<p>Si le problème n'est pas dans ce tableau, consultez la Partie 14 (FAQ) et
+joignez le journal d'installation à votre demande. Un « ça ne marche pas » sans
+journal est une conversation qui commence mal.</p>
+<h2 id="etapes-suivantes">Étapes suivantes<a class="headerlink" href="#etapes-suivantes" title="Permanent link">¶</a></h2>
+<p>Avec la console opérationnelle, l'ordre recommandé est :</p>
+<ol>
+<li>Vérifiez la licence et la politique de versions (1.3 et 1.4).</li>
+<li>Configurez les utilisateurs, groupes et profils (Partie 02).</li>
+<li>Configurez le courriel (Partie 03).</li>
+<li>Programmez les sauvegardes et vérifiez la configuration avancée (Partie 12).</li>
+<li>Une fois la version stabilisée, planifiez la mise à jour (1.2).</li>
+</ol>
+<p>Installer est le début, pas la fin. L'installation met le moteur en route ; la
+suite dépend de la façon dont vous le configurez et du respect que vous accordez
+aux données qu'il va stocker.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

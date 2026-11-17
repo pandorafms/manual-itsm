@@ -1,0 +1,4074 @@
+<!DOCTYPE html><html lang="fr" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation produit de Pandora ITSM">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/fr/parte-10/10.1-informes-y-dashboards/">
+      
+      
+        <link rel="prev" href="../../parte-9/9.4-formularios/">
+      
+      
+        <link rel="next" href="../../parte-11/11.1-api-v2/">
+      
+      
+        
+          <link rel="alternate" href="../../../parte-10/10.1-informes-y-dashboards/" hreflang="es">
+        
+          <link rel="alternate" href="../../../en/parte-10/10.1-informes-y-dashboards/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Rapports et tableaux de bord - Pandora ITSM — Documentation produit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#rapports-et-tableaux-de-bord" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>En construction.</strong> Cette documentation est encore en cours
+      de rédaction : le contenu peut être incomplet ou changer sans préavis.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    Vous consultez une version qui n'est pas celle en vigueur (une version
+    antérieure à la dernière publiée).
+    <a href="../../../..">
+      <strong>Aller à la dernière version publiée.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../" title="Pandora ITSM — Documentation produit" class="md-header__button md-logo" aria-label="Pandora ITSM — Documentation produit" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Documentation produit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Rapports et tableaux de bord
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Passer en mode sombre" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Passer en mode clair" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../parte-10/10.1-informes-y-dashboards/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../en/parte-10/10.1-informes-y-dashboards/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Pandora ITSM — Documentation produit" class="md-nav__button md-logo" aria-label="Pandora ITSM — Documentation produit" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Documentation produit
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 01. Démarrage rapide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 01. Démarrage rapide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.1-instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Mise à jour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versions et cycle de support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Premiers pas et interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 02. Utilisateurs, permissions et organisation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 02. Utilisateurs, permissions et organisation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Utilisateurs, groupes et profils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Authentification et sécurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entreprises et contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 03. Tickets et support
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 03. Tickets et support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets et incidents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Flux de travail et états
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLA, escalade et qualité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Courriel et support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de connaissances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Téléchargements et répertoires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 04. Inventaire
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 04. Inventaire
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-4/4.1-inventario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 05. Gestion du changement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 05. Gestion du changement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestion du changement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 06. Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 06. Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-6/6.1-proyectos-y-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Projets et tâches
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 07. Gestion du temps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 07. Gestion du temps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestion du temps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Entreprises
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contrats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Factures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Modèles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campagnes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. E-mail et listes d'e-mails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Formulaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 10. Rapports et tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 10. Rapports et tableaux de bord
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Rapports et tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Rapports et tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#ou-se-trouvent-les-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Où se trouvent les rapports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableaux-de-bord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableaux de bord
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tableaux de bord">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-et-modifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et modifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Widgets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Widgets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customized-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customized links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message board
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predefined-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predefined links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-activity-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support Activity Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-evolution-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support Evolution Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-sla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support SLA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket list
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestionnaire-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionnaire de rapports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestionnaire de rapports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modeles-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèles de rapports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificateur-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificateur de rapports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bibliotheque-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliothèque de rapports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapports-sur-les-personnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports sur les personnes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapports sur les personnes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suivi-du-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suivi du temps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-detaille-des-conges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport détaillé des congés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calendrier-general-des-conges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calendrier général des congés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-sur-les-personnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport sur les personnes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ut-mensuelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UT mensuelles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-utilisateur-detaille" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport utilisateur détaillé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-de-conges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport de congés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-des-equipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance des équipes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapports-de-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports de support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapports de support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rapport-de-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport de support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-detaille-du-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport détaillé du ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-de-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport de résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-par-type-de-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport par type de ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-des-operateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport des opérateurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapports-des-incidents-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports des incidents clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapports-de-projets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports de projets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapports de projets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-project-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General project report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-projects-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        All projects report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-expense-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project expense report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-bundle-of-hours-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project bundle of hours report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapport-sql-personnalise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport SQL personnalisé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapport SQL personnalisé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conseils-pour-les-rapports-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conseils pour les rapports SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 11. Automatisation et intégrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 11. Automatisation et intégrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.2-api-v1-heredada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (héritée)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Intégration avec Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Intégration avec Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. IA et chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 12. Administration avancée
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 12. Administration avancée
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.1-configuracion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Configuration avancée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Maintenance et sauvegardes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 13. Annexes techniques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 13. Annexes techniques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a1-glosario-de-terminos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glossaire des termes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Mise à jour des versions de PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Mise à jour de MySQL 5.7 vers MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Intégration avec Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 14. Questions fréquentes (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 14. Questions fréquentes (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation, mises à jour et licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Utilisateurs, accès et organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, flux et courriel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventaire et changements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Projets, temps, CRM et marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Rapports, API et intégrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#ou-se-trouvent-les-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Où se trouvent les rapports
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableaux-de-bord" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableaux de bord
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tableaux de bord">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creer-et-modifier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Créer et modifier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Widgets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Widgets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#customized-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Customized links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message board
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#predefined-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Predefined links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Search box
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-activity-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support Activity Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-evolution-graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support Evolution Graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-sla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support SLA
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#support-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket list
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestionnaire-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gestionnaire de rapports
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gestionnaire de rapports">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#modeles-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèles de rapports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#planificateur-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planificateur de rapports
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bibliotheque-de-rapports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bibliothèque de rapports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapports-sur-les-personnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports sur les personnes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapports sur les personnes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#suivi-du-temps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Suivi du temps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-detaille-des-conges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport détaillé des congés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#calendrier-general-des-conges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calendrier général des congés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-sur-les-personnes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport sur les personnes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ut-mensuelles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UT mensuelles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-utilisateur-detaille" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport utilisateur détaillé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-de-conges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport de congés
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-des-equipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance des équipes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapports-de-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports de support
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapports de support">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rapport-de-support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport de support
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-detaille-du-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport détaillé du ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-de-resolution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport de résolution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-par-type-de-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport par type de ticket
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapport-des-operateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport des opérateurs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rapports-des-incidents-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports des incidents clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapports-de-projets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapports de projets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapports de projets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#general-project-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        General project report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#all-projects-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        All projects report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-expense-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project expense report
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project-bundle-of-hours-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project bundle of hours report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rapport-sql-personnalise" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rapport SQL personnalisé
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rapport SQL personnalisé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conseils-pour-les-rapports-sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conseils pour les rapports SQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="rapports-et-tableaux-de-bord">Rapports et tableaux de bord<a class="headerlink" href="#rapports-et-tableaux-de-bord" title="Permanent link">¶</a></h1>
+<p>Un rapport ne sert pas à remplir une réunion : il sert à répondre à une question.
+Pandora ITSM regroupe sous <strong>Reports</strong> les rapports sur les personnes, le support,
+les projets et les requêtes SQL, et ajoute des tableaux de bord pour voir
+l'essentiel sans ouvrir cinq écrans différents. Le problème n'est jamais le manque
+de données ; le problème est de confondre un joli graphique avec une décision bien
+informée.</p>
+<p>Ce chapitre explique comment construire les tableaux de bord, comment programmer
+les rapports et ce que mesure chaque rapport. Les rapports de projets restent ici,
+aux côtés des autres, parce qu'ils partagent le menu, les modèles et le
+planificateur.</p>
+<h2 id="ou-se-trouvent-les-rapports">Où se trouvent les rapports<a class="headerlink" href="#ou-se-trouvent-les-rapports" title="Permanent link">¶</a></h2>
+<p>Le menu <strong>Reports</strong> regroupe :</p>
+<ul>
+<li><strong>Dashboards → Manage Dashboard</strong> : tableaux visuels.</li>
+<li><strong>Report manager</strong> : modèles, programmation et bibliothèque de rapports.</li>
+<li><strong>People management</strong> : temps, congés, personnes et performance des équipes.</li>
+<li><strong>Support</strong> : support, tickets, résolutions, opérateurs et clients.</li>
+<li><strong>Project management</strong> : rapports de projets.</li>
+<li><strong>Custom SQL report</strong> : requêtes personnalisées.</li>
+</ul>
+<p>Les permissions reposent sur les bits <strong>Report Reader (RR)</strong> et <strong>Report Manager
+(RM)</strong> du profil, ainsi que sur la visibilité de groupe. Un utilisateur peut voir
+un rapport sans pouvoir le créer, ou créer une requête SQL sans pouvoir voir les
+données d'un autre groupe.</p>
+<h2 id="tableaux-de-bord">Tableaux de bord<a class="headerlink" href="#tableaux-de-bord" title="Permanent link">¶</a></h2>
+<p>Les tableaux de bord sont des postes de commande. Chaque utilisateur peut avoir les
+siens et choisir celui qui s'affiche à la connexion.</p>
+<p>Dans <strong>Reports → Dashboards → Manage Dashboard</strong>, on liste les tableaux, on les
+recherche par mot-clé et on les crée avec <strong>Create</strong>. Chacun dispose de <strong>Update</strong>
+pour changer son nom et son groupe, et de <strong>Delete</strong> pour le supprimer. Le
+<strong>Default dashboard</strong> contient tous les widgets disponibles et sert de
+démonstration.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/dashboards-list.png" data-desc-position="bottom"><img alt="Liste des tableaux de bord" src="../../../assets/img/parte-10/dashboards-list.png"></a></p>
+<h3 id="creer-et-modifier">Créer et modifier<a class="headerlink" href="#creer-et-modifier" title="Permanent link">¶</a></h3>
+<p>Lors de la création, on indique un <strong>Name</strong> unique, sans espace au début ni à la
+fin, et un <strong>Group</strong>. Le nom peut être modifié ensuite avec <strong>Update</strong>.</p>
+<p>Pour modifier le contenu, on ouvre le tableau et on active le commutateur
+d'édition. <strong>Add cell</strong> ajoute une cellule et <strong>New widget</strong> permet de choisir le
+type de widget. Chaque widget se configure avec l'icône d'engrenage et se supprime
+avec la corbeille. On peut le faire glisser par son titre et le redimensionner
+depuis les bords.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/dashboard-widgets.png" data-desc-position="bottom"><img alt="Modification des widgets du tableau de bord" src="../../../assets/img/parte-10/dashboard-widgets.png"></a></p>
+<h3 id="widgets">Widgets<a class="headerlink" href="#widgets" title="Permanent link">¶</a></h3>
+<h4 id="customized-links">Customized links<a class="headerlink" href="#customized-links" title="Permanent link">¶</a></h4>
+<p>Ajoute un lien fonctionnel qui s'ouvre dans la même fenêtre ou dans un nouvel
+onglet. L'URL doit commencer par <code>http://</code> ou <code>https://</code> ; sinon, elle est traitée
+comme un lien interne. Une image est également obligatoire : les deux champs sont
+nécessaires.</p>
+<p>Exemple de lien interne vers la liste des changements :</p>
+<ul>
+<li><strong>URL</strong> : <code>changes/operation/changes/changes_list</code></li>
+<li><strong>Open new tab</strong> : activé</li>
+<li><strong>Image</strong> : <code>ticket.svg</code></li>
+</ul>
+<p>Les autres champs —texte, titre, police et couleurs— sont facultatifs.</p>
+<h4 id="message-board">Message board<a class="headerlink" href="#message-board" title="Permanent link">¶</a></h4>
+<p>Un éditeur de texte enrichi pour intégrer des tableaux, des liens, des images, des
+listes ou des documents complets. Il commence par un message de bienvenue qui
+disparaît lorsqu'on ajoute son propre contenu.</p>
+<h4 id="predefined-links">Predefined links<a class="headerlink" href="#predefined-links" title="Permanent link">¶</a></h4>
+<p>Ajoute des liens internes avec libellé et icône :</p>
+<ul>
+<li><strong>Knowledge base</strong>.</li>
+<li><strong>Downloads</strong>.</li>
+<li><strong>Create ticket</strong>.</li>
+<li><strong>Wiki</strong>.</li>
+<li><strong>Time tracker</strong>.</li>
+<li><strong>My tickets</strong>.</li>
+</ul>
+<h4 id="search-box">Search box<a class="headerlink" href="#search-box" title="Permanent link">¶</a></h4>
+<p>Ajoute une zone de recherche par mot-clé. Il faut sélectionner au moins une zone :
+base de connaissance, Wiki, tickets, projets, personnes, contacts, contrats,
+entreprises, factures ou leads.</p>
+<h4 id="support-activity-graph">Support Activity Graph<a class="headerlink" href="#support-activity-graph" title="Permanent link">¶</a></h4>
+<p>Affiche un graphique d'activité sur un ou plusieurs calendriers à partir d'un filtre
+de tickets enregistré. Chaque utilisateur ne peut choisir que ses propres filtres.</p>
+<h4 id="support-evolution-graph">Support Evolution Graph<a class="headerlink" href="#support-evolution-graph" title="Permanent link">¶</a></h4>
+<p>Affiche les tickets ouverts et fermés à partir d'un filtre enregistré, avec une
+fréquence de rafraîchissement configurable. Il n'utilise lui aussi que les filtres
+de l'utilisateur.</p>
+<h4 id="support-sla">Support SLA<a class="headerlink" href="#support-sla" title="Permanent link">¶</a></h4>
+<p>Avec un filtre enregistré, affiche un diagramme circulaire avec le pourcentage de
+SLA respecté et non respecté.</p>
+<h4 id="support-statistics">Support statistics<a class="headerlink" href="#support-statistics" title="Permanent link">¶</a></h4>
+<p>Regroupe les tickets d'un filtre enregistré par priorité, état, type ou statistiques
+générales. Il faut choisir une option dans <strong>Statistic</strong>.</p>
+<h4 id="ticket-list">Ticket list<a class="headerlink" href="#ticket-list" title="Permanent link">¶</a></h4>
+<p>Affiche une liste paginée de tickets —cinq par défaut— avec les champs et l'ordre
+choisis. Elle utilise un filtre enregistré et une période de rafraîchissement pour
+garder les informations à jour.</p>
+<h2 id="gestionnaire-de-rapports">Gestionnaire de rapports<a class="headerlink" href="#gestionnaire-de-rapports" title="Permanent link">¶</a></h2>
+<p>Dans <strong>Reports → Report manager</strong>, on crée des modèles et des programmations. Les
+rapports programmés sont stockés dans la bibliothèque et peuvent être envoyés par
+courriel. Le <strong>cron</strong> du système doit être actif ; sans cron, il n'y a pas de magie,
+seulement une file d'attente.</p>
+<h3 id="modeles-de-rapports">Modèles de rapports<a class="headerlink" href="#modeles-de-rapports" title="Permanent link">¶</a></h3>
+<p>Dans <strong>Reports → Report manager → Templates</strong>, on définit la couverture, l'en-tête
+et le pied de page des rapports PDF. La couverture accepte des images, des liens, du
+formatage et des marges. Les macros disponibles sont :</p>
+<ul>
+<li><code>_fullname_</code> : utilisateur qui génère ou demande le rapport.</li>
+<li><code>_date_</code> : date de génération.</li>
+<li><code>_time_</code> : heure de génération.</li>
+<li><code>_reportname_</code> : nom du rapport.</li>
+</ul>
+<p>Les macros fonctionnent aussi dans l'en-tête, où le logo peut être changé.
+Couverture, en-tête et pied de page peuvent être désactivés séparément.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/report-template.png" data-desc-position="bottom"><img alt="Éditeur de modèles de rapport" src="../../../assets/img/parte-10/report-template.png"></a></p>
+<h3 id="planificateur-de-rapports">Planificateur de rapports<a class="headerlink" href="#planificateur-de-rapports" title="Permanent link">¶</a></h3>
+<p>Dans <strong>Reports → Report manager → Report schedule</strong>, on programme un rapport pour
+qu'il s'exécute une fois, chaque semaine ou chaque mois. On choisit un modèle, on
+l'enregistre dans la bibliothèque et on peut envoyer une notification ou le rapport
+lui-même par courriel.</p>
+<p>Attribuer une entreprise au rapport programmé permet aux utilisateurs de cette
+entreprise de le voir et de le modifier. Selon le type de rapport, ses filtres
+apparaissent ; <strong>Custom SQL</strong> n'affiche que les rapports SQL déjà créés. On peut
+créer autant de programmations que nécessaire.</p>
+<h3 id="bibliotheque-de-rapports">Bibliothèque de rapports<a class="headerlink" href="#bibliotheque-de-rapports" title="Permanent link">¶</a></h3>
+<p>Dans <strong>Reports → Report manager → Report library</strong>, on parcourt les rapports générés
+et on les recherche par type ou par nom.</p>
+<h2 id="rapports-sur-les-personnes">Rapports sur les personnes<a class="headerlink" href="#rapports-sur-les-personnes" title="Permanent link">¶</a></h2>
+<p>Pandora ITSM permet de suivre le temps de travail, les pauses, le travail à distance
+ou sur site et les congés. Les rapports de cette zone peuvent être programmés
+chaque semaine ou chaque mois.</p>
+<h3 id="suivi-du-temps">Suivi du temps<a class="headerlink" href="#suivi-du-temps" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → Time tracking</strong> affiche l'activité quotidienne,
+hebdomadaire ou mensuelle enregistrée par un utilisateur avec le Time tracker. Des
+périodes sont prédéfinies —cette semaine, ce mois, les trois derniers mois— et l'on
+peut en demander une personnalisée.</p>
+<p>Au moins un enregistrement quotidien doit exister pour que le rapport affiche des
+données ; les autres jours apparaissent vides. Exporte en CSV, plein écran et PDF.</p>
+<p>Les trois rapports de congés partagent le menu, mais pas les permissions : le
+rapport détaillé exige <strong>HR</strong> et, en pratique, <strong>UM</strong> pour y accéder depuis le menu ;
+le calendrier et l'exportation dépendent de l'accès à <strong>Reports</strong>.</p>
+<h3 id="rapport-detaille-des-conges">Rapport détaillé des congés<a class="headerlink" href="#rapport-detaille-des-conges" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → Detailed vacation report</strong> présente le rapport en
+deux modes : <strong>Show vacation report</strong> et le rapport des unités de travail. Les
+filtres sont l'utilisateur, le groupe et la date de création (<strong>Created from</strong> et
+<strong>Created to</strong>) ; ils s'appliquent lorsque vous cliquez sur <strong>Search</strong>.</p>
+<p>Le résultat affiche les utilisateurs, le total de jours de congés, les jours pris et
+les jours restants. Il peut être affiché en plein écran ou exporté en PDF. Si le
+rapport des unités de travail est sélectionné, il ajoute les jours non justifiés, les
+jours non travaillés justifiés pour maladie, les congés et les congés extra. Exporte
+en plein écran et PDF ; pas en CSV.</p>
+<h3 id="calendrier-general-des-conges">Calendrier général des congés<a class="headerlink" href="#calendrier-general-des-conges" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → General vacation calendar</strong> affiche les congés
+approuvés en vue mensuelle, hebdomadaire ou quotidienne. On peut avancer et reculer
+par mois et revenir à aujourd'hui avec <strong>Today</strong>. La recherche d'utilisateur limite
+le calendrier à une personne et les jours non ouvrés sont mis en évidence. Il est
+uniquement visible à l'écran.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/vacation-calendar.png" data-desc-position="bottom"><img alt="Calendrier général des congés" src="../../../assets/img/parte-10/vacation-calendar.png"></a></p>
+<h3 id="rapport-sur-les-personnes">Rapport sur les personnes<a class="headerlink" href="#rapport-sur-les-personnes" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → People report</strong> sélectionne par défaut l'utilisateur
+actuel et les trois derniers mois de tous les projets, avec un résumé des tickets.
+Il affiche l'activité du projet et son pourcentage, des graphiques de tickets par
+groupe et par groupe créateur, un tableau de tickets —si <strong>Show only summary</strong> est
+désactivé— et un résumé des tickets et du temps travaillé.</p>
+<p>Exporte en CSV, plein écran et PDF.</p>
+<h3 id="ut-mensuelles">UT mensuelles<a class="headerlink" href="#ut-mensuelles" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → People monthly WU</strong> affiche tous les utilisateurs du
+mois en cours avec le total d'heures et la note moyenne. On peut changer de mois et
+filtrer par utilisateur.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/monthly-work-units.png" data-desc-position="bottom"><img alt="Unités de travail mensuelles par personne" src="../../../assets/img/parte-10/monthly-work-units.png"></a></p>
+<p>Le bouton de rapport de chaque utilisateur ouvre une boîte de dialogue pour modifier
+ses unités de travail, une par une ou en masse. Seules les unités de travail de
+tâches (<strong>Work Unit Tasks</strong>) acceptent la modification en masse. Selon les
+privilèges, chaque unité peut être modifiée, supprimée ou bloquée.</p>
+<h3 id="rapport-utilisateur-detaille">Rapport utilisateur détaillé<a class="headerlink" href="#rapport-utilisateur-detaille" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → Detailed user report</strong> exige des dates de début et
+de fin. Il propose trois options :</p>
+<ul>
+<li><strong>Project</strong> : regroupe par utilisateur et projet.</li>
+<li><strong>Role and task</strong> : regroupe par utilisateur et tâche.</li>
+<li><strong>Role and task (details)</strong> : ajoute des descriptions et des totaux de tickets,
+  d'heures et de coûts.</li>
+</ul>
+<p>On sélectionne l'utilisateur, la période, les rôles, les tâches et les projets. Il
+n'exporte ni en CSV, ni en plein écran, ni en PDF.</p>
+<h3 id="rapport-de-conges">Rapport de congés<a class="headerlink" href="#rapport-de-conges" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → Vacation report</strong> sélectionne tous les utilisateurs
+actifs par défaut. Choisissez le groupe, les utilisateurs et les dates (<strong>Date from</strong>
+et <strong>Date to</strong>) ; les dates sont obligatoires. <strong>View</strong> affiche le tableau à l'écran
+et <strong>Export</strong> télécharge le résultat. Le filtrage par nom s'applique lorsque vous
+cliquez sur <strong>View</strong>, pas pendant la saisie. Exporte en CSV, mais pas en plein écran
+ni en PDF.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/vacation-report.png" data-desc-position="bottom"><img alt="Rapport de congés avec sélection des utilisateurs et des dates" src="../../../assets/img/parte-10/vacation-report.png"></a></p>
+<h3 id="performance-des-equipes">Performance des équipes<a class="headerlink" href="#performance-des-equipes" title="Permanent link">¶</a></h3>
+<p><strong>Reports → People management → Team performance</strong> affiche la performance
+hebdomadaire du personnel d'une entreprise. On filtre par groupe, date et zone de
+Pandora ITSM : projets, support, changements ou suivi du temps.</p>
+<p>Avec les valeurs par défaut, il ne renvoie aucune donnée, et c'est normal :</p>
+<ul>
+<li>Le filtre principal est l'entreprise.</li>
+<li>L'interface de filtres s'ouvre avec <code>Ctrl</code> + <code>f</code>.</li>
+<li>Le jour de début de semaine vient de la configuration générale ; lundi par défaut.</li>
+</ul>
+<p>Exporte en plein écran, PDF et Microsoft Excel ; pas en CSV.</p>
+<h2 id="rapports-de-support">Rapports de support<a class="headerlink" href="#rapports-de-support" title="Permanent link">¶</a></h2>
+<p>Les rapports de support reposent sur le ticketing enregistré. Ils aident à évaluer
+les coûts, la qualité, les temps, l'effort, les profils du personnel et les profils
+des clients.</p>
+<h3 id="rapport-de-support">Rapport de support<a class="headerlink" href="#rapport-de-support" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Support → Support report</strong> génère un PDF avec des dizaines de
+graphiques, résumés, listes et paramètres. Pour choisir les filtres rapidement, il
+vaut mieux partir d'une recherche de tickets personnalisée et enregistrée.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/support-report-filter.png" data-desc-position="bottom"><img alt="Filtres du rapport de support" src="../../../assets/img/parte-10/support-report-filter.png"></a></p>
+<p>Le rapport comporte deux parties :</p>
+<ul>
+<li><strong>Show statistics</strong> : informations statistiques avec graphiques.</li>
+<li><strong>Show list</strong> : informations tabulaires des tickets.</li>
+</ul>
+<p>Il faut en sélectionner une ou les deux. Dans <strong>Issue fields</strong>, on choisit les champs
+du tableau sans affecter les graphiques. Il inclut huit graphiques circulaires
+généraux avec des regroupements Top-N —tickets les plus actifs, clients les plus
+actifs, opérateurs, ouverts, fermés— ainsi que des listes et graphiques de tendance.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/support-report-statistics.png" data-desc-position="bottom"><img alt="Statistiques du rapport de support" src="../../../assets/img/parte-10/support-report-statistics.png"></a></p>
+<p>Exporte en plein écran et PDF ; pas en CSV.</p>
+<h3 id="rapport-detaille-du-ticket">Rapport détaillé du ticket<a class="headerlink" href="#rapport-detaille-du-ticket" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Support → Detailed ticket report</strong> affiche tous les détails d'un ticket :
+dates, participants, description, champs personnalisés, SLA et, en option, unités de
+travail, fichiers, suivi et statistiques.</p>
+<p>On saisit au moins deux lettres dans <strong>Select issues</strong>, on choisit le ticket et on
+clique sur <strong>Report</strong>. Les options supplémentaires sont :</p>
+<ul>
+<li><strong>Stats</strong> : statistiques générales, des unités de travail, activité par utilisateur
+  et par état, groupe, propriétaire et entreprise.</li>
+<li><strong>Tracking</strong> : changements du ticket, filtrables par utilisateur.</li>
+<li><strong>Files</strong> : fichiers joints.</li>
+<li><strong>Work Units</strong> : unités de travail, avec option de modification du temps.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/detailed-ticket-statistics.png" data-desc-position="bottom"><img alt="Statistiques du ticket détaillé" src="../../../assets/img/parte-10/detailed-ticket-statistics.png"></a></p>
+<p>Les privilèges de l'utilisateur limitent ce qui peut être vu et modifié. Exporte en
+plein écran et PDF ; pas en CSV.</p>
+<h3 id="rapport-de-resolution">Rapport de résolution<a class="headerlink" href="#rapport-de-resolution" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Support → Resolution report</strong> liste les tickets fermés et montre l'impact
+sur le temps, les pauses mortes, les personnes impliquées et la résolution, y
+compris le retour du client. On filtre par date de création et de clôture, créateur
+et entreprise. Exporte en plein écran et PDF.</p>
+<h3 id="rapport-par-type-de-ticket">Rapport par type de ticket<a class="headerlink" href="#rapport-par-type-de-ticket" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Support → Ticket type report</strong> regroupe les tickets par entreprise et par
+type sur un intervalle de temps. On filtre par créateur, entreprise et groupe.
+Exporte en CSV, plein écran et PDF.</p>
+<h3 id="rapport-des-operateurs">Rapport des opérateurs<a class="headerlink" href="#rapport-des-operateurs" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Support → Operator report</strong> mesure la qualité du support par opérateur :
+temps consacré, temps moyen de résolution, retour du client et tickets totaux. On
+filtre par entreprise, utilisateur, état et plage horaire.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/operator-report.png" data-desc-position="bottom"><img alt="Rapport des opérateurs" src="../../../assets/img/parte-10/operator-report.png"></a></p>
+<p>Exporte en CSV, plein écran et PDF.</p>
+<h3 id="rapports-des-incidents-clients">Rapports des incidents clients<a class="headerlink" href="#rapports-des-incidents-clients" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Support → Customer tickets</strong> affiche les incidents créés, résolus et en
+cours, regroupés par utilisateur, année et mois. <strong>Company</strong> est obligatoire ;
+<strong>Users</strong> permet de sélectionner un ou plusieurs utilisateurs de cette entreprise.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/customer-tickets.png" data-desc-position="bottom"><img alt="Rapport des incidents clients" src="../../../assets/img/parte-10/customer-tickets.png"></a></p>
+<p>Options :</p>
+<ul>
+<li><strong>Show section state</strong> : tableau des états par mois et par utilisateur.</li>
+<li><strong>Show section type tickets</strong> : tableau des types par mois et par utilisateur.</li>
+<li><strong>Show section total</strong> : total global.</li>
+<li><strong>Created from Pandora FMS</strong> : sépare les tickets créés depuis Pandora FMS et
+  depuis Pandora ITSM.</li>
+</ul>
+<p>Exporte en plein écran et PDF ; pas en CSV.</p>
+<h2 id="rapports-de-projets">Rapports de projets<a class="headerlink" href="#rapports-de-projets" title="Permanent link">¶</a></h2>
+<p>Les rapports de projets se trouvent dans <strong>Reports → Project management</strong>. Ils
+aident à planifier les temps et les coûts et à voir l'évolution du projet grâce aux
+heures imputées par les personnes impliquées.</p>
+<h3 id="general-project-report">General project report<a class="headerlink" href="#general-project-report" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Project management → General project report → Select project</strong> affiche
+un projet sélectionné. Sans projet, un message d'erreur apparaît ; c'est normal et
+cela n'indique pas une panne.</p>
+<p>Options :</p>
+<ul>
+<li><strong>Show project</strong> : informations de base, personnes, résumé du travail et des
+  coûts, répartition des tâches, charge de travail, activité et résumé des tâches.</li>
+<li><strong>Show task activity</strong> : pour les tâches sélectionnées, heures, coûts, estimations
+  et graphiques de répartition et d'activité.</li>
+<li><strong>Show task work unit</strong> : date, durée, personnes et description de chaque unité de
+  travail des tâches sélectionnées.</li>
+<li><strong>Show in table</strong> : toutes les tâches selon les filtres de date, jalon ou
+  personnes.</li>
+</ul>
+<p>On peut filtrer par jalons, tâches, dates, personnes et entreprise liée. Exporte en
+CSV, plein écran et PDF.</p>
+<h3 id="all-projects-report">All projects report<a class="headerlink" href="#all-projects-report" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Project management → All projects report</strong> filtre par texte dans le nom
+ou la description, propriétaire, personnes impliquées, date, groupe, projets
+archivés et champs personnalisés du projet.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/all-projects-report.png" data-desc-position="bottom"><img alt="Rapport de tous les projets" src="../../../assets/img/parte-10/all-projects-report.png"></a></p>
+<p>La liste affiche l'identifiant, le groupe, le nom, le propriétaire, les personnes
+impliquées et la progression des tâches. Exporte en CSV, plein écran et PDF.</p>
+<h3 id="project-expense-report">Project expense report<a class="headerlink" href="#project-expense-report" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Project management → Project expense report</strong> affiche les projets du
+dernier mois. On filtre par date de début ou de fin et par pourcentage de
+réalisation. <strong>Show task breakdown</strong> détaille chaque tâche. En sélectionnant un
+projet, on peut filtrer par jalons. Exporte en CSV, plein écran et PDF.</p>
+<h3 id="project-bundle-of-hours-report">Project bundle of hours report<a class="headerlink" href="#project-bundle-of-hours-report" title="Permanent link">¶</a></h3>
+<p><strong>Reports → Project management → Project bundle of hours report</strong> sélectionne un
+projet et un mois. Il affiche un résumé par tâche et par tickets, avec les heures
+consommées et restantes. On peut filtrer par entreprise et contrats liés. Exporte en
+plein écran et PDF ; pas en CSV.</p>
+<h2 id="rapport-sql-personnalise">Rapport SQL personnalisé<a class="headerlink" href="#rapport-sql-personnalise" title="Permanent link">¶</a></h2>
+<p><strong>Reports → Custom SQL report</strong> permet de créer ses propres requêtes renvoyant un
+tableau exportable vers une feuille de calcul ou un PDF.</p>
+<p>Seul un superadministrateur ou un utilisateur disposant de la permission <strong>RM</strong> peut
+créer, modifier et supprimer des rapports SQL. Pour les consulter, il faut <strong>RR</strong> et
+appartenir au même groupe que le rapport.</p>
+<p>Une requête simple :</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">country</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">tcompany</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">country</span><span class="p">;</span>
+</code></pre></div>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-10/custom-sql-report.png" data-desc-position="bottom"><img alt="Rapport SQL personnalisé" src="../../../assets/img/parte-10/custom-sql-report.png"></a></p>
+<p>Les champs peuvent être renommés avec des alias :</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span>
+<span class="w">  </span><span class="n">id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="n">Identification</span><span class="w"> </span><span class="nb">number</span><span class="o">`</span><span class="p">,</span>
+<span class="w">  </span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">Name</span><span class="p">,</span>
+<span class="w">  </span><span class="n">country</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="o">`</span><span class="n">Country</span><span class="w"> </span><span class="n">origin</span><span class="o">`</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">tcompany</span><span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">country</span><span class="p">;</span>
+</code></pre></div>
+<p>Pour des raisons de sécurité, <code>DELETE</code>, <code>DROP</code>, <code>ALTER</code>, <code>TRUNCATE</code>, <code>CREATE</code>,
+<code>UPDATE</code>, <code>INSERT INTO</code>, <code>EXEC</code> et <code>MERGE</code> sont interdits. Exporte en CSV, plein
+écran et PDF.</p>
+<h3 id="conseils-pour-les-rapports-sql">Conseils pour les rapports SQL<a class="headerlink" href="#conseils-pour-les-rapports-sql" title="Permanent link">¶</a></h3>
+<ul>
+<li>Dans les modèles, <code>_reportname_</code> peut être remplacé par le vrai nom du rapport SQL
+  et des images personnalisées peuvent être insérées.</li>
+<li>Les nouveaux rapports SQL sont affectés au groupe <strong>None</strong> ; attribuez-leur un
+  groupe précis.</li>
+<li>Pour connaître les tables et les champs, créez des rapports avec <code>SHOW TABLES;</code> et
+  <code>DESCRIBE &lt;table_name&gt;;</code>. Cela évite de créer des utilisateurs de base de données :
+  l'ACL est gérée dans Pandora ITSM.</li>
+</ul>
+<h2 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">¶</a></h2>
+<ul>
+<li>Définir la question avant de choisir le rapport.</li>
+<li>Enregistrer des recherches de tickets réutilisables pour les tableaux de bord.</li>
+<li>Vérifier les permissions RR/RM et la visibilité de groupe avant de publier.</li>
+<li>Maintenir le cron actif si vous utilisez le planificateur.</li>
+<li>Utiliser les modèles pour rendre les PDF lisibles, pas pour cacher des données.</li>
+<li>Ne pas transformer un tableau de bord en album de graphiques sans responsable.</li>
+<li>Documenter quel rapport répond à chaque question et qui le révise.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

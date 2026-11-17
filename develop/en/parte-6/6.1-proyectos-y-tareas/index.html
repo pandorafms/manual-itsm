@@ -1,0 +1,3732 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pandora ITSM product documentation">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/en/parte-6/6.1-proyectos-y-tareas/">
+      
+      
+        <link rel="prev" href="../../parte-5/5.1-gestion-del-cambio/">
+      
+      
+        <link rel="next" href="../../parte-7/7.1-gestion-del-tiempo/">
+      
+      
+        
+          <link rel="alternate" href="../../../parte-6/6.1-proyectos-y-tareas/" hreflang="es">
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../../fr/parte-6/6.1-proyectos-y-tareas/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Projects and tasks - Pandora ITSM — Product documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#projects-and-tasks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>Under construction.</strong> This documentation is still being
+      written: content may be incomplete or change without notice.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    You are viewing a version that is not the current one (a version older than
+    the last published one).
+    <a href="../../../..">
+      <strong>Go to the latest published version.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../" title="Pandora ITSM — Product documentation" class="md-header__button md-logo" aria-label="Pandora ITSM — Product documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Product documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Projects and tasks
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../parte-6/6.1-proyectos-y-tareas/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../fr/parte-6/6.1-proyectos-y-tareas/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Pandora ITSM — Product documentation" class="md-nav__button md-logo" aria-label="Pandora ITSM — Product documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Product documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 01. Quick start
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 01. Quick start
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.1-instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Updating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versions and support lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. First steps and interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 02. Users, permissions and organization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 02. Users, permissions and organization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Users, groups and profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Authentication and security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Companies and contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 03. Tickets and support
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 03. Tickets and support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets and incidents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Workflow and statuses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLAs, escalation and quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Email and support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Knowledge base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Downloads and directories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 04. Inventory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 04. Inventory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-4/4.1-inventario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 05. Change management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 05. Change management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Change management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 06. Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 06. Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Projects and tasks
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Projects and tasks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-a-project-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a project is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-and-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview and editing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview and editing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statistics-distribution-and-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistics, distribution and activity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#people-and-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        People and roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-editing-a-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and editing a task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-and-moving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking and moving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work units
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-custom-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task custom fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attachments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gantt-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gantt chart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archiving-and-deletion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Archiving and deletion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#board-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Board view
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Board view">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-status-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task status templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-tag-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task tag templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-to-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporting to CSV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-groups-and-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project groups and types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 07. Time management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 07. Time management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Time management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Companies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Invoices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campaigns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Email and email lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Forms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 10. Reports and dashboards
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 10. Reports and dashboards
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-10/10.1-informes-y-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Reports and dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 11. Automation and integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 11. Automation and integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.2-api-v1-heredada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (legacy)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Integration with Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. AI and chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 12. Advanced administration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 12. Advanced administration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.1-configuracion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Advanced configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 13. Technical annexes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 13. Technical annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a1-glosario-de-terminos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glossary of terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Upgrading PHP versions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Upgrading MySQL 5.7 to MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Microsoft 365 integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 14. Frequently asked questions (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 14. Frequently asked questions (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation, updates and licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Users, access and organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, workflows and email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventory and changes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Projects, time, CRM and marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Reports, API and integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-a-project-is" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What a project is
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a project
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-and-editing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overview and editing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Overview and editing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statistics-distribution-and-activity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistics, distribution and activity
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#people-and-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        People and roles
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tasks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tasks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tasks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-and-editing-a-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and editing a task
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task links
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tracking-and-moving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tracking and moving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#work-units" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Work units
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-custom-fields" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task custom fields
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#milestones" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Milestones
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attachments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attachments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gantt-chart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gantt chart
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#archiving-and-deletion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Archiving and deletion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#board-view" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Board view
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Board view">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-status-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task status templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-tag-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task tag templates
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exporting-to-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exporting to CSV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Workflow rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-groups-and-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project groups and types
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="projects-and-tasks">Projects and tasks<a class="headerlink" href="#projects-and-tasks" title="Permanent link">¶</a></h1>
+<p>A project is not a list of tasks with colours: it is a contract of time, cost and
+responsibility. Pandora ITSM lets you plan that contract, book hours against it and
+check whether reality matches what was promised. Everything else —the Gantt chart,
+the board, the reports— are ways of looking at the same problem from different
+angles.</p>
+<p>The idea behind this chapter is simple: <strong>a project is managed with people, tasks
+and hours, not with good intentions</strong>. If hours are not booked against a task, the
+cost is fiction; if tasks have no owner, the Gantt chart is decoration.</p>
+<h2 id="what-a-project-is">What a project is<a class="headerlink" href="#what-a-project-is" title="Permanent link">¶</a></h2>
+<p>Project management combines projects, tasks, roles and people. Tasks can have
+subtasks and be organised hierarchically. A task can also have associated tickets
+and work units where each person's time is recorded.</p>
+<p>The entry point is <strong>Projects → Project list</strong>. From there you create projects,
+check their status, filter by group or type and open the overview.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-list.png" data-desc-position="bottom"><img alt="Project list" src="../../../assets/img/parte-06/project-list.png"></a></p>
+<p>A project has a <strong>Project manager</strong> —the creator by default—, a project group, a
+team of people with different roles, and a set of tasks. The project does not do
+the work: it organises it. The people and the work units do the work.</p>
+<h2 id="creating-a-project">Creating a project<a class="headerlink" href="#creating-a-project" title="Permanent link">¶</a></h2>
+<p>In <strong>Projects → Project list → Create project</strong> you define the basic data:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>What it means</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>Project name.</td>
+</tr>
+<tr>
+<td><strong>Project manager</strong></td>
+<td>Responsible user. The creator by default.</td>
+</tr>
+<tr>
+<td><strong>Project group</strong></td>
+<td>Logical group the project belongs to.</td>
+</tr>
+<tr>
+<td><strong>CC</strong></td>
+<td>Email address that receives project notifications.</td>
+</tr>
+<tr>
+<td><strong>Start</strong> and <strong>End</strong></td>
+<td>Start and end dates.</td>
+</tr>
+<tr>
+<td><strong>Status template</strong></td>
+<td>Task status template.</td>
+</tr>
+<tr>
+<td><strong>Tag template</strong></td>
+<td>Task tag template.</td>
+</tr>
+<tr>
+<td><strong>Company</strong> and <strong>Contract</strong></td>
+<td>Associated company and contract, if applicable.</td>
+</tr>
+<tr>
+<td><strong>Description</strong></td>
+<td>Descriptive text.</td>
+</tr>
+<tr>
+<td><strong>Project Types</strong></td>
+<td>Project type and its custom fields.</td>
+</tr>
+<tr>
+<td><strong>Replicate tasks from other project into this</strong></td>
+<td>Copies tasks from another project.</td>
+</tr>
+</tbody>
+</table>
+<p>Replicating tasks is convenient for projects that repeat, but it copies the
+original dates: every task must be readjusted afterwards. It is not a clone with a
+mind of its own.</p>
+<p>A project can be linked to a company or a contract only if none of its tasks is
+already linked to a company or contract, and vice versa. The restriction prevents
+the same work from being charged to two different customers.</p>
+<h2 id="overview-and-editing">Overview and editing<a class="headerlink" href="#overview-and-editing" title="Permanent link">¶</a></h2>
+<p>Clicking a project name opens <strong>Project overview</strong>. The <strong>Details</strong> section can be
+edited directly; <strong>Quick edit</strong> changes the main fields, such as the project group,
+the status template and the tag template.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-overview.png" data-desc-position="bottom"><img alt="Project overview" src="../../../assets/img/parte-06/project-overview.png"></a></p>
+<p>The main tabs are:</p>
+<ul>
+<li><strong>Task planning</strong>: task planning and task list.</li>
+<li><strong>Board view</strong>: board by status.</li>
+<li><strong>Gantt chart</strong>: time diagram.</li>
+<li><strong>Milestones</strong>: project milestones.</li>
+<li><strong>Full edit</strong>: the same interface used to create the project.</li>
+</ul>
+<p>At the bottom you find <strong>Notes</strong>, <strong>Tracker</strong>, <strong>Attachments</strong>, <strong>Members</strong> and
+<strong>Budget</strong>. These are not decorative tabs: each one answers a different question
+about the project.</p>
+<h3 id="statistics-distribution-and-activity">Statistics, distribution and activity<a class="headerlink" href="#statistics-distribution-and-activity" title="Permanent link">¶</a></h3>
+<p><strong>Statistics</strong> summarises people involved, total work hours, planned hours,
+billable hours and project duration. <strong>Workload distribution</strong> and <strong>Task
+distribution</strong> show the percentage split of work and tasks. <strong>Activity</strong> shows what
+happened and when.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-statistics.png" data-desc-position="bottom"><img alt="Project statistics" src="../../../assets/img/parte-06/project-statistics.png"></a></p>
+<p>The <strong>Budget</strong> tab calculates profitability and compares estimated cost, total
+cost, amount charged and average cost per hour. It also breaks cost down by role.
+If hours are not booked properly, this report is a work of fiction with a table
+layout.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-budget.png" data-desc-position="bottom"><img alt="Project budget" src="../../../assets/img/parte-06/project-budget.png"></a></p>
+<p><strong>Tracker</strong> records project operations: opening, closing, changes and additions of
+information. It is the history that answers "who changed this, and when?".</p>
+<h2 id="people-and-roles">People and roles<a class="headerlink" href="#people-and-roles" title="Permanent link">¶</a></h2>
+<p>In <strong>Members</strong> you add or remove project users with <strong>Add role people</strong>. A user can
+have a global role in the project and a different role in each task. Permissions
+depend on the role: from full modification to simply reporting work.</p>
+<p>Roles are managed in <strong>People → Roles management</strong>. Pandora ITSM includes these
+default roles:</p>
+<ul>
+<li>Project manager.</li>
+<li>Systems engineer.</li>
+<li>Junior consultant.</li>
+<li>Junior programmer.</li>
+<li>Senior programmer.</li>
+<li>Analyst.</li>
+<li>Senior consultant.</li>
+<li>Support engineer.</li>
+</ul>
+<p>The <strong>Project manager</strong> role can only be edited, not deleted. Each role has an
+hourly cost used to calculate task and project costs. Additional costs —expense
+invoices or other charges— are booked directly against the task.</p>
+<h2 id="tasks">Tasks<a class="headerlink" href="#tasks" title="Permanent link">¶</a></h2>
+<p>Planning is done in <strong>Project overview → Task planning</strong>. The list shows tasks with
+their status, dates, progress, hours worked, deviation, priority and tags. You can
+sort by any column.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/task-planning.png" data-desc-position="bottom"><img alt="Task planning" src="../../../assets/img/parte-06/task-planning.png"></a></p>
+<p>The <strong>Hours worked</strong> column opens a summary of the task's work units: cost, hours,
+breakdown and filters by date, milestone or person. Filtered information can be
+exported to CSV.</p>
+<p>The <strong>Op.</strong> column groups the actions:</p>
+<ul>
+<li><strong>Members</strong>: people taking part in the task.</li>
+<li><strong>Issues</strong>: associated tickets.</li>
+<li><strong>Work units</strong>: add work units.</li>
+<li><strong>Edit</strong>: edit the task.</li>
+<li><strong>Delete</strong>: permanently delete the task.</li>
+</ul>
+<p>For a ticket's work units to be booked against the task and project, you must
+assign a role and enable <strong>Add to project's cost</strong> when creating them.</p>
+<h3 id="creating-and-editing-a-task">Creating and editing a task<a class="headerlink" href="#creating-and-editing-a-task" title="Permanent link">¶</a></h3>
+<p>With <strong>Create</strong> at the bottom of the list you create a task with its basic data:
+name, priority, parent task, start and end dates, owner and estimated hours. You
+can also enable email notifications at start and end, the overtime notice and
+recurrence.</p>
+<p>Recurrence —weekly, monthly or annual— keeps an hour counter per period. The
+counter resets at the end of each interval, but booked hours remain in the task
+total. The recurrence interval cannot exceed total hours.</p>
+<p>After creating it, edit it to assign people in <strong>Add users to task</strong>, set costs,
+tags, priority, task type and custom fields.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/task-edit.png" data-desc-position="bottom"><img alt="Editing a task" src="../../../assets/img/parte-06/task-edit.png"></a></p>
+<p>The edit form also includes:</p>
+<ul>
+<li><strong>Estimated cost</strong> and <strong>Fixed cost</strong>.</li>
+<li><strong>Related company</strong> and <strong>Related contract/s</strong>.</li>
+<li><strong>Progression based on hours</strong>: calculates progress from work units. If disabled,
+  moving the progress bar does not change the task status.</li>
+<li><strong>Task links</strong>: time relationships with other tasks.</li>
+</ul>
+<h3 id="task-links">Task links<a class="headerlink" href="#task-links" title="Permanent link">¶</a></h3>
+<p>Links define the chronological order:</p>
+<table>
+<thead>
+<tr>
+<th>Link</th>
+<th>What it enforces</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Start to start</strong></td>
+<td>Linked tasks cannot start before this task starts.</td>
+</tr>
+<tr>
+<td><strong>Finish to start</strong></td>
+<td>Linked tasks cannot start before this task ends.</td>
+</tr>
+<tr>
+<td><strong>Finish to finish</strong></td>
+<td>Linked tasks cannot end before this task ends, although they may end later.</td>
+</tr>
+</tbody>
+</table>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/task-links.png" data-desc-position="bottom"><img alt="Task links" src="../../../assets/img/parte-06/task-links.png"></a></p>
+<h3 id="tracking-and-moving">Tracking and moving<a class="headerlink" href="#tracking-and-moving" title="Permanent link">¶</a></h3>
+<p>Pandora ITSM records the opening, closing, changes and additions of information for
+each task, including work units and attached files. If a task moves to another
+project or parent task, its work units stay linked to it.</p>
+<h3 id="work-units">Work units<a class="headerlink" href="#work-units" title="Permanent link">¶</a></h3>
+<p>Project work units can be created from the task planner —the recommended option—
+or from <strong>People → Work unit → Add work unit</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/task-work-unit.png" data-desc-position="bottom"><img alt="Adding a work unit" src="../../../assets/img/parte-06/task-work-unit.png"></a></p>
+<p>There are two paths that should not be confused:</p>
+<ul>
+<li>A <strong>ticket's</strong> work units book the ticket time when it is assigned to a task, has
+  a role and <strong>Add to project's cost</strong> is enabled.</li>
+<li><strong>Manual</strong> work units book exactly the time entered.</li>
+</ul>
+<p>The manual form can split a work unit into blocks of hours —four by default—
+forward or backward in time, keeping the content and changing the date. It is
+useful for booking a week of work without creating ten records by hand.</p>
+<p>There are two special cases: <strong>Work from home</strong> and work units without a project
+or task. They are computed as special tasks inside a special project. Holidays and
+sick leave have their own section in <strong>People → Work unit → Vacations and sick
+leave</strong>.</p>
+<h3 id="task-custom-fields">Task custom fields<a class="headerlink" href="#task-custom-fields" title="Permanent link">¶</a></h3>
+<p>In <strong>Projects → Tasks types</strong> you create task types. Each type can have custom
+fields: numeric, text, date, true/false, list or linked. When editing a task you
+choose the type and its fields appear.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/task-custom-fields.png" data-desc-position="bottom"><img alt="Task custom fields" src="../../../assets/img/parte-06/task-custom-fields.png"></a></p>
+<p>The behaviour is similar to ticket custom fields: they classify, filter and report.
+A task type with twenty fields nobody fills in does not improve planning.</p>
+<h2 id="milestones">Milestones<a class="headerlink" href="#milestones" title="Permanent link">¶</a></h2>
+<p>A <strong>milestone</strong> is a zero-duration task that represents an important date: end of a
+phase, report delivery, customer review. It is managed in <strong>Project overview →
+Milestones</strong> and can be used to filter reports and searches.</p>
+<p>Milestones support custom fields with <strong>Milestone fields</strong>:</p>
+<ul>
+<li><strong>Name</strong>: mandatory; names can repeat.</li>
+<li><strong>Field visibility</strong>: shows the field in the milestone list.</li>
+<li><strong>Type</strong>: text, text area, combo or checkbox.</li>
+</ul>
+<h2 id="attachments">Attachments<a class="headerlink" href="#attachments" title="Permanent link">¶</a></h2>
+<p>In <strong>Project overview → Attachments</strong> you can upload, download and delete project
+files. Each file can have a description and can be searched by keyword, location
+—project, tickets or work units— and date.</p>
+<p>Source code files such as <code>.php</code> or <code>.pl</code> are not allowed; compress them before
+uploading. Only an administrator or the file creator with project administration
+permissions can delete it.</p>
+<h2 id="gantt-chart">Gantt chart<a class="headerlink" href="#gantt-chart" title="Permanent link">¶</a></h2>
+<p>In <strong>Project overview → Gantt chart</strong> you see tasks and their chronological
+relationships. It can be opened full screen, and you can add tasks and subtasks and
+link them by dragging from the end of one task to the start of the next.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-gantt.png" data-desc-position="bottom"><img alt="Gantt chart" src="../../../assets/img/parte-06/project-gantt.png"></a></p>
+<p>Unlinked tasks can be moved in time. Linked tasks follow the logical restriction:
+one does not start before the previous one ends. <strong>Show real planning</strong> compares
+the plan with the work actually done and can be viewed by month, week or day.</p>
+<h2 id="archiving-and-deletion">Archiving and deletion<a class="headerlink" href="#archiving-and-deletion" title="Permanent link">¶</a></h2>
+<p>When a project ends it can be archived from <strong>Projects → Project list → Options →
+Archive</strong>. The project moves to the archive view and keeps all its information.</p>
+<p>An archived project can be unarchived or deleted. Deleting it removes its tasks and
+leaves work units orphaned: they still exist, but without a project or task.
+Archived projects do not send automatic notifications for task, project or
+milestone closure.</p>
+<p>To see active and archived projects, open <strong>Filters</strong>, set <strong>Active</strong> to <strong>Any</strong> and
+apply. The list returns to the default filters when refreshed.</p>
+<h2 id="board-view">Board view<a class="headerlink" href="#board-view" title="Permanent link">¶</a></h2>
+<p><strong>Board view</strong> organises tickets and tasks in columns by status. The horizontal bar
+at the bottom scrolls through all columns. The filter section lets you filter by
+users, completion percentage, tags and other values.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-board.png" data-desc-position="bottom"><img alt="Board view" src="../../../assets/img/parte-06/project-board.png"></a></p>
+<p>Each column can be collapsed or expanded. Each task has quick actions to edit,
+create a work unit, move it, copy it or delete it. Tasks are collapsed by default
+and can be expanded.</p>
+<p>With <strong>Ctrl</strong> you can select several tasks and move them as a block to another
+column. It is the fastest way to reorganise a project without opening each task.</p>
+<h3 id="task-status-templates">Task status templates<a class="headerlink" href="#task-status-templates" title="Permanent link">¶</a></h3>
+<p>In <strong>Projects → Task status templates</strong> you define task statuses. The default
+template includes four statuses —<strong>Pending</strong>, <strong>In process</strong>, <strong>Completed</strong> and
+<strong>Verified</strong>— with their colour and visibility.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/task-status-template.png" data-desc-position="bottom"><img alt="Task status template" src="../../../assets/img/parte-06/task-status-template.png"></a></p>
+<p>The default template and its four statuses cannot be deleted. Creating a new
+template copies those four statuses, which also cannot be deleted. If a template in
+use is deleted, the project returns to the default template. Changing a project's
+template clears the current status, so you must assign one from the new template.</p>
+<h3 id="task-tag-templates">Task tag templates<a class="headerlink" href="#task-tag-templates" title="Permanent link">¶</a></h3>
+<p>In <strong>Projects → Task tag templates</strong> you define task tags. The default template
+includes <strong>Low</strong>, <strong>Medium</strong> and <strong>High</strong>.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/task-tag-template.png" data-desc-position="bottom"><img alt="Task tag template" src="../../../assets/img/parte-06/task-tag-template.png"></a></p>
+<p>You can create templates per project and add your own tags. Changing a project's
+template deletes tags already assigned to tasks. It is one of those operations best
+tested on a toy project before doing it on the important one.</p>
+<h2 id="exporting-to-csv">Exporting to CSV<a class="headerlink" href="#exporting-to-csv" title="Permanent link">¶</a></h2>
+<p>The board view exports selected tasks to CSV. The file includes, among others,
+these columns:</p>
+<div class="highlight"><pre><span></span><code>ID, Project, Parent Task, Task name, Description, Completion,
+Work units hours, Status, Priority, Start, End, Estimated hours,
+Cost, Periodicity, Start period, Interval hours, CC, Send email,
+Set hours, Involved people, Tags
+</code></pre></div>
+<p>Over HTTPS the download starts automatically; over HTTP you may need to authorise
+it in the browser. The export contains the selected tasks, not a complete copy of
+the project with its statuses and tickets.</p>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">¶</a></h2>
+<p>The <strong>Notes</strong> tab stores internal messages as a logbook. They can be searched by
+keyword and linked to a task; by default they are not linked to any task.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-notes.png" data-desc-position="bottom"><img alt="Project notes" src="../../../assets/img/parte-06/project-notes.png"></a></p>
+<p>Notes are excluded from system reports, so they are not the place to record hours
+or costs. In the current interface they can be edited and deleted; do not treat
+them as an immutable record.</p>
+<h2 id="workflow-rules">Workflow rules<a class="headerlink" href="#workflow-rules" title="Permanent link">¶</a></h2>
+<p>In <strong>Projects → Workflow rules</strong> you define automatic rules for projects and tasks.
+They are independent of ticket workflow rules and ship with four sample rules
+disabled.</p>
+<p>Each rule has an execution mode:</p>
+<ul>
+<li><strong>Cron</strong>: evaluated periodically.</li>
+<li><strong>Real time</strong>: evaluated when the user performs an action.</li>
+</ul>
+<p>Conditions are created in the <strong>Conditions</strong> tab and can combine project and task
+fields. The default relationship is <strong>OR</strong>; <strong>AND</strong>, <strong>AND NOT</strong>, <strong>OR NOT</strong> and
+<strong>XOR</strong> are also available. Conditions can be ordered with <strong>Up</strong> and <strong>Down</strong>.</p>
+<p>Actions are created in the <strong>Actions</strong> tab: send an email to one or more users,
+change the project manager, and so on.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-06/project-workflow-conditions.png" data-desc-position="bottom"><img alt="Project workflow rule conditions" src="../../../assets/img/parte-06/project-workflow-conditions.png"></a></p>
+<p>Email templates can use these macros:</p>
+<table>
+<thead>
+<tr>
+<th>Macro</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>_next_milestone_</code></td>
+<td>Date and time of the next milestone.</td>
+</tr>
+<tr>
+<td><code>_project_completion_</code></td>
+<td>Project completion percentage.</td>
+</tr>
+<tr>
+<td><code>_project_cost_deviation_</code></td>
+<td>Project cost deviation.</td>
+</tr>
+<tr>
+<td><code>_project_costs_</code></td>
+<td>Project cost.</td>
+</tr>
+<tr>
+<td><code>_project_end_date_</code></td>
+<td>Project end date.</td>
+</tr>
+<tr>
+<td><code>_project_estimated_costs_</code></td>
+<td>Estimated project cost.</td>
+</tr>
+<tr>
+<td><code>_project_estimated_hours_</code></td>
+<td>Estimated project hours.</td>
+</tr>
+<tr>
+<td><code>_project_manager_</code></td>
+<td>Project manager.</td>
+</tr>
+<tr>
+<td><code>_project_name_</code></td>
+<td>Project name.</td>
+</tr>
+<tr>
+<td><code>_project_pending_hours_</code></td>
+<td>Pending project hours.</td>
+</tr>
+<tr>
+<td><code>_project_start_date_</code></td>
+<td>Project start date.</td>
+</tr>
+<tr>
+<td><code>_project_used_hours_</code></td>
+<td>Hours worked on the project.</td>
+</tr>
+<tr>
+<td><code>_project_users_</code></td>
+<td>Users involved in the project.</td>
+</tr>
+<tr>
+<td><code>_task_completion_</code></td>
+<td>Task completion percentage.</td>
+</tr>
+<tr>
+<td><code>_task_end_date_</code></td>
+<td>Task end date.</td>
+</tr>
+<tr>
+<td><code>_task_estimated_hours_</code></td>
+<td>Estimated task hours.</td>
+</tr>
+<tr>
+<td><code>_task_name_</code></td>
+<td>Task name.</td>
+</tr>
+<tr>
+<td><code>_task_pending_hours_</code></td>
+<td>Pending task hours.</td>
+</tr>
+<tr>
+<td><code>_task_recurrence_</code></td>
+<td>Task recurrence.</td>
+</tr>
+<tr>
+<td><code>_task_start_date_</code></td>
+<td>Task start date.</td>
+</tr>
+<tr>
+<td><code>_task_used_hours_</code></td>
+<td>Hours worked on the task.</td>
+</tr>
+<tr>
+<td><code>_task_users_</code></td>
+<td>Users involved in the task.</td>
+</tr>
+<tr>
+<td><code>_workflow_content_</code></td>
+<td>Summary of hours, recurrence and other data.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="project-groups-and-types">Project groups and types<a class="headerlink" href="#project-groups-and-types" title="Permanent link">¶</a></h2>
+<p><strong>Project groups</strong> are managed in <strong>Projects → Project groups</strong>. They group
+projects that share characteristics. The name can repeat and the icon is optional.
+Then assign each project to its group and filter by it in the list.</p>
+<p><strong>Projects types</strong> are managed in <strong>Projects → Projects types</strong>. A project type can
+have custom fields: text, numeric, date, true/false, lists, hierarchically linked
+lists and URL with description. Those fields can be filtered in the project list.</p>
+<p>Each project type custom field has three common options:</p>
+<ul>
+<li><strong>Show in the projects list</strong>: displays it as a column in the list.</li>
+<li><strong>Global field</strong>: adds it to all existing and future types.</li>
+<li><strong>Required</strong>: forces a value to be set.</li>
+</ul>
+<p>Be careful with global fields: once created they can only be deleted, not edited.
+If they are also marked <strong>Show in the projects list</strong>, as many columns appear as
+project types exist. A project without a type uses the first one in the list when
+edited, so check the type before saving.</p>
+<h2 id="best-practices">Best practices<a class="headerlink" href="#best-practices" title="Permanent link">¶</a></h2>
+<ul>
+<li>Define a clear owner and project group from the start.</li>
+<li>Assign roles and costs before booking hours.</li>
+<li>Use types and custom fields only if they will be filtered or reported.</li>
+<li>Keep estimates and actual hours up to date.</li>
+<li>Use milestones for the dates that really matter.</li>
+<li>Archive finished projects instead of deleting them.</li>
+<li>Review status and tag templates before changing them.</li>
+<li>Read the <a href="../../parte-10/10.1-informes-y-dashboards/">project reports</a> after booking hours, not before any exist.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

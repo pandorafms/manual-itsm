@@ -1,0 +1,3401 @@
+<!DOCTYPE html><html lang="fr" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation produit de Pandora ITSM">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/fr/parte-4/4.1-inventario/">
+      
+      
+        <link rel="prev" href="../../parte-3/3.7-descargas-y-directorios/">
+      
+      
+        <link rel="next" href="../../parte-5/5.1-gestion-del-cambio/">
+      
+      
+        
+          <link rel="alternate" href="../../../parte-4/4.1-inventario/" hreflang="es">
+        
+          <link rel="alternate" href="../../../en/parte-4/4.1-inventario/" hreflang="en">
+        
+          <link rel="alternate" href="./" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. Inventaire - Pandora ITSM — Documentation produit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inventaire" class="md-skip">
+          Aller au contenu
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>En construction.</strong> Cette documentation est encore en cours
+      de rédaction : le contenu peut être incomplet ou changer sans préavis.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    Vous consultez une version qui n'est pas celle en vigueur (une version
+    antérieure à la dernière publiée).
+    <a href="../../../..">
+      <strong>Aller à la dernière version publiée.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="En-tête">
+    <a href="../../" title="Pandora ITSM — Documentation produit" class="md-header__button md-logo" aria-label="Pandora ITSM — Documentation produit" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Documentation produit
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Inventaire
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Passer en mode sombre" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer en mode sombre" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Passer en mode clair" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer en mode clair" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Sélectionner la langue">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../parte-4/4.1-inventario/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../en/parte-4/4.1-inventario/" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Rechercher" placeholder="Rechercher" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Recherche">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Effacer" aria-label="Effacer" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initialisation de la recherche
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Pandora ITSM — Documentation produit" class="md-nav__button md-logo" aria-label="Pandora ITSM — Documentation produit" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Documentation produit
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 01. Démarrage rapide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 01. Démarrage rapide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.1-instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Mise à jour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versions et cycle de support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Premiers pas et interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 02. Utilisateurs, permissions et organisation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 02. Utilisateurs, permissions et organisation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Utilisateurs, groupes et profils
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Authentification et sécurité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Entreprises et contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 03. Tickets et support
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 03. Tickets et support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets et incidents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Flux de travail et états
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLA, escalade et qualité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Courriel et support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Base de connaissances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Téléchargements et répertoires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 04. Inventaire
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 04. Inventaire
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventaire
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventaire
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#types-dobjet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types d'objet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#champs-personnalises-et-globaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Champs personnalisés et globaux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#champs-externes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Champs externes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objets-dinventaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objets d'inventaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vues-recherches-et-operations-massives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vues, recherches et opérations massives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controle-du-stock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contrôle du stock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etats-et-etiquettes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        États et étiquettes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acl-de-linventaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACL de l'inventaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableaux-de-bord-et-widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableaux de bord et widgets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-depuis-un-fichier-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import depuis un fichier CSV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventaire-distant-depuis-pandora-fms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventaire distant depuis Pandora FMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 05. Gestion du changement
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 05. Gestion du changement
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestion du changement
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 06. Projets
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 06. Projets
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-6/6.1-proyectos-y-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Projets et tâches
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 07. Gestion du temps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 07. Gestion du temps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Gestion du temps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Entreprises
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contrats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Factures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Modèles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campagnes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. E-mail et listes d'e-mails
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Formulaires
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 10. Rapports et tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 10. Rapports et tableaux de bord
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-10/10.1-informes-y-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Rapports et tableaux de bord
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 11. Automatisation et intégrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 11. Automatisation et intégrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.2-api-v1-heredada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (héritée)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Intégration avec Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Intégration avec Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. IA et chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 12. Administration avancée
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 12. Administration avancée
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.1-configuracion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Configuration avancée
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Maintenance et sauvegardes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 13. Annexes techniques
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 13. Annexes techniques
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a1-glosario-de-terminos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glossaire des termes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Mise à jour des versions de PHP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Mise à jour de MySQL 5.7 vers MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Intégration avec Microsoft 365
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Partie 14. Questions fréquentes (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Partie 14. Questions fréquentes (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation, mises à jour et licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Utilisateurs, accès et organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, flux et courriel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventaire et changements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Projets, temps, CRM et marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Rapports, API et intégrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table des matières">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table des matières
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#types-dobjet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Types d'objet
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#champs-personnalises-et-globaux" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Champs personnalisés et globaux
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#champs-externes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Champs externes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objets-dinventaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objets d'inventaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vues-recherches-et-operations-massives" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vues, recherches et opérations massives
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#controle-du-stock" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contrôle du stock
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etats-et-etiquettes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        États et étiquettes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acl-de-linventaire" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ACL de l'inventaire
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tableaux-de-bord-et-widgets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tableaux de bord et widgets
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#import-depuis-un-fichier-csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Import depuis un fichier CSV
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inventaire-distant-depuis-pandora-fms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inventaire distant depuis Pandora FMS
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bonnes-pratiques" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonnes pratiques
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="inventaire">Inventaire<a class="headerlink" href="#inventaire" title="Permanent link">¶</a></h1>
+<p>L'inventaire de Pandora ITSM n'échoue pas à cause de la console : il échoue à
+cause du modèle de données. Une liste d'équipements se monte en dix minutes ; un
+inventaire utile exige de décider au préalable quels types d'objet existent, quels
+champs sont partagés, qui peut voir quoi et comment les objets se relient entre
+eux. Le reste —vues, filtres et widgets— vient presque tout seul.</p>
+<p>Ce chapitre couvre l'inventaire complet : types d'objet, champs personnalisés et
+externes, objets, hiérarchie, stock, états, étiquettes, ACL, import CSV et
+inventaire distant depuis Pandora FMS. L'intégration avec Pandora FMS est
+détaillée au chapitre 11.3 ; ici, nous expliquons ce que l'inventaire en fait.</p>
+<p>L'inventaire sert à savoir quels objets
+l'organisation possède, où ils se trouvent, qui les utilise et à quels contrats,
+tickets et changements ils sont liés. Il ne découvre pas le réseau tout seul. Les
+objets entrent à la main, par CSV ou depuis la synchronisation avec Pandora FMS.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-overview.png" data-desc-position="bottom"><img alt="Liste principale de l'inventaire" src="../../../assets/img/parte-04/inventory-overview.png"></a></p>
+<h2 id="types-dobjet">Types d'objet<a class="headerlink" href="#types-dobjet" title="Permanent link">¶</a></h2>
+<p>Un type d'objet définit le modèle de données d'un ensemble d'objets. Un
+<code>Computer</code> n'a pas les mêmes champs qu'une licence ou qu'un contrat. Le menu est
+<code>Inventory → Object Types</code>.</p>
+<p>Pour créer un type, cliquez sur <code>Create</code>, renseignez ses caractéristiques et
+cliquez de nouveau sur <code>Create</code>. Pour le modifier, cliquez sur son nom. La liste
+permet de dupliquer un type avec tous ses champs personnalisés via <code>Duplicate</code>.</p>
+<p>Les paramètres du type sont les suivants :</p>
+<table>
+<thead>
+<tr>
+<th>Paramètre</th>
+<th>À quoi il sert</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Name</code></td>
+<td>Nom du type d'objet.</td>
+</tr>
+<tr>
+<td><code>Icon</code></td>
+<td>Icône associée ; les images sont déposées dans <code>images/objects/</code>.</td>
+</tr>
+<tr>
+<td><code>Show in tree view</code></td>
+<td>Si activé, le type apparaît comme racine dans la vue arborescente.</td>
+</tr>
+<tr>
+<td><code>Min. stock</code></td>
+<td>Stock minimum du type.</td>
+</tr>
+<tr>
+<td><code>Max. stock</code></td>
+<td>Stock maximum du type.</td>
+</tr>
+<tr>
+<td><code>Catalogs to show in overview</code></td>
+<td>Catalogues affichés comme sections dans le résumé de l'objet.</td>
+</tr>
+<tr>
+<td><code>Description</code></td>
+<td>Description du type.</td>
+</tr>
+<tr>
+<td><code>Sync interval</code></td>
+<td>Fréquence de synchronisation avec Pandora FMS : <code>Never</code>, <code>Weekly</code>, <code>Every 15 days</code>, <code>Monthly</code> ou <code>First time only</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><code>Sync interval</code> n'apparaît que lorsque des nœuds Pandora FMS sont configurés et
+que le type est associé à un schéma Pandora FMS. Sans intégration, il n'y a rien à
+synchroniser.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-object-types.png" data-desc-position="bottom"><img alt="Liste des types d'objet" src="../../../assets/img/parte-04/inventory-object-types.png"></a></p>
+<h2 id="champs-personnalises-et-globaux">Champs personnalisés et globaux<a class="headerlink" href="#champs-personnalises-et-globaux" title="Permanent link">¶</a></h2>
+<p>Chaque type possède ses propres champs. Ils se gèrent depuis <code>Actions → Fields</code>
+dans la liste des types : on les crée avec <code>Create</code>, on les modifie en cliquant
+sur leur nom et on les ordonne avec les flèches de la colonne d'actions. La
+suppression se trouve au même endroit.</p>
+<p>Les <strong>champs globaux</strong> sont l'exception utile : ils sont définis une seule fois
+dans <code>Inventory → Object types → Global Fields</code> et ajoutés à tous les types.
+Chaque type peut les masquer ou changer leur ordre, mais le champ reste le même.
+Ils servent pour ce qui est toujours présent : numéro de série, emplacement, date
+d'achat.</p>
+<p>Les propriétés communes à tous les champs sont les suivantes :</p>
+<table>
+<thead>
+<tr>
+<th>Propriété</th>
+<th>Effet</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Unique</code></td>
+<td>Un seul objet peut porter cette valeur ; elle fait office d'identifiant.</td>
+</tr>
+<tr>
+<td><code>Inherit</code></td>
+<td>L'objet hérite du propriétaire, des utilisateurs et des entreprises de l'objet parent.</td>
+</tr>
+<tr>
+<td><code>Show in list</code></td>
+<td>Le champ apparaît par défaut dans la liste générale et peut servir de colonne.</td>
+</tr>
+<tr>
+<td><code>Prevent updates</code></td>
+<td>Le champ n'est pas mis à jour à la réception de données d'inventaire distant.</td>
+</tr>
+</tbody>
+</table>
+<p>Les types de données disponibles sont : numérique, case à cocher, texte, liste
+d'options, champ externe, date, lien web, mot de passe et valeur avec unité. Dans
+la liste d'options, les valeurs sont séparées par des virgules dans <code>Combo
+values</code>.</p>
+<h2 id="champs-externes">Champs externes<a class="headerlink" href="#champs-externes" title="Permanent link">¶</a></h2>
+<p>Un champ externe lit des informations dans une table supplémentaire de la base de
+données, créée à la main avec le DB Manager. C'est le moyen de relier
+l'inventaire à vos propres catalogues sans transformer chaque valeur en liste
+statique.</p>
+<p>Dans un <strong>champ simple</strong>, deux valeurs sont obligatoires : <code>External table name</code>,
+le nom exact de la table, et <code>Field to be displayed</code>, la colonne affichée. Les
+objets se mettent à jour seuls lorsque la table change. <code>Primary key</code>, <code>Foreign
+key</code> et <code>Parent table name</code> restent vides : ils concernent les champs composites.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-external-field.png" data-desc-position="bottom"><img alt="Création d'un champ externe simple" src="../../../assets/img/parte-04/inventory-external-field.png" width="340"></a></p>
+<p>Un <strong>champ composite</strong> enchaîne deux tables. La table parente possède une clé
+primaire ; la table fille possède une clé étrangère qui pointe vers elle. Lors de
+la création du champ parent, on indique la <code>Primary key</code> ; pour le champ fils, la
+<code>Foreign key</code> et le <code>Parent table name</code>. Le résultat est une liste déroulante qui
+dépend de la valeur précédente : si l'on efface le parent, le fils peut être
+choisi de nouveau.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-external-field-composite.png" data-desc-position="bottom"><img alt="Configuration d'un champ externe composite" src="../../../assets/img/parte-04/inventory-external-field-composite.png" width="340"></a></p>
+<p>Le cas classique est le pays et la ville. Créez les tables avec le DB Manager :</p>
+<div class="highlight"><pre><span></span><code><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t_country</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id_country</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span>
+<span class="p">);</span>
+
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">t_city</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="n">id_city</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">TEXT</span><span class="p">,</span>
+<span class="w">    </span><span class="n">id_country</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">id_country</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">t_country</span><span class="p">(</span><span class="n">id_country</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>Ajoutez les valeurs avec <code>INSERT</code>, créez le champ <code>Country</code> sur <code>t_country</code> et le
+champ <code>City</code> sur <code>t_city</code> avec <code>id_city</code> comme clé primaire, <code>id_country</code> comme
+clé étrangère et <code>t_country</code> comme table parente. Dès lors, tout objet du type
+choisi peut sélectionner un pays et une ville. Si le champ possède <code>Show in list</code>,
+il apparaît aussi comme colonne et comme filtre.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-external-field-filter.png" data-desc-position="bottom"><img alt="Filtre par un champ externe" src="../../../assets/img/parte-04/inventory-external-field-filter.png" width="480"></a></p>
+<h2 id="objets-dinventaire">Objets d'inventaire<a class="headerlink" href="#objets-dinventaire" title="Permanent link">¶</a></h2>
+<p>Les objets se créent dans <code>Inventory → Lists</code> avec <code>Create</code>. Avant de remplir les
+champs, il faut décider qui les voit :</p>
+<ul>
+<li><code>Owner</code> : propriétaire de l'objet.</li>
+<li><code>Associated companies</code> : entreprises associées.</li>
+<li><code>Associated users</code> : utilisateurs associés.</li>
+<li><code>Public</code> : si activé, tout le monde le voit.</li>
+</ul>
+<p>Ces quatre champs constituent l'ACL de l'objet. Un objet est visible pour son
+propriétaire, pour les utilisateurs associés, pour les utilisateurs des
+entreprises associées et pour tous s'il est public. Les autres ne le voient pas.</p>
+<p>Un objet peut avoir un <code>Parent</code>, ce qui crée une hiérarchie, et des relations avec
+d'autres objets. Il stocke aussi le type, l'état, le contrat, la date de
+réception, la date de sortie, la date EOL, une image et un code QR.</p>
+<p>La vue de l'objet comporte deux colonnes. À droite se trouvent les données
+principales et les actions ; à gauche, les onglets :</p>
+<ul>
+<li>Champs personnalisés.</li>
+<li><code>Tickets</code> : historique des tickets associés.</li>
+<li><code>Changes</code> : changements associés.</li>
+<li>Relations.</li>
+<li><code>Tracker</code> : historique des modifications de l'objet et de ses enfants.</li>
+<li>Utilisateurs associés.</li>
+</ul>
+<p>Les objets de type <code>Computer</code> ajoutent <code>Hardware</code>, <code>Software</code> et <code>Extended Info</code>
+avec les informations collectées depuis Pandora FMS.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-object-detail.png" data-desc-position="bottom"><img alt="Vue d'un objet d'inventaire" src="../../../assets/img/parte-04/inventory-object-detail.png"></a></p>
+<p>Les objets peuvent être dupliqués depuis la liste avec <code>Duplicate</code> ; c'est le
+moyen rapide d'enregistrer dix équipements qui ne diffèrent que par le numéro de
+série. Ils peuvent aussi être <strong>reclassés</strong> dans un autre type : le système demande
+comment chaque champ source correspond au champ de destination, convertit les
+identifiants internes et laisse remplir les nouveaux champs à la main. Certains
+champs sont abandonnés ; il convient de vérifier le résultat.</p>
+<h2 id="vues-recherches-et-operations-massives">Vues, recherches et opérations massives<a class="headerlink" href="#vues-recherches-et-operations-massives" title="Permanent link">¶</a></h2>
+<p><code>Inventory → Lists</code> propose quatre façons de regarder la même chose :</p>
+<ul>
+<li><strong>Résumé</strong> : page d'accueil avec l'état de l'inventaire et les principaux types.</li>
+<li><strong>Liste</strong> : tableau de données avec filtres, colonnes configurables et export.</li>
+<li><strong>Arborescence</strong> : hiérarchie parent-enfant, groupée par type.</li>
+<li><strong>Stock</strong> : contrôle des stocks, expliqué plus bas.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-dashboard.png" data-desc-position="bottom"><img alt="Résumé de l'inventaire" src="../../../assets/img/parte-04/inventory-dashboard.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-table-filter.png" data-desc-position="bottom"><img alt="Liste avec filtres" src="../../../assets/img/parte-04/inventory-table-filter.png"></a></p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-tree.png" data-desc-position="bottom"><img alt="Vue arborescente" src="../../../assets/img/parte-04/inventory-tree.png"></a></p>
+<p>La recherche filtre par texte libre —description, identifiant et champs
+personnalisés—, par état, par type d'objet et par taille de page. Le résultat peut
+être exporté en CSV.</p>
+<p>En mode liste, vous pouvez sélectionner plusieurs objets et lancer des opérations
+massives : supprimer, changer le type d'objet, le parent, l'entreprise, le
+contrat, le propriétaire ou l'état. La suppression est irréversible ; le reste
+peut être défait objet par objet.</p>
+<h2 id="controle-du-stock">Contrôle du stock<a class="headerlink" href="#controle-du-stock" title="Permanent link">¶</a></h2>
+<p>Le stock n'est pas un nombre isolé : il se calcule à partir de deux éléments.
+Chaque type possède <code>min_stock</code> et <code>max_stock</code> ; chaque objet possède une limite
+de relations (<code>relation_limit</code>, appelée <code>Max relations</code> dans l'interface).</p>
+<ul>
+<li>Avec <code>0</code> ou vide, l'objet compte pour une unité et autorise un nombre illimité
+  de relations.</li>
+<li>Avec <code>1</code> ou plus, l'objet autorise au maximum ce nombre de relations et
+  apparaît au second niveau du contrôle du stock.</li>
+</ul>
+<p>La vue de stock comporte deux niveaux. Le premier affiche chaque type avec son
+stock minimum, maximum et utilisé, une barre de pourcentage et des actions pour
+voir les objets, créer un ticket, créer un change ou programmer une tâche. Le
+second affiche les objets avec une limite de relations et leur pourcentage
+d'utilisation. Si le total descend sous le minimum, l'avertissement passe au
+rouge.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-stock.png" data-desc-position="bottom"><img alt="Contrôle du stock à deux niveaux" src="../../../assets/img/parte-04/inventory-stock.png"></a></p>
+<h2 id="etats-et-etiquettes">États et étiquettes<a class="headerlink" href="#etats-et-etiquettes" title="Permanent link">¶</a></h2>
+<p><code>Inventory → Status</code> gère les états des objets. Pandora ITSM fournit cinq états
+internes : <code>New</code>, <code>In use</code>, <code>Unused</code>, <code>Issued</code> et <code>Missing</code>. Ils peuvent être
+modifiés et vous pouvez ajouter vos propres états. Si un état attribué est
+supprimé, les objets concernés reviennent à <code>New</code>.</p>
+<p>Les étiquettes (<code>Inventory → Tags</code>) fonctionnent comme dans le reste de la
+console : nom, couleur et relation avec les objets. Elles ne s'affichent pas par
+défaut dans la liste ; ajoutez-les comme colonne ou filtrez par elles.</p>
+<h2 id="acl-de-linventaire">ACL de l'inventaire<a class="headerlink" href="#acl-de-linventaire" title="Permanent link">¶</a></h2>
+<p>L'inventaire possède son propre jeu de permissions :</p>
+<table>
+<thead>
+<tr>
+<th>Bit</th>
+<th>Ce qu'il autorise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VR</code></td>
+<td>Voir les objets auxquels on a accès.</td>
+</tr>
+<tr>
+<td><code>VW</code></td>
+<td>Créer, modifier et supprimer des objets ; inclut la lecture.</td>
+</tr>
+<tr>
+<td><code>VM</code></td>
+<td>Gérer tout l'inventaire : objets, types, états, étiquettes et catalogues.</td>
+</tr>
+</tbody>
+</table>
+<p>La lecture n'est pas globale : la visibilité de l'objet s'applique (public,
+propriétaire, utilisateur associé ou entreprise associée). L'écriture exige <code>VW</code>
+ou <code>VM</code>, et la gestion des types, états et étiquettes exige <code>VM</code>. Le
+superadministrateur contourne l'ACL. Le rôle de l'entreprise dans les autres
+sections est expliqué au chapitre 2.3.</p>
+<h2 id="tableaux-de-bord-et-widgets">Tableaux de bord et widgets<a class="headerlink" href="#tableaux-de-bord-et-widgets" title="Permanent link">¶</a></h2>
+<p>L'inventaire fournit ses propres widgets de tableau de bord :</p>
+<ul>
+<li><code>Inventory by status</code> : pourcentage par état, filtrable par type.</li>
+<li><code>Inventory by object type</code> : pourcentage par type, avec multi-sélection.</li>
+<li><code>Top N stock inventory</code> : les types avec le pourcentage d'utilisation le plus
+  élevé.</li>
+<li><code>Stock relations</code> : stock global et stock par objet avec limite de relations.</li>
+<li><code>Inventory counter</code> : nombre d'objets.</li>
+<li><code>Inventory type boxes</code> : accès directs par type d'objet.</li>
+</ul>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-widgets.png" data-desc-position="bottom"><img alt="Widgets de l'inventaire" src="../../../assets/img/parte-04/inventory-widgets.png"></a></p>
+<h2 id="import-depuis-un-fichier-csv">Import depuis un fichier CSV<a class="headerlink" href="#import-depuis-un-fichier-csv" title="Permanent link">¶</a></h2>
+<p>L'import massif se trouve dans <code>Inventory → Import CSV</code>. Choisissez le type
+d'objet, vérifiez le séparateur —<code>|</code> par défaut— et téléchargez le modèle avec
+<code>Download sample CSV</code>. Le modèle change selon le type car il inclut ses champs
+personnalisés.</p>
+<p>Le fichier doit comporter un en-tête sur la première ligne et au moins neuf
+colonnes dans cet ordre :</p>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Colonne</th>
+<th>Contenu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>Name</code></td>
+<td>Nom de l'objet. Obligatoire.</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>Owner</code></td>
+<td>Utilisateur propriétaire. Obligatoire et doit exister.</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>Status</code></td>
+<td>État par libellé ou identifiant. Obligatoire.</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>Receipt date</code></td>
+<td>Date de réception.</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>Removal date</code></td>
+<td>Date de sortie.</td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>Description</code></td>
+<td>Description.</td>
+</tr>
+<tr>
+<td>7</td>
+<td><code>Companies</code></td>
+<td>Identifiants d'entreprise séparés par des virgules.</td>
+</tr>
+<tr>
+<td>8</td>
+<td><code>Associated user</code></td>
+<td>Identifiants d'utilisateur séparés par des virgules.</td>
+</tr>
+<tr>
+<td>9</td>
+<td><code>Parent</code></td>
+<td>Identifiant de l'objet parent, s'il existe.</td>
+</tr>
+<tr>
+<td>10+</td>
+<td>Champs personnalisés</td>
+<td>Dans l'ordre du modèle du type.</td>
+</tr>
+</tbody>
+</table>
+<p>Les entreprises et les utilisateurs acceptent les crochets et les espaces, mais
+une liste séparée par des virgules est l'option sûre. Les champs personnalisés
+sont validés selon leur type : nombres, listes fermées, dates, champs externes et
+unicité. Si une ligne échoue, l'import indique la ligne et le motif.</p>
+<p>Ce format n'est pas celui que décrivaient les versions précédentes de la
+documentation : elles listaient des colonnes de fabricant, de contrat, de type
+d'objet ou <code>public</code>. Dans la version actuelle, le type se choisit dans le
+formulaire et le reste vient du modèle. Le code fait référence.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-04/inventory-import-csv.png" data-desc-position="bottom"><img alt="Import de l'inventaire depuis un CSV" src="../../../assets/img/parte-04/inventory-import-csv.png"></a></p>
+<h2 id="inventaire-distant-depuis-pandora-fms">Inventaire distant depuis Pandora FMS<a class="headerlink" href="#inventaire-distant-depuis-pandora-fms" title="Permanent link">¶</a></h2>
+<p>L'inventaire distant ne reçoit pas directement de fichiers XML envoyés par les
+EndPoints : il se synchronise depuis Pandora FMS. Le serveur Pandora FMS collecte
+les informations avec ses EndPoints et Pandora ITSM les lit à travers le nœud
+configuré, en créant ou en mettant à jour les objets. L'envoi direct d'inventaire
+depuis un EndPoint vers Pandora ITSM n'existe plus.</p>
+<p>La configuration de destination se trouve dans <code>Setup → Pandora FMS Inventory</code>,
+section <code>Remote Inventory</code> :</p>
+<ul>
+<li><code>Default owner</code> : propriétaire des nouveaux objets. Il est obligatoire.</li>
+<li><code>Associated companies</code> : entreprises par défaut.</li>
+<li><code>Associated users</code> : utilisateurs par défaut.</li>
+</ul>
+<p>Ces valeurs remplissent les objets créés par la synchronisation et décident donc
+de leur visibilité. Le nœud Pandora FMS, ses identifiants et sa portée se
+configurent dans l'intégration ; le chapitre 11.3 couvre la procédure complète.</p>
+<p>La synchronisation n'est pas immédiate : chaque type d'objet fixe son rythme avec
+<code>Sync interval</code> (<code>Never</code>, <code>Weekly</code>, <code>Every 15 days</code>, <code>Monthly</code> ou <code>First time
+only</code>). Le type doit être associé au schéma Pandora FMS pour que l'option
+apparaisse.</p>
+<p>Le cron d'inventaire est la pièce qui fait fonctionner cet ensemble. Il exécute
+<code>include/inventory_cron.php</code> et doit figurer dans <code>crontab</code>, généralement toutes
+les cinq minutes :</p>
+<div class="highlight"><pre><span></span><code>php<span class="w"> </span>/var/www/html/pandoraitsm/include/inventory_cron.php
+</code></pre></div>
+<p>À chaque passage, il enregistre la marque <code>inventory_crontask</code>, synchronise
+l'inventaire des nœuds Pandora FMS en respectant l'intervalle de chaque type,
+expire les programmations échues et supprime les objets <code>Missing</code> qui n'ont plus
+de parent.</p>
+<p>Les EndPoints s'installent et se configurent dans Pandora FMS, pas dans Pandora
+ITSM : ce sont eux qui alimentent le serveur de supervision. ITSM ne consomme que
+le résultat à travers le nœud. Les informations matérielles, logicielles et
+étendues des objets <code>Computer</code> arrivent par cette voie et sont liées via
+<code>id_pandora</code>.</p>
+<h2 id="bonnes-pratiques">Bonnes pratiques<a class="headerlink" href="#bonnes-pratiques" title="Permanent link">¶</a></h2>
+<ul>
+<li>Définissez peu de types d'objet et de champs, avec discernement ; chaque champ
+  supplémentaire se paie à chaque enregistrement, filtre et import.</li>
+<li>Utilisez les champs globaux pour ce que tous les types partagent et des champs
+  propres pour le spécifique.</li>
+<li>Modélisez la hiérarchie avant d'importer : changer les parents après coup coûte
+  plus cher.</li>
+<li>Vérifiez <code>Min. stock</code> et <code>Max. relations</code> avant que le stock ne commence à
+  mentir.</li>
+<li>Respectez l'ACL dès le départ : propriétaire, entreprises, utilisateurs et
+  <code>Public</code> décident qui voit l'objet.</li>
+<li>Ne transformez pas l'inventaire en découverte réseau : si la donnée n'est ni
+  dans Pandora FMS ni dans le CSV, elle n'apparaît pas.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Retour en haut de la page
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copi\u00e9 dans le presse-papier", "clipboard.copy": "Copier dans le presse-papier", "search.result.more.one": "1 de plus sur cette page", "search.result.more.other": "# de plus sur cette page", "search.result.none": "Aucun document trouv\u00e9", "search.result.one": "1 document trouv\u00e9", "search.result.other": "# documents trouv\u00e9s", "search.result.placeholder": "Taper pour d\u00e9marrer la recherche", "search.result.term.missing": "Non trouv\u00e9", "select.version": "S\u00e9lectionner la version"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

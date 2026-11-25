@@ -1443,6 +1443,8 @@
       
         
       
+        
+      
     
     
     
@@ -1666,6 +1668,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tareas
   
 
     
@@ -1967,6 +1997,8 @@
       
         
       
+        
+      
     
     
     
@@ -2070,14 +2102,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integración con Pandora FMS
+    3. MCP
   
 
     
@@ -2098,14 +2130,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integración con Pandora RC
+    4. Integración con Pandora FMS
   
 
     
@@ -2126,14 +2158,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. IA y chatbot
+    5. Integración con Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. IA y chatbot
   
 
     
@@ -2162,6 +2222,8 @@
   
     
     
+      
+        
       
         
       
@@ -2250,6 +2312,34 @@
     
   
     2. Mantenimiento y copias de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extensiones de consola
   
 
     
@@ -2987,11 +3077,17 @@ configurables son Support, Projects, Changes, CRM, People e Inventory; los aviso
 personales se muestran en el centro, pero no se configuran por canal. Los avisos
 de sistema (PHP, MySQL, cron, licencia, base de datos, ficheros,
 Chromium, API y Warp) los gestiona el administrador y solo aparecen si el
-supervisor de consola ha habilitado ese grupo.</p>
+supervisor de consola ha habilitado ese grupo. La campana se actualiza sin
+recargar la página y cada aviso enlaza con el ticket, la tarea, el cambio o la
+nota que lo originó.</p>
+<p>Las menciones se escriben como <code>@usuario</code> en una nota, una unidad de trabajo o
+un comentario. El usuario mencionado recibe una notificación de tipo <code>Mention in
+a ticket</code>, <code>Mention in a work unit</code> o <code>Company note mention</code>, según el origen, y
+puede abrir el elemento desde la campana.</p>
 <p>El icono de chat de la cabecera muestra las notificaciones del chat interno y su
 estado. No confundas ese chat con el chatbot de la esquina inferior derecha:
 el primero es conversación entre usuarios; el segundo es el asistente de IA, que
-se configura en el capítulo 11.5.</p>
+se configura en el capítulo 11.6.</p>
 <p>El menú lateral tiene dos modos: clásico, con las etiquetas a la vista, y
 plegado, solo con iconos y submenús emergentes. El botón del final del menú
 alterna entre ambos y la preferencia se guarda en el navegador. El logotipo del
@@ -3081,7 +3177,7 @@ es la lista por defecto de un administrador:</p>
 </tr>
 <tr>
 <td><strong>Support</strong></td>
-<td>Tickets, importación CSV, tipos de ticket, plantillas de orden de trabajo, etiquetas, equipos, SLA, reglas de workflow, base de conocimiento, descargas y chat.</td>
+<td>Tickets, importación CSV, tipos de ticket, plantillas de ticket, plantillas de orden de trabajo, etiquetas, equipos, SLA, reglas de workflow, base de conocimiento, descargas y chat.</td>
 <td><a href="../../parte-3/3.1-tickets-e-incidencias/">3.1</a>, <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/">3.2</a>, <a href="../../parte-3/3.3-sla-escalado-y-calidad/">3.3</a>, <a href="../../parte-3/3.4-correo-y-soporte/">3.4</a>, <a href="../../parte-3/3.5-base-de-conocimiento/">3.5</a>, <a href="../../parte-3/3.6-wiki/">3.6</a>, <a href="../../parte-3/3.7-descargas-y-directorios/">3.7</a></td>
 </tr>
 <tr>
@@ -3101,8 +3197,8 @@ es la lista por defecto de un administrador:</p>
 </tr>
 <tr>
 <td><strong>CRM</strong></td>
-<td>Contactos, empresas, contratos, facturas, deals, quotes, productos y workflows.</td>
-<td><a href="../../parte-8/8.1-contactos/">8.1</a></td>
+<td>Contactos, empresas, contratos, facturas, deals, quotes, productos, workflows y tareas.</td>
+<td><a href="../../parte-8/8.1-contactos/">8.1</a>, <a href="../../parte-8/8.7-workflows/">8.7</a>, <a href="../../parte-8/8.8-tareas/">8.8</a></td>
 </tr>
 <tr>
 <td><strong>Marketing</strong></td>
@@ -3116,8 +3212,8 @@ es la lista por defecto de un administrador:</p>
 </tr>
 <tr>
 <td><strong>Setup</strong></td>
-<td>Configuración general, visual, autenticación, correo, gestor de ficheros, news board, base de datos, enlaces, eventos, auditoría, logs, traducciones, copias y visibilidad de menús.</td>
-<td><a href="../../parte-12/12.1-configuracion-avanzada/">12.1</a></td>
+<td>Configuración general, visual, autenticación, correo, gestor de ficheros, news board, base de datos, enlaces, eventos, auditoría, logs, traducciones, copias, visibilidad de menús y extensiones de consola.</td>
+<td><a href="../../parte-12/12.1-configuracion-avanzada/">12.1</a>, <a href="../../parte-12/12.3-extensiones-de-consola/">12.3</a></td>
 </tr>
 <tr>
 <td><strong>Warp update</strong></td>

@@ -1486,6 +1486,8 @@
       
         
       
+        
+      
     
     
     
@@ -1709,6 +1711,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tasks
   
 
     
@@ -2010,6 +2040,8 @@
       
         
       
+        
+      
     
     
     
@@ -2113,14 +2145,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integration with Pandora FMS
+    3. MCP
   
 
     
@@ -2141,14 +2173,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integration with Pandora RC
+    4. Integration with Pandora FMS
   
 
     
@@ -2169,14 +2201,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. AI and chatbot
+    5. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. AI and chatbot
   
 
     
@@ -2205,6 +2265,8 @@
   
     
     
+      
+        
       
         
       
@@ -2293,6 +2355,34 @@
     
   
     2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Console extensions
   
 
     
@@ -2951,6 +3041,8 @@ fields and define how they combine:</p>
   is met, the rule runs.</li>
 <li>Conditions can be reordered; evaluation order matters when there are several
   actions.</li>
+<li>The <strong>Tags</strong> condition is met when the ticket has at least one of the selected
+  tags. Tags are created beforehand in <strong>Support → Tickets → Tags</strong>.</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-03/workflow-conditions.png" data-desc-position="bottom"><img alt="Workflow rule conditions" src="../../../assets/img/parte-03/workflow-conditions.png"></a></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-03/workflow-condition-logic.png" data-desc-position="bottom"><img alt="AND/OR relationship between conditions" src="../../../assets/img/parte-03/workflow-condition-logic.png"></a></p>
@@ -2968,11 +3060,17 @@ fields and define how they combine:</p>
 <li>Run a command on the server or a custom script.</li>
 <li>Block or unblock.</li>
 <li>Change the type.</li>
+<li>Add tags.</li>
 </ul>
 <p>The most useful actions are usually the boring ones: assign the ticket to the
 right group, raise the priority when it has been idle too long, and notify the
 owner. The spectacular actions —running commands, changing types, blocking—
 should have a very short guest list.</p>
+<p>Tags classify without creating a new type. The <strong>Add tags</strong> action adds one or
+more tags to the ticket; it does not replace the ones it already had. Combine it
+with the <strong>Tags</strong> condition to create rules such as "if the ticket arrives with
+the <em>VIP</em> tag, add <em>High priority</em> and notify the team". If a tag is deleted,
+existing relations stop showing it.</p>
 <h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">¶</a></h2>
 <p>Actions accept macros that are replaced with ticket values:</p>
 <table>

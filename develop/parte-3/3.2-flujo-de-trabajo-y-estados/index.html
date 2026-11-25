@@ -1487,6 +1487,8 @@
       
         
       
+        
+      
     
     
     
@@ -1710,6 +1712,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tareas
   
 
     
@@ -2011,6 +2041,8 @@
       
         
       
+        
+      
     
     
     
@@ -2114,14 +2146,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integración con Pandora FMS
+    3. MCP
   
 
     
@@ -2142,14 +2174,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integración con Pandora RC
+    4. Integración con Pandora FMS
   
 
     
@@ -2170,14 +2202,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. IA y chatbot
+    5. Integración con Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. IA y chatbot
   
 
     
@@ -2206,6 +2266,8 @@
   
     
     
+      
+        
       
         
       
@@ -2294,6 +2356,34 @@
     
   
     2. Mantenimiento y copias de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extensiones de consola
   
 
     
@@ -2954,6 +3044,9 @@ ticket y se define cómo se combinan:</p>
   se cumpla una, la regla se ejecuta.</li>
 <li>Las condiciones se pueden reordenar; el orden de evaluación importa cuando hay
   varias acciones.</li>
+<li>La condición <strong>Tags</strong> se cumple si el ticket tiene al menos una de las
+  etiquetas seleccionadas. Las etiquetas se crean antes en <strong>Support → Tickets →
+  Tags</strong>.</li>
 </ul>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/img/parte-03/workflow-conditions.png" data-desc-position="bottom"><img alt="Condiciones de una regla de workflow" src="../../assets/img/parte-03/workflow-conditions.png"></a></p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/img/parte-03/workflow-condition-logic.png" data-desc-position="bottom"><img alt="Relación AND/OR entre condiciones" src="../../assets/img/parte-03/workflow-condition-logic.png"></a></p>
@@ -2971,11 +3064,17 @@ ticket y se define cómo se combinan:</p>
 <li>Ejecutar un comando en el servidor o un script personalizado.</li>
 <li>Bloquear o desbloquear.</li>
 <li>Cambiar el tipo.</li>
+<li>Añadir etiquetas.</li>
 </ul>
 <p>Las acciones más útiles suelen ser las más aburridas: asignar el ticket al grupo
 correcto, subir la prioridad cuando lleva demasiado tiempo parado y enviar un
 aviso al propietario. Las acciones espectaculares —ejecutar comandos, cambiar
 tipos, bloquear— deben tener una lista de invitados muy corta.</p>
+<p>Las etiquetas permiten clasificar sin crear un tipo nuevo. La acción <strong>Add tags</strong>
+suma una o varias etiquetas al ticket; no sustituye las que ya tenía. Se puede
+combinar con la condición <strong>Tags</strong> para crear reglas del estilo «si el ticket
+llega con la etiqueta <em>VIP</em>, añade <em>Prioridad alta</em> y avisa al equipo». Si una
+etiqueta se borra, las relaciones existentes dejan de mostrarla.</p>
 <h2 id="macros">Macros<a class="headerlink" href="#macros" title="Permanent link">¶</a></h2>
 <p>Las acciones aceptan macros que se sustituyen por valores del ticket:</p>
 <table>

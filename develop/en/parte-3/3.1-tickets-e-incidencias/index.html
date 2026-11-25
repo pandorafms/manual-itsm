@@ -925,6 +925,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ticket-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket templates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#statistics-and-work-orders" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1497,6 +1508,8 @@
       
         
       
+        
+      
     
     
     
@@ -1720,6 +1733,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tasks
   
 
     
@@ -2021,6 +2062,8 @@
       
         
       
+        
+      
     
     
     
@@ -2124,14 +2167,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integration with Pandora FMS
+    3. MCP
   
 
     
@@ -2152,14 +2195,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integration with Pandora RC
+    4. Integration with Pandora FMS
   
 
     
@@ -2180,14 +2223,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. AI and chatbot
+    5. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. AI and chatbot
   
 
     
@@ -2216,6 +2287,8 @@
   
     
     
+      
+        
       
         
       
@@ -2304,6 +2377,34 @@
     
   
     2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Console extensions
   
 
     
@@ -2840,6 +2941,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#ticket-templates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ticket templates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#statistics-and-work-orders" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2958,6 +3070,10 @@ the creation mode:</p>
 <p>Smart mode is not a fortune teller: if the knowledge base is empty or the prompt
 is too generic, it will return beautiful but useless answers. It is a way to
 avoid repeated tickets, not an excuse to stop documenting.</p>
+<p>The message that opens the assistant is configured in <strong>Setup → Setup → Issue
+setup</strong>, in the Smart Ticketing <strong>Welcome message</strong> field. It accepts the
+<code>__user_name__</code> (full name) and <code>__user_id__</code> (user identifier) macros; if you
+leave the default value, the standard Pandora ITSM text is used.</p>
 <p>Tickets can also be created by email. That path has its own rules and is
 explained in <a href="../3.4-correo-y-soporte/">3.4 Email and support</a>.</p>
 <h2 id="teams-and-availability">Teams and availability<a class="headerlink" href="#teams-and-availability" title="Permanent link">¶</a></h2>
@@ -3009,7 +3125,8 @@ include:</p>
 </ul>
 <p>Every WU, file or status change generates notifications to the associated users.
 That is the difference between a living ticket and a document someone opened
-once.</p>
+once. Mentions are written as <code>@user</code> in the WU description or in a comment; the
+mentioned user receives a notification and can open the ticket from the bell.</p>
 <h2 id="types-and-custom-fields">Types and custom fields<a class="headerlink" href="#types-and-custom-fields" title="Permanent link">¶</a></h2>
 <p>In <strong>Support → Tickets types → View tickets types</strong> you define ticket types.
 Each type can have its own fields: single-line text, long text, date, numeric,
@@ -3029,6 +3146,29 @@ true/false, <strong>Combo</strong> and <strong>Linked</strong>.</p>
 <p>A ticket type with twenty mandatory fields does not improve information: it
 improves the speed at which the user abandons the form. Add fields when they will
 really be used in filters, reports or workflows.</p>
+<h2 id="ticket-templates">Ticket templates<a class="headerlink" href="#ticket-templates" title="Permanent link">¶</a></h2>
+<p>Templates create repetitive tickets without copy and paste. They are managed in
+<strong>Support → Ticket Types → Templates</strong> and are associated with a ticket type.</p>
+<p>The list shows <strong>Name</strong>, <strong>Description</strong>, <strong>Ticket type</strong> and the <strong>Edit</strong>,
+<strong>Duplicate</strong> and <strong>Delete</strong> actions. A template belongs to a single type, but a
+type can have several templates. To reuse a template in another type, duplicate
+it and adjust the fields.</p>
+<p>Creating or editing a template asks for a name, description and ticket type; the
+full ticket form then appears, including advanced fields. Attachments are not
+part of the template.</p>
+<p>When you create a ticket and the selected type has templates, a <strong>Select
+template</strong> selector appears below the title. The first template is selected by
+default; the <strong>None</strong> option keeps normal creation. Changing the type refreshes
+the selector with that type's templates and fills the fields with the stored
+values.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-03/ticket-template-select.png" data-desc-position="bottom"><img alt="Selecting a template when creating a ticket" src="../../../assets/img/parte-03/ticket-template-select.png"></a></p>
+<p>The template also works with the simplified form. Advanced fields included in
+the template are submitted and processed even if they are not shown in the
+interface; the simple form limits what is visible, not what is stored.</p>
+<p>If a ticket type field is used by a template, it cannot be changed or deleted in
+a way that invalidates the template. External entities referenced by a template
+(a group, a user, an inventory object) are not validated on deletion: if they
+disappear, the template shows an empty field.</p>
 <h2 id="statistics-and-work-orders">Statistics and work orders<a class="headerlink" href="#statistics-and-work-orders" title="Permanent link">¶</a></h2>
 <p>The ticket statistics tab summarises times, work units, activity by user,
 status, group, company and SLA. It is useful for answering concrete questions,

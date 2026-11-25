@@ -1442,6 +1442,8 @@
       
         
       
+        
+      
     
     
     
@@ -1665,6 +1667,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tasks
   
 
     
@@ -1966,6 +1996,8 @@
       
         
       
+        
+      
     
     
     
@@ -2069,14 +2101,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integration with Pandora FMS
+    3. MCP
   
 
     
@@ -2097,14 +2129,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integration with Pandora RC
+    4. Integration with Pandora FMS
   
 
     
@@ -2125,14 +2157,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. AI and chatbot
+    5. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. AI and chatbot
   
 
     
@@ -2161,6 +2221,8 @@
   
     
     
+      
+        
       
         
       
@@ -2249,6 +2311,34 @@
     
   
     2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Console extensions
   
 
     
@@ -2982,11 +3072,16 @@ configurable sources are Support, Projects, Changes, CRM, People and Inventory;
 personal notices are shown in the centre but are not configured per channel.
 System notices (PHP, MySQL, cron, licence, database, files, Chromium,
 API and Warp) are managed by the administrator and only appear if the console
-supervisor has enabled that group.</p>
+supervisor has enabled that group. The bell updates without reloading the page
+and each notice links to the ticket, task, change or note that originated it.</p>
+<p>Mentions are written as <code>@user</code> in a note, work unit or comment. The mentioned
+user receives a <code>Mention in a ticket</code>, <code>Mention in a work unit</code> or <code>Company note
+mention</code> notification, depending on the source, and can open the item from the
+bell.</p>
 <p>The chat icon in the header shows internal chat notifications and its status. Do
 not confuse that chat with the chatbot in the bottom-right corner:
 the first is a conversation between users; the second is the AI assistant,
-configured in chapter 11.5.</p>
+configured in chapter 11.6.</p>
 <p>The side menu has two modes: classic, with labels visible, and collapsed, with
 icons only and fly-out submenus. The button at the end of the menu switches
 between them and the preference is stored in the browser. The menu logo returns
@@ -3075,7 +3170,7 @@ list for an administrator:</p>
 </tr>
 <tr>
 <td><strong>Support</strong></td>
-<td>Tickets, CSV import, ticket types, work order templates, tags, teams, SLA, workflow rules, knowledge base, downloads and chat.</td>
+<td>Tickets, CSV import, ticket types, ticket templates, work order templates, tags, teams, SLA, workflow rules, knowledge base, downloads and chat.</td>
 <td><a href="../../parte-3/3.1-tickets-e-incidencias/">3.1</a>, <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/">3.2</a>, <a href="../../parte-3/3.3-sla-escalado-y-calidad/">3.3</a>, <a href="../../parte-3/3.4-correo-y-soporte/">3.4</a>, <a href="../../parte-3/3.5-base-de-conocimiento/">3.5</a>, <a href="../../parte-3/3.6-wiki/">3.6</a>, <a href="../../parte-3/3.7-descargas-y-directorios/">3.7</a></td>
 </tr>
 <tr>
@@ -3095,8 +3190,8 @@ list for an administrator:</p>
 </tr>
 <tr>
 <td><strong>CRM</strong></td>
-<td>Contacts, companies, contracts, invoices, deals, quotes, products and workflows.</td>
-<td><a href="../../parte-8/8.1-contactos/">8.1</a></td>
+<td>Contacts, companies, contracts, invoices, deals, quotes, products, workflows and tasks.</td>
+<td><a href="../../parte-8/8.1-contactos/">8.1</a>, <a href="../../parte-8/8.7-workflows/">8.7</a>, <a href="../../parte-8/8.8-tareas/">8.8</a></td>
 </tr>
 <tr>
 <td><strong>Marketing</strong></td>
@@ -3110,8 +3205,8 @@ list for an administrator:</p>
 </tr>
 <tr>
 <td><strong>Setup</strong></td>
-<td>General, visual, authentication, mail, file manager, news board, database, links, events, audit, logs, translations, backups and menu visibility.</td>
-<td><a href="../../parte-12/12.1-configuracion-avanzada/">12.1</a></td>
+<td>General, visual, authentication, mail, file manager, news board, database, links, events, audit, logs, translations, backups, menu visibility and console extensions.</td>
+<td><a href="../../parte-12/12.1-configuracion-avanzada/">12.1</a>, <a href="../../parte-12/12.3-extensiones-de-consola/">12.3</a></td>
 </tr>
 <tr>
 <td><strong>Warp update</strong></td>

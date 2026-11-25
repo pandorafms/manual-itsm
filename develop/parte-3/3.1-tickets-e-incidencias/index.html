@@ -926,6 +926,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plantillas-de-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plantillas de ticket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#estadisticas-y-partes-de-trabajo" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1498,6 +1509,8 @@
       
         
       
+        
+      
     
     
     
@@ -1721,6 +1734,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tareas
   
 
     
@@ -2022,6 +2063,8 @@
       
         
       
+        
+      
     
     
     
@@ -2125,14 +2168,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integración con Pandora FMS
+    3. MCP
   
 
     
@@ -2153,14 +2196,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integración con Pandora RC
+    4. Integración con Pandora FMS
   
 
     
@@ -2181,14 +2224,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. IA y chatbot
+    5. Integración con Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. IA y chatbot
   
 
     
@@ -2217,6 +2288,8 @@
   
     
     
+      
+        
       
         
       
@@ -2305,6 +2378,34 @@
     
   
     2. Mantenimiento y copias de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extensiones de consola
   
 
     
@@ -2841,6 +2942,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#plantillas-de-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Plantillas de ticket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#estadisticas-y-partes-de-trabajo" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2960,6 +3072,10 @@ el modo de creación:</p>
 <p>El modo Smart no es un adivino: si la base de conocimiento está vacía o el
 prompt es demasiado genérico, devolverá respuestas bonitas y poco útiles. Es una
 ayuda para evitar tickets repetidos, no una excusa para no documentar.</p>
+<p>El mensaje que abre el asistente se configura en <strong>Setup → Setup → Issue setup</strong>,
+en el campo <strong>Welcome message</strong> de Smart Ticketing. Admite las macros
+<code>__user_name__</code> (nombre completo) y <code>__user_id__</code> (identificador del usuario); si
+se deja el valor por defecto, se usa el texto estándar de Pandora ITSM.</p>
 <p>También se pueden crear tickets por correo electrónico. Ese camino tiene sus
 propias reglas y se explica en <a href="../3.4-correo-y-soporte/">3.4 Correo y soporte</a>.</p>
 <h2 id="equipos-y-disponibilidad">Equipos y disponibilidad<a class="headerlink" href="#equipos-y-disponibilidad" title="Permanent link">¶</a></h2>
@@ -3012,7 +3128,9 @@ una puede incluir:</p>
 </ul>
 <p>Cada WU, fichero o cambio de estado genera notificaciones a los usuarios
 asociados. Esa es la diferencia entre un ticket vivo y un documento que alguien
-abrió una vez.</p>
+abrió una vez. Las menciones se escriben como <code>@usuario</code> en la descripción de la
+WU o en un comentario; el usuario mencionado recibe una notificación y puede abrir
+el ticket desde la campana.</p>
 <h2 id="tipos-y-campos-personalizados">Tipos y campos personalizados<a class="headerlink" href="#tipos-y-campos-personalizados" title="Permanent link">¶</a></h2>
 <p>En <strong>Support → Tickets types → View tickets types</strong> se definen los tipos de
 ticket. Cada tipo puede tener sus propios campos: texto de una línea, texto
@@ -3032,6 +3150,30 @@ ampliado, fecha, numérico, verdadero/falso, <strong>Combo</strong> y <strong>Li
 <p>Un tipo de ticket con veinte campos obligatorios no mejora la información:
 mejora la velocidad con la que el usuario abandona el formulario. Añade campos
 cuando de verdad vayan a usarse en filtros, informes o workflows.</p>
+<h2 id="plantillas-de-ticket">Plantillas de ticket<a class="headerlink" href="#plantillas-de-ticket" title="Permanent link">¶</a></h2>
+<p>Las plantillas permiten crear tickets repetitivos sin copiar y pegar. Se
+gestionan en <strong>Support → Ticket Types → Templates</strong> y se asocian a un tipo de
+ticket.</p>
+<p>El listado muestra <strong>Name</strong>, <strong>Description</strong>, <strong>Ticket type</strong> y las acciones
+<strong>Edit</strong>, <strong>Duplicate</strong> y <strong>Delete</strong>. Una plantilla pertenece a un único tipo,
+pero un tipo puede tener varias plantillas. Para reutilizar una plantilla en
+otro tipo, se duplica y se ajustan los campos.</p>
+<p>Al crear o editar una plantilla se pide nombre, descripción y tipo de ticket; a
+continuación se muestra el formulario completo del ticket, incluidos los campos
+avanzados. Los adjuntos no forman parte de la plantilla.</p>
+<p>Cuando se crea un ticket y el tipo elegido tiene plantillas, aparece un selector
+<strong>Select template</strong> debajo del título. La primera plantilla se selecciona por
+defecto; la opción <strong>None</strong> mantiene la creación normal. Al cambiar de tipo, el
+selector se actualiza con las plantillas de ese tipo y los campos se rellenan con
+los valores guardados.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../assets/img/parte-03/ticket-template-select.png" data-desc-position="bottom"><img alt="Selección de una plantilla al crear un ticket" src="../../assets/img/parte-03/ticket-template-select.png"></a></p>
+<p>La plantilla funciona también con el formulario simplificado. Los campos
+avanzados que la plantilla incluya se envían y se procesan aunque no se muestren
+en la interfaz; el formulario simple limita lo que se ve, no lo que se guarda.</p>
+<p>Si un campo del tipo de ticket está usado por una plantilla, no se puede
+modificar ni eliminar de forma que la invalide. Las entidades externas
+referenciadas (un grupo, un usuario, un objeto de inventario) no se validan al
+borrarse: si desaparecen, la plantilla muestra el campo vacío.</p>
 <h2 id="estadisticas-y-partes-de-trabajo">Estadísticas y partes de trabajo<a class="headerlink" href="#estadisticas-y-partes-de-trabajo" title="Permanent link">¶</a></h2>
 <p>La pestaña de estadísticas del ticket resume tiempos, unidades de trabajo,
 actividad por usuario, estado, grupo, empresa y SLA. Es útil para responder

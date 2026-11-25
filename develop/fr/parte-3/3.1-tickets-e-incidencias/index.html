@@ -925,6 +925,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#modeles-de-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèles de ticket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#statistiques-et-ordres-de-travail" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1497,6 +1508,8 @@
       
         
       
+        
+      
     
     
     
@@ -1720,6 +1733,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tâches
   
 
     
@@ -2021,6 +2062,8 @@
       
         
       
+        
+      
     
     
     
@@ -2124,14 +2167,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Intégration avec Pandora FMS
+    3. MCP
   
 
     
@@ -2152,14 +2195,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Intégration avec Pandora RC
+    4. Intégration avec Pandora FMS
   
 
     
@@ -2180,14 +2223,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. IA et chatbot
+    5. Intégration avec Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. IA et chatbot
   
 
     
@@ -2216,6 +2287,8 @@
   
     
     
+      
+        
       
         
       
@@ -2304,6 +2377,34 @@
     
   
     2. Maintenance et sauvegardes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extensions de console
   
 
     
@@ -2840,6 +2941,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#modeles-de-ticket" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Modèles de ticket
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#statistiques-et-ordres-de-travail" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2959,6 +3071,11 @@ le mode de création :</p>
 <p>Le mode Smart n'est pas un devin : si la base de connaissance est vide ou si le
 prompt est trop générique, il renverra de belles réponses inutiles. C'est une aide
 pour éviter les tickets répétés, pas une excuse pour arrêter de documenter.</p>
+<p>Le message qui ouvre l'assistant se configure dans <strong>Setup → Setup → Issue
+setup</strong>, dans le champ <strong>Welcome message</strong> de Smart Ticketing. Il accepte les
+macros <code>__user_name__</code> (nom complet) et <code>__user_id__</code> (identifiant de
+l'utilisateur) ; si vous laissez la valeur par défaut, le texte standard de
+Pandora ITSM est utilisé.</p>
 <p>Les tickets peuvent aussi être créés par courriel. Ce chemin a ses propres règles
 et est expliqué dans <a href="../3.4-correo-y-soporte/">3.4 Courriel et support</a>.</p>
 <h2 id="equipes-et-disponibilite">Équipes et disponibilité<a class="headerlink" href="#equipes-et-disponibilite" title="Permanent link">¶</a></h2>
@@ -3009,7 +3126,9 @@ Chacune peut inclure :</p>
 </ul>
 <p>Chaque WU, fichier ou changement d'état génère des notifications aux utilisateurs
 associés. C'est la différence entre un ticket vivant et un document que quelqu'un a
-ouvert une fois.</p>
+ouvert une fois. Les mentions s'écrivent <code>@utilisateur</code> dans la description de la
+WU ou dans un commentaire ; l'utilisateur mentionné reçoit une notification et
+peut ouvrir le ticket depuis la cloche.</p>
 <h2 id="types-et-champs-personnalises">Types et champs personnalisés<a class="headerlink" href="#types-et-champs-personnalises" title="Permanent link">¶</a></h2>
 <p>Dans <strong>Support → Tickets types → View tickets types</strong>, on définit les types de
 ticket. Chaque type peut avoir ses propres champs : texte sur une ligne, texte
@@ -3029,6 +3148,32 @@ long, date, numérique, vrai/faux, <strong>Combo</strong> et <strong>Linked</str
 <p>Un type de ticket avec vingt champs obligatoires n'améliore pas l'information : il
 améliore la vitesse à laquelle l'utilisateur abandonne le formulaire. Ajoutez des
 champs quand ils serviront vraiment aux filtres, aux rapports ou aux workflows.</p>
+<h2 id="modeles-de-ticket">Modèles de ticket<a class="headerlink" href="#modeles-de-ticket" title="Permanent link">¶</a></h2>
+<p>Les modèles permettent de créer des tickets répétitifs sans copier-coller. Ils se
+gèrent dans <strong>Support → Ticket Types → Templates</strong> et sont associés à un type de
+ticket.</p>
+<p>La liste affiche <strong>Name</strong>, <strong>Description</strong>, <strong>Ticket type</strong> et les actions
+<strong>Edit</strong>, <strong>Duplicate</strong> et <strong>Delete</strong>. Un modèle appartient à un seul type, mais
+un type peut avoir plusieurs modèles. Pour réutiliser un modèle dans un autre
+type, dupliquez-le et ajustez les champs.</p>
+<p>La création ou la modification d'un modèle demande un nom, une description et un
+type de ticket ; le formulaire complet du ticket apparaît ensuite, y compris les
+champs avancés. Les pièces jointes ne font pas partie du modèle.</p>
+<p>Lorsque vous créez un ticket et que le type choisi possède des modèles, un
+sélecteur <strong>Select template</strong> apparaît sous le titre. Le premier modèle est
+sélectionné par défaut ; l'option <strong>None</strong> conserve la création normale. Le
+changement de type actualise le sélecteur avec les modèles de ce type et remplit
+les champs avec les valeurs enregistrées.</p>
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-03/ticket-template-select.png" data-desc-position="bottom"><img alt="Sélection d'un modèle lors de la création d'un ticket" src="../../../assets/img/parte-03/ticket-template-select.png"></a></p>
+<p>Le modèle fonctionne aussi avec le formulaire simplifié. Les champs avancés
+inclus dans le modèle sont envoyés et traités même s'ils ne sont pas affichés
+dans l'interface ; le formulaire simple limite ce qui est visible, pas ce qui est
+enregistré.</p>
+<p>Si un champ du type de ticket est utilisé par un modèle, il ne peut pas être
+modifié ou supprimé d'une manière qui invalide le modèle. Les entités externes
+référencées (un groupe, un utilisateur, un objet d'inventaire) ne sont pas
+validées à la suppression : si elles disparaissent, le modèle affiche un champ
+vide.</p>
 <h2 id="statistiques-et-ordres-de-travail">Statistiques et ordres de travail<a class="headerlink" href="#statistiques-et-ordres-de-travail" title="Permanent link">¶</a></h2>
 <p>L'onglet des statistiques du ticket résume les temps, les unités de travail,
 l'activité par utilisateur, l'état, le groupe, l'entreprise et le SLA. Il est utile

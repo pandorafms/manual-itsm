@@ -1,0 +1,5813 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Pandora ITSM product documentation">
+      
+      
+      
+        <link rel="canonical" href="https://pandorafms.com/docs/itsm/develop/en/parte-11/11.3-mcp/">
+      
+      
+        <link rel="prev" href="../11.2-api-v1-heredada/">
+      
+      
+        <link rel="next" href="../11.4-integracion-con-pandora-fms/">
+      
+      
+        
+          <link rel="alternate" href="../../../parte-11/11.3-mcp/" hreflang="es">
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../../fr/parte-11/11.3-mcp/" hreflang="fr">
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>3. MCP - Pandora ITSM — Product documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  
+  <script>
+  (function () {
+    // Material loads the index with XMLHttpRequest, not fetch, so the request
+    // is rewritten at open() time.
+    var shared = "search/search_index.json";
+    var lang = document.documentElement.lang || "es";
+    var scoped = "search/search_index." + lang + ".json";
+    var open = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (method, url) {
+      if (url && String(url).indexOf(shared) !== -1) {
+        var args = Array.prototype.slice.call(arguments);
+        args[1] = String(url).replace(shared, scoped);
+        return open.apply(this, args);
+      }
+      return open.apply(this, arguments);
+    };
+  })();
+  </script>
+
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mcp-model-context-protocol" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+            
+  
+    
+      <strong>Under construction.</strong> This documentation is still being
+      written: content may be incomplete or change without notice.
+    
+  
+
+          </div>
+          
+        </aside>
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden="">
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+              
+  
+    You are viewing a version that is not the current one (a version older than
+    the last published one).
+    <a href="../../../..">
+      <strong>Go to the latest published version.</strong>
+    </a>
+  
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),base=new URL("../../.."),outdated=__md_get("__outdated",sessionStorage,base);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../" title="Pandora ITSM — Product documentation" class="md-header__button md-logo" aria-label="Pandora ITSM — Product documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pandora ITSM — Product documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              3. MCP
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    
+      
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="../../../parte-11/11.3-mcp/" hreflang="es" class="md-select__link">
+              Español
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../../fr/parte-11/11.3-mcp/" hreflang="fr" class="md-select__link">
+              Français
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../" title="Pandora ITSM — Product documentation" class="md-nav__button md-logo" aria-label="Pandora ITSM — Product documentation" data-md-component="logo">
+      
+  <img src="../../../assets/images/itsm-subheader.png" alt="logo">
+
+    </a>
+    Pandora ITSM — Product documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 01. Quick start
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 01. Quick start
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.1-instalacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.2-actualizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Updating
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.3-versiones-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Versions and support lifecycle
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.4-licenciamiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-1/1.5-primeros-pasos-e-interfaz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. First steps and interface
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 02. Users, permissions and organization
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 02. Users, permissions and organization
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.1-usuarios-grupos-y-perfiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Users, groups and profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.2-autenticacion-y-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Authentication and security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-2/2.3-empresas-y-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Companies and contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 03. Tickets and support
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 03. Tickets and support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.1-tickets-e-incidencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Tickets and incidents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Workflow and statuses
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.3-sla-escalado-y-calidad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. SLAs, escalation and quality
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.4-correo-y-soporte/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Email and support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.5-base-de-conocimiento/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Knowledge base
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.6-wiki/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Wiki
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-3/3.7-descargas-y-directorios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Downloads and directories
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 04. Inventory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 04. Inventory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-4/4.1-inventario/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Inventory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 05. Change management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 05. Change management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-5/5.1-gestion-del-cambio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Change management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 06. Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 06. Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-6/6.1-proyectos-y-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Projects and tasks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 07. Time management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 07. Time management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-7/7.1-gestion-del-tiempo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Time management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 08. CRM
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 08. CRM
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.1-contactos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Contacts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.2-empresas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Companies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.3-contratos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Contracts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.4-quotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Quotes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.5-deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Deals
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.6-facturas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Invoices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.7-workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tasks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 09. Marketing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 09. Marketing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.1-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.2-campanas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Campaigns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.3-email-y-listas-de-email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Email and email lists
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-9/9.4-formularios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Forms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 10. Reports and dashboards
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 10. Reports and dashboards
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-10/10.1-informes-y-dashboards/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Reports and dashboards
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 11. Automation and integrations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 11. Automation and integrations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.1-api-v2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. API v2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.2-api-v1-heredada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. API v1 (legacy)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. MCP
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. MCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is-and-what-it-allows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and what it allows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What it is and what it allows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-read-only-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A read-only server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-can-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you can ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it does not do
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-and-configuring-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling and configuring MCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enabling and configuring MCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-global-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The global switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-and-readiness-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status and readiness checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorisations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-through-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring through the API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-an-mcp-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting an MCP client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting an MCP client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opencode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursor-and-other-clients-with-a-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cursor and other clients with a configuration file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claudeai-and-chatgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude.ai and ChatGPT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking the connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catalogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catalogue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-call-a-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to call a tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generic-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generic filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifiers-and-reference-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifiers and reference data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Companies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#company_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        company_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        company_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity_feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        activity_feed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tickets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tickets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tickets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ticket_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ticket_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ticket_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contacts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contact_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contact_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contact_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deal_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deal_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deal_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deal_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-email-and-schedules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes, email and schedules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes, email and schedules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        note_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        email_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        schedule_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web tracking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webtracking_summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        webtracking_summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reference_data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissions-audit-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissions, audit and limits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Permissions, audit and limits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcp-policy-and-product-acls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP policy and product ACLs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-and-truncation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy and truncation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-with-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship with API v2
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.4-integracion-con-pandora-fms/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Integration with Pandora FMS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.5-integracion-con-pandora-rc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. AI and chatbot
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13">
+        
+          
+          <label class="md-nav__link" for="__nav_13" id="__nav_13_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 12. Advanced administration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 12. Advanced administration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.1-configuracion-avanzada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Advanced configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.2-mantenimiento-y-copias-de-seguridad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Console extensions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14">
+        
+          
+          <label class="md-nav__link" for="__nav_14" id="__nav_14_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 13. Technical annexes
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 13. Technical annexes
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a1-glosario-de-terminos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A1. Glossary of terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a2-actualizacion-de-versiones-de-php/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A2. Upgrading PHP versions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a3-actualizacion-de-mysql-8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A3. Upgrading MySQL 5.7 to MySQL 8
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../anexos/a4-integracion-con-microsoft-365/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    A4. Microsoft 365 integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15">
+        
+          
+          <label class="md-nav__link" for="__nav_15" id="__nav_15_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Part 14. Frequently asked questions (FAQ)
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Part 14. Frequently asked questions (FAQ)
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.1-instalacion-actualizacion-y-licencias/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Installation, updates and licences
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.2-usuarios-accesos-y-organizacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Users, access and organisation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.3-tickets-flujos-y-correo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Tickets, workflows and email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.4-inventario-y-cambios/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Inventory and changes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.5-proyectos-tiempo-crm-y-marketing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Projects, time, CRM and marketing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-14/14.6-informes-api-e-integraciones/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Reports, API and integrations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#what-it-is-and-what-it-allows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it is and what it allows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What it is and what it allows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-read-only-server" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A read-only server
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-you-can-ask" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you can ask
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-it-does-not-do" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What it does not do
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Requirements
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-and-configuring-mcp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enabling and configuring MCP
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Enabling and configuring MCP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-global-switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The global switch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-and-readiness-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Status and readiness checklist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oauth-discovery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OAuth discovery
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="OAuth discovery">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apache-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Apache configuration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#runtime-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Runtime settings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authorisations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authorisations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuring-through-the-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuring through the API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-an-mcp-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connecting an MCP client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting an MCP client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-agent-prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The agent prompt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opencode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OpenCode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude Code
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cursor-and-other-clients-with-a-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cursor and other clients with a configuration file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#claudeai-and-chatgpt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Claude.ai and ChatGPT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#checking-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking the connection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#catalogue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Catalogue
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-call-a-tool" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How to call a tool
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common parameters
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common parameters">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pagination" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pagination
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sorting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generic-filters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generic filters
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identifiers-and-reference-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identifiers and reference data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#companies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Companies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Companies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#company_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        company_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        company_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity_feed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        activity_feed
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tickets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tickets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tickets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ticket_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ticket_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ticket_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contacts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Contacts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Contacts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#contact_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contact_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contact_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        contact_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deal_search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deal_search
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deal_get" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deal_get
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-email-and-schedules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes, email and schedules
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notes, email and schedules">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        note_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#email_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        email_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#schedule_list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        schedule_list
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#web-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Web tracking
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Web tracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#webtracking_summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        webtracking_summary
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Reference">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        reference_data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#permissions-audit-and-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Permissions, audit and limits
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Permissions, audit and limits">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mcp-policy-and-product-acls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MCP policy and product ACLs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rate-limit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rate limit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#privacy-and-truncation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Privacy and truncation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relationship-with-api-v2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relationship with API v2
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="mcp-model-context-protocol">MCP (Model Context Protocol)<a class="headerlink" href="#mcp-model-context-protocol" title="Permanent link">¶</a></h1>
+<p>Pandora ITSM publishes an MCP server so an AI agent can query tickets, companies,
+contacts, deals, notes, email, schedules and web tracking without leaving the
+console. It is not a chatbot: it is a read-only layer that speaks the standard
+protocol of MCP clients and authenticates with OAuth 2.1.</p>
+<p>The idea is simple: the agent stops copying and pasting data from the console
+and asks directly. The server answers with the same ACLs, the same audit trail
+and the same limits as API v2. The difference is the caller, which is now a
+model rather than a script.</p>
+<p>This chapter covers the Pandora ITSM MCP server: which tools it exposes, how to
+enable it, how a client authenticates, what each tool returns and where access
+stops. API v2 remains the way to write and to integrate applications; MCP is a
+read-only façade for agents.</p>
+<h2 id="what-it-is-and-what-it-allows">What it is and what it allows<a class="headerlink" href="#what-it-is-and-what-it-allows" title="Permanent link">¶</a></h2>
+<p>MCP (Model Context Protocol) is an open protocol that lets a client (Claude
+Code, Cursor, OpenCode, Codex, a web connector) discover tools and call them
+against a server. Pandora ITSM implements the server side over HTTP, with JSON-RPC 2.0 and
+OAuth 2.1 authentication.</p>
+<h3 id="a-read-only-server">A read-only server<a class="headerlink" href="#a-read-only-server" title="Permanent link">¶</a></h3>
+<p>Every tool in the catalogue declares <code>readOnlyHint: true</code>. The server does not
+create, update or delete tickets, companies or any other object. It does not
+attach files or send email either. If the agent needs to write, it must use API
+v2 with an API token and the corresponding ACLs.</p>
+<p>The catalogue is grouped into seven areas:</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Tools</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Companies</td>
+<td><code>company_search</code>, <code>company_get</code>, <code>activity_feed</code></td>
+<td>Find accounts, read their profile and see recent activity.</td>
+</tr>
+<tr>
+<td>Tickets</td>
+<td><code>ticket_search</code>, <code>ticket_get</code></td>
+<td>Find tickets and read their status, description, tracking and work units.</td>
+</tr>
+<tr>
+<td>Contacts</td>
+<td><code>contact_search</code>, <code>contact_get</code></td>
+<td>Find people at a company and read their profile.</td>
+</tr>
+<tr>
+<td>Deals</td>
+<td><code>deal_search</code>, <code>deal_get</code></td>
+<td>Query the pipeline, the forecast and the detail of a deal.</td>
+</tr>
+<tr>
+<td>Notes, email and schedules</td>
+<td><code>note_list</code>, <code>email_list</code>, <code>schedule_list</code></td>
+<td>Read notes, email metadata and tasks, meetings or reminders.</td>
+</tr>
+<tr>
+<td>Web tracking</td>
+<td><code>webtracking_summary</code></td>
+<td>Count attributed contacts by source, category, campaign or month.</td>
+</tr>
+<tr>
+<td>Reference</td>
+<td><code>reference_data</code></td>
+<td>Translate identifiers and enums, and discover the allowed filters.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="what-you-can-ask">What you can ask<a class="headerlink" href="#what-you-can-ask" title="Permanent link">¶</a></h3>
+<p>Some real examples of what an agent can resolve with these tools:</p>
+<ul>
+<li>"What is the status of ticket 4321 and what happened in the latest replies?"</li>
+<li>"Summarise Acme's activity over the last week."</li>
+<li>"Which deals has salesperson <code>jlopez</code> moved this quarter, and what is the
+  weighted forecast?"</li>
+<li>"How many contacts attributed to Google Ads arrived this month?"</li>
+<li>"Give me the closed tickets in the Support group between 1 and 15 November."</li>
+</ul>
+<p>The agent chains searches and reads: first it resolves identifiers with
+<code>reference_data</code>, then it searches with <code>*_search</code>, and finally it opens the
+detail with <code>*_get</code>.</p>
+<h3 id="what-it-does-not-do">What it does not do<a class="headerlink" href="#what-it-does-not-do" title="Permanent link">¶</a></h3>
+<ul>
+<li>It does not write. There are no create, update or delete tools.</li>
+<li>It does not return email bodies or recipients; only metadata.</li>
+<li>It does not return email or phone numbers in company and contact searches. To
+  get them, request the detail of a specific contact.</li>
+<li>It does not replace API v2 or the console. It is a read-only view for agents.</li>
+<li>It does not share tokens with API v2: an OAuth token issued for MCP is only
+  valid on <code>/mcp</code>.</li>
+</ul>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HTTPS</td>
+<td>Cloud MCP clients require HTTPS. OAuth redirects only allow HTTPS or loopback HTTP (<code>localhost</code>, <code>127.0.0.1</code>, <code>[::1]</code>).</td>
+</tr>
+<tr>
+<td>Public URL</td>
+<td><code>Public MCP URL</code> must be an absolute HTTPS URL ending in <code>/mcp</code>. Without it, MCP cannot be enabled and OAuth metadata cannot be published.</td>
+</tr>
+<tr>
+<td>API ACL</td>
+<td>The <code>List of IP with access to API</code> list (<code>api_acl</code>) also applies to <code>/mcp</code> and the OAuth endpoints. It must include the egress IPs of the clients. With cloud clients, add their ranges or open the list to <code>*</code>; the real control is then the MCP policy and OAuth.</td>
+</tr>
+<tr>
+<td>User and permissions</td>
+<td>The user who authorises access must be active, included in the MCP policy and hold the product permissions required by each tool.</td>
+</tr>
+<tr>
+<td>Compatible client</td>
+<td>The client must support remote MCP servers over HTTP and OAuth 2.1 with dynamic registration and PKCE.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="enabling-and-configuring-mcp">Enabling and configuring MCP<a class="headerlink" href="#enabling-and-configuring-mcp" title="Permanent link">¶</a></h2>
+<p>Configuration lives under <code>Setup → Setup → MCP setup</code>. Only administrators can
+open and save it. The page is organised into tabs: <code>Status</code>, <code>Discovery</code>,
+<code>Connect</code>, <code>Access policy</code>, <code>Runtime settings</code> and <code>Authorizations</code>.</p>
+<h3 id="the-global-switch">The global switch<a class="headerlink" href="#the-global-switch" title="Permanent link">¶</a></h3>
+<p><code>Enable MCP server</code> turns the server on or off. While it is off, the endpoint
+returns a policy error and clients cannot use any tool. When it is enabled, the
+page shows the remaining tabs and the getting-started guide:</p>
+<ol>
+<li>Enable MCP.</li>
+<li>Choose who can use it and set the public URL.</li>
+<li>Check the API ACL.</li>
+<li>Connect the client; the first connection opens the consent page.</li>
+</ol>
+<p>MCP cannot be enabled without <code>Public MCP URL</code>. The server needs a trusted URL
+to build the OAuth issuer and the discovery documents, and it never derives
+them from the <code>Host</code> header.</p>
+<h3 id="status-and-readiness-checklist">Status and readiness checklist<a class="headerlink" href="#status-and-readiness-checklist" title="Permanent link">¶</a></h3>
+<p>The <code>Status</code> tab shows the endpoint and five checks:</p>
+<table>
+<thead>
+<tr>
+<th>Check</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MCP enabled</code></td>
+<td>The global switch is on.</td>
+</tr>
+<tr>
+<td><code>Access policy</code></td>
+<td>At least one user or group is allowed, or the policy allows everyone.</td>
+</tr>
+<tr>
+<td><code>HTTPS</code></td>
+<td>The console is served over HTTPS.</td>
+</tr>
+<tr>
+<td><code>Public MCP URL</code></td>
+<td>The public URL is configured.</td>
+</tr>
+<tr>
+<td><code>API ACL</code></td>
+<td>The API ACL is not restricted to <code>127.0.0.1</code> or <code>localhost</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>A red dot does not necessarily block saving, but it explains why a client cannot
+connect. The <code>API ACL</code> check is the one most often forgotten: if the list only
+allows loopback, a client arriving from another IP receives <code>401</code> before the
+OAuth dance even starts.</p>
+<h3 id="oauth-discovery">OAuth discovery<a class="headerlink" href="#oauth-discovery" title="Permanent link">¶</a></h3>
+<p>The <code>Discovery</code> tab shows the two URLs a client queries before authenticating:</p>
+<div class="highlight"><pre><span></span><code>https://&lt;host&gt;/.well-known/oauth-protected-resource
+https://&lt;host&gt;/.well-known/oauth-authorization-server
+</code></pre></div>
+<p>Both documents must be published at the domain root. If Pandora ITSM runs in a
+subdirectory or behind a proxy, the web server must rewrite or align those
+paths; in that case the discovery URL appends the resource path. The <code>Discovery</code>
+tab shows the two exact URLs for the installation and includes a <code>Check</code> button
+that makes a real request and marks the result.</p>
+<h4 id="apache-configuration">Apache configuration<a class="headerlink" href="#apache-configuration" title="Permanent link">¶</a></h4>
+<p>The API v2 serves the documents at
+<code>/pandoraitsm/api/v2/.well-known/...</code>, but the client looks for them at the
+domain root. Those paths must be rewritten in the HTTPS virtual host. Add the
+rules to your 443 virtual host; the block below shows the minimum context. With
+the installation under <code>/pandoraitsm</code> and the public URL
+<code>https://itsm.example.com/pandoraitsm/api/v2/mcp</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*:443</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>itsm.example.com
+<span class="w">    </span><span class="nb">DocumentRoot</span><span class="w"> </span><span class="sx">/var/www/html</span>
+
+<span class="w">    </span><span class="nb">RewriteEngine</span><span class="w"> </span><span class="k">On</span>
+
+<span class="w">    </span><span class="c"># Protected resource (RFC 9728)</span>
+<span class="w">    </span><span class="nb">RewriteRule</span><span class="w"> </span>^/\.well-known/oauth-protected-resource/pandoraitsm/api/v2/mcp$<span class="w"> </span>\
+<span class="w">        </span><span class="sx">/pandoraitsm/api/v2/.well-known/oauth-protected-resource</span><span class="w"> </span>[PT,L]
+
+<span class="w">    </span><span class="c"># Authorization server (RFC 8414)</span>
+<span class="w">    </span><span class="nb">RewriteRule</span><span class="w"> </span>^/\.well-known/oauth-authorization-server/pandoraitsm/api/v2$<span class="w"> </span>\
+<span class="w">        </span><span class="sx">/pandoraitsm/api/v2/.well-known/oauth-authorization-server</span><span class="w"> </span>[PT,L]
+
+<span class="w">    </span><span class="c"># Fallback when the client requests the root path without the resource path</span>
+<span class="w">    </span><span class="nb">RewriteRule</span><span class="w"> </span>^/\.well-known/oauth-protected-resource$<span class="w"> </span>\
+<span class="w">        </span><span class="sx">/pandoraitsm/api/v2/.well-known/oauth-protected-resource</span><span class="w"> </span>[PT,L]
+
+<span class="w">    </span><span class="nb">RewriteRule</span><span class="w"> </span>^/\.well-known/oauth-authorization-server$<span class="w"> </span>\
+<span class="w">        </span><span class="sx">/pandoraitsm/api/v2/.well-known/oauth-authorization-server</span><span class="w"> </span>[PT,L]
+<span class="nt">&lt;/VirtualHost&gt;</span>
+</code></pre></div>
+<p>Replace <code>pandoraitsm</code> with the real directory of the console. If the
+installation is at the root, change <code>/pandoraitsm/api/v2</code> to <code>/api/v2</code> and
+remove <code>pandoraitsm</code> from the paths. The first two rules handle the canonical
+path with the resource <code>path</code>; the last two cover clients that request only
+<code>/.well-known/...</code>. <code>[PT,L]</code> lets Apache pass the request to the API front
+controller without changing the URL the client sees.</p>
+<p>Make sure <code>mod_rewrite</code> is enabled and that the rules are in the 443 virtual
+host, not in a <code>.htaccess</code> file (if you put them in <code>.htaccess</code>, remove the
+leading slash from the patterns). Then reload Apache:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># RHEL, AlmaLinux, Rocky Linux</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>httpd
+
+<span class="c1"># Debian, Ubuntu</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>reload<span class="w"> </span>apache2
+</code></pre></div>
+<p>Check both URLs from an IP allowed in <code>api_acl</code>:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-s<span class="w"> </span>https://itsm.example.com/.well-known/oauth-protected-resource<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
+curl<span class="w"> </span>-s<span class="w"> </span>https://itsm.example.com/.well-known/oauth-authorization-server<span class="w"> </span><span class="p">|</span><span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>json.tool
+</code></pre></div>
+<p>The first must return <code>resource</code> with the public URL and
+<code>authorization_servers</code>; the second must return <code>issuer</code> and the endpoints. If
+you get the console HTML or a <code>404</code>, the rule is not matching: check the
+<code>ServerName</code>, the <code>DocumentRoot</code> and that <code>mod_rewrite</code> is loaded. If there is a
+reverse proxy in front, it must forward <code>/.well-known/oauth-*</code> to this Apache.</p>
+<p>The protected resource document declares the resource, the issuer and the
+<code>itsm.read</code> scope. The authorisation server document declares the authorisation,
+token, registration and revocation endpoints, the <code>authorization_code</code> flow,
+refresh, PKCE <code>S256</code> and the <code>none</code> client authentication method.</p>
+<h3 id="access-policy">Access policy<a class="headerlink" href="#access-policy" title="Permanent link">¶</a></h3>
+<p>The <code>Access policy</code> tab decides which users can use MCP. There are four lists
+and two recursion switches:</p>
+<ul>
+<li><code>Allowed users</code> and <code>Blocked users</code>.</li>
+<li><code>Allowed groups</code> and <code>Blocked groups</code>.</li>
+<li><code>Include child groups for allowed groups</code>.</li>
+<li><code>Include child groups for blocked groups</code>.</li>
+</ul>
+<p>Evaluation is cumulative and blocking wins:</p>
+<ol>
+<li>If MCP is disabled, everything is denied.</li>
+<li>If the user is disabled, it is denied.</li>
+<li>If the user is in <code>Blocked users</code>, it is denied.</li>
+<li>If the user belongs to a blocked group, it is denied.</li>
+<li>If the policy allows all users or all groups, or the user is in
+   <code>Allowed users</code>, it is allowed.</li>
+<li>If the user belongs to an allowed group, it is allowed.</li>
+<li>In any other case, it is denied.</li>
+</ol>
+<p>The interface no longer shows the "allow everyone" switches; the API keeps them
+for compatibility. If they are enabled through the API, the resulting policy
+allows everyone and the block lists still take precedence.</p>
+<h3 id="runtime-settings">Runtime settings<a class="headerlink" href="#runtime-settings" title="Permanent link">¶</a></h3>
+<p>The <code>Runtime settings</code> tab controls the server behaviour:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>What it does</th>
+<th>Default</th>
+<th>Range</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Maximum rows per tool call</code></td>
+<td>Caps how many rows a tool can return in one call. Each tool schema already allows up to 50; this setting can reduce it. If the client requests more rows than allowed, it gets the configured value.</td>
+<td><code>50</code></td>
+<td>1–50</td>
+</tr>
+<tr>
+<td><code>Requests per minute and token</code></td>
+<td>Sets how many requests each token can make per minute. When exceeded, the response is <code>429</code> with <code>Retry-After</code>. <code>0</code> disables the limit.</td>
+<td><code>60</code></td>
+<td>0–1000</td>
+</tr>
+<tr>
+<td><code>Audit retention (days)</code></td>
+<td>Decides how many days calls are kept in the audit log before being purged.</td>
+<td><code>90</code></td>
+<td>1–3650</td>
+</tr>
+<tr>
+<td><code>Public MCP URL</code></td>
+<td>Public endpoint URL. It is used to build the OAuth issuer and the discovery documents; without it, MCP cannot be enabled. It must use HTTPS and end in <code>/mcp</code>.</td>
+<td>empty</td>
+<td>HTTPS URL</td>
+</tr>
+<tr>
+<td><code>Authorization lifetime (days, 0 = unlimited)</code></td>
+<td>Sets the maximum lifetime of an authorisation from the moment the user approves consent. When it expires, the client must authorise again. <code>0</code> makes it unlimited.</td>
+<td><code>90</code></td>
+<td>0–3650</td>
+</tr>
+<tr>
+<td><code>Allowed redirect hosts</code></td>
+<td>Decides which hosts a client may redirect to after consent. One host per line; <code>*.example.com</code> includes subdomains; empty allows any host.</td>
+<td><code>claude.ai</code>, <code>chatgpt.com</code>, <code>localhost</code>, <code>127.0.0.1</code></td>
+<td>Up to 50</td>
+</tr>
+</tbody>
+</table>
+<p><code>Public MCP URL</code> does not accept credentials, a query string or a fragment. If
+the installation is behind a proxy, the URL must be the one the client sees, not
+the server's internal URL.</p>
+<h3 id="authorisations">Authorisations<a class="headerlink" href="#authorisations" title="Permanent link">¶</a></h3>
+<p>The <code>Authorizations</code> tab lists the applications each user has authorised: client
+name, redirect hosts, user, last IP, authorisation date, last use, expiry and a
+revoke button. Revoking an authorisation deletes that user's tokens for that
+client; it does not affect other users of the same client.</p>
+<p>Each user can view and revoke their own authorisations from the <code>MCP
+applications</code> tab of their user profile.</p>
+<h3 id="configuring-through-the-api">Configuring through the API<a class="headerlink" href="#configuring-through-the-api" title="Permanent link">¶</a></h3>
+<p>The policy can also be read and written with API v2, using an administrator
+token. These endpoints do not accept MCP OAuth tokens.</p>
+<div class="highlight"><pre><span></span><code><span class="err">GET /api/v2/mcp/permission</span>
+<span class="err">PUT /api/v2/mcp/permission</span>
+</code></pre></div>
+<p>The <code>PUT</code> accepts the policy fields and leaves omitted fields unchanged:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"allowedUsers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"admin"</span><span class="p">,</span><span class="w"> </span><span class="s2">"support"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"blockedUsers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"temporary"</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"allowedGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">26</span><span class="p">],</span>
+<span class="w">  </span><span class="nt">"blockedGroups"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">  </span><span class="nt">"allUsersAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"allGroupsAllowed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"allowedGroupsRecursion"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"blockedGroupsRecursion"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The response returns the saved policy. A <code>400</code> means an invalid value; a <code>403</code>
+means the token does not belong to an administrator.</p>
+<h2 id="connecting-an-mcp-client">Connecting an MCP client<a class="headerlink" href="#connecting-an-mcp-client" title="Permanent link">¶</a></h2>
+<p>The <code>Connect</code> tab offers the URL, a prompt ready to paste into the agent and the
+alternative for web chats. The prompt is in English because the agent consumes
+it, not the user.</p>
+<h3 id="the-agent-prompt">The agent prompt<a class="headerlink" href="#the-agent-prompt" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>Connect yourself to the Pandora ITSM MCP server.
+
+Server
+- Name: itsm
+- Transport: Streamable HTTP (remote MCP server)
+- URL: https://itsm.example.com/pandoraitsm/api/v2/mcp
+- Authentication: OAuth 2.1 with dynamic client registration and PKCE. The server publishes
+  its metadata under /.well-known/oauth-protected-resource. Do not ask me for an API key or
+  a client secret.
+
+Steps
+1. Identify which MCP client you are (Claude Code, Cursor, OpenCode, Codex, VS Code...) and add
+   the server with that client's official method: its CLI command if it has one, otherwise its
+   MCP configuration file. Use the user-level scope unless I say otherwise.
+2. Keep the existing configuration: add or update only the "itsm" entry, and show me the change
+   before writing any file.
+3. Start the authorization (for example, /mcp in Claude Code). A Pandora ITSM page opens in the
+   browser: I will sign in and approve the access myself. Never ask for my password.
+4. Once connected, list the available tools and show them to me. They are read-only.
+
+If the URL is not reachable or its certificate is not trusted, stop and tell me the exact error.
+Do not disable TLS verification. If you cannot configure MCP servers yourself (for example, a web
+chat), tell me to add a custom connector with the URL above instead.
+</code></pre></div>
+<h3 id="opencode">OpenCode<a class="headerlink" href="#opencode" title="Permanent link">¶</a></h3>
+<p>OpenCode adds the server with its CLI and stores the configuration at user
+scope:</p>
+<div class="highlight"><pre><span></span><code>opencode<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>itsm<span class="w"> </span>--url<span class="w"> </span>https://itsm.example.com/pandoraitsm/api/v2/mcp<span class="w"> </span>--global
+opencode<span class="w"> </span>mcp<span class="w"> </span>list
+</code></pre></div>
+<p>Then, in the interface, open <code>/mcps</code>, select <code>itsm</code> and complete authorisation in
+the browser.</p>
+<h3 id="claude-code">Claude Code<a class="headerlink" href="#claude-code" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>--transport<span class="w"> </span>http<span class="w"> </span>itsm<span class="w"> </span>https://itsm.example.com/pandoraitsm/api/v2/mcp<span class="w"> </span>--scope<span class="w"> </span>user
+claude<span class="w"> </span>mcp<span class="w"> </span>list
+</code></pre></div>
+<p>Inside Claude Code, <code>/mcp</code> shows the server and starts sign-in. The token is
+stored and refreshed automatically.</p>
+<h3 id="cursor-and-other-clients-with-a-configuration-file">Cursor and other clients with a configuration file<a class="headerlink" href="#cursor-and-other-clients-with-a-configuration-file" title="Permanent link">¶</a></h3>
+<p>Many clients read an <code>mcpServers</code> entry with the server URL:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"itsm"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://itsm.example.com/pandoraitsm/api/v2/mcp"</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The exact name of the transport field changes between clients (<code>type</code>,
+<code>transport</code>, <code>streamable-http</code>). If the client does not support remote HTTP
+servers or cannot do OAuth with dynamic registration, it will not connect: use
+the agent prompt or a compatible client.</p>
+<h3 id="claudeai-and-chatgpt">Claude.ai and ChatGPT<a class="headerlink" href="#claudeai-and-chatgpt" title="Permanent link">¶</a></h3>
+<p>Web chats cannot configure themselves. In <code>Settings → Connectors → Add custom
+connector</code>, paste the public server URL and complete consent. The application
+then appears in the authorisation list.</p>
+<h3 id="checking-the-connection">Checking the connection<a class="headerlink" href="#checking-the-connection" title="Permanent link">¶</a></h3>
+<p>A successful connection returns the catalogue of 14 tools with <code>tools/list</code>. If
+the client shows zero tools, check in this order: URL, certificate, API ACL,
+<code>Public MCP URL</code>, MCP policy and user permissions.</p>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h2>
+<h3 id="catalogue">Catalogue<a class="headerlink" href="#catalogue" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Title</th>
+<th>What it returns</th>
+<th>Maximum rows</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>company_search</code></td>
+<td>Company · Search</td>
+<td>Companies with creation date, billing and pagination.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>company_get</code></td>
+<td>Company · Get</td>
+<td>Company profile; detail includes address, tax, billing and custom fields.</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>activity_feed</code></td>
+<td>Company · Activity feed</td>
+<td>Activity references for a company, contact or salesperson, without message bodies.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>ticket_search</code></td>
+<td>Tickets · Search</td>
+<td>Tickets without the full description.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>ticket_get</code></td>
+<td>Tickets · Get</td>
+<td>One ticket with description, tracking and, optionally, work units.</td>
+<td>20</td>
+</tr>
+<tr>
+<td><code>deal_search</code></td>
+<td>Deals · Search</td>
+<td>Deals with live operations and weighted forecast aggregates.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>deal_get</code></td>
+<td>Deals · Get</td>
+<td>Deal detail.</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>contact_search</code></td>
+<td>Contacts · Search</td>
+<td>Contacts without email or phone.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>contact_get</code></td>
+<td>Contacts · Get</td>
+<td>Contact profile; detail includes email, phone, mobile and custom fields.</td>
+<td>1</td>
+</tr>
+<tr>
+<td><code>note_list</code></td>
+<td>Notes · List</td>
+<td>Notes with truncated text and pagination.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>email_list</code></td>
+<td>Emails · List</td>
+<td>Email metadata without body or recipients.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>schedule_list</code></td>
+<td>Schedules · List</td>
+<td>Tasks, meetings, calls and reminders.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>webtracking_summary</code></td>
+<td>Web tracking · Summary</td>
+<td>Attributed contacts grouped by source, category, campaign or month.</td>
+<td>50</td>
+</tr>
+<tr>
+<td><code>reference_data</code></td>
+<td>Reference · Data</td>
+<td>Identifiers, enums and allowed filters.</td>
+<td>50 per group</td>
+</tr>
+</tbody>
+</table>
+<h3 id="how-to-call-a-tool">How to call a tool<a class="headerlink" href="#how-to-call-a-tool" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tools/call"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ticket_search"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"arguments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"freeSearch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"printer"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ASSIGNED"</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Arguments must be an object. An unknown tool name returns <code>-32601</code>; an argument
+that is not in the schema returns <code>-32602</code>/<code>isError</code>.</p>
+<h3 id="common-parameters">Common parameters<a class="headerlink" href="#common-parameters" title="Permanent link">¶</a></h3>
+<p>Only list tools share these parameters. <code>*_get</code> does not paginate or sort.</p>
+<h4 id="pagination">Pagination<a class="headerlink" href="#pagination" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Default</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>page</code></td>
+<td>integer ≥ 0</td>
+<td><code>0</code></td>
+<td>Page, starting at zero.</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>integer 1–50</td>
+<td><code>20</code></td>
+<td>Rows per page. <code>webtracking_summary</code> defaults to <code>50</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>The response includes:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"pagination"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">3252</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"size"</span><span class="p">:</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"totalPages"</span><span class="p">:</span><span class="w"> </span><span class="mi">163</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"nextPage"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><code>nextPage</code> is <code>null</code> on the last page. <code>Maximum rows per tool call</code> reduces <code>size</code> below the
+maximum of 50 allowed by the schema.</p>
+<h4 id="sorting">Sorting<a class="headerlink" href="#sorting" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td>Sort field. Each tool publishes its list.</td>
+</tr>
+<tr>
+<td><code>sortDirection</code></td>
+<td><code>ascending</code> or <code>descending</code></td>
+<td>Sort direction.</td>
+</tr>
+<tr>
+<td><code>sortMultipleFields</code></td>
+<td>object</td>
+<td>Up to three fields with their direction. Cannot be combined with <code>sortField</code>/<code>sortDirection</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"sortMultipleFields"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"priority"</span><span class="p">:</span><span class="w"> </span><span class="s2">"descending"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"startDate"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ascending"</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h4 id="generic-filters">Generic filters<a class="headerlink" href="#generic-filters" title="Permanent link">¶</a></h4>
+<p>Company, contact, deal, schedule, note, email and activity tools accept
+<code>fieldConditions</code>: up to 10 conditions on real columns. <code>jsonPath</code> and derived
+aliases are not supported.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"fieldConditions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"createdAt"</span><span class="p">,</span><span class="w"> </span><span class="nt">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&gt;="</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-01-01"</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="nt">"field"</span><span class="p">:</span><span class="w"> </span><span class="s2">"country"</span><span class="p">,</span><span class="w"> </span><span class="nt">"operator"</span><span class="p">:</span><span class="w"> </span><span class="s2">"in"</span><span class="p">,</span><span class="w"> </span><span class="nt">"value"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ES"</span><span class="p">,</span><span class="w"> </span><span class="s2">"FR"</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>Supported operators:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code>, <code>!=</code>, <code>&lt;&gt;</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></td>
+<td>Simple comparison.</td>
+</tr>
+<tr>
+<td><code>like</code>, <code>not_like</code></td>
+<td>Text match.</td>
+</tr>
+<tr>
+<td><code>in</code>, <code>not_in</code></td>
+<td>List of up to 50 values.</td>
+</tr>
+<tr>
+<td><code>between</code>, <code>not_between</code></td>
+<td>Two-value range.</td>
+</tr>
+<tr>
+<td><code>is_null</code>, <code>is_not_null</code></td>
+<td>Null or not null.</td>
+</tr>
+<tr>
+<td><code>is_empty</code>, <code>is_not_empty</code></td>
+<td>Empty or not empty.</td>
+</tr>
+</tbody>
+</table>
+<p><code>ticket_search</code> does not accept <code>fieldConditions</code>; use its named filters
+(<code>status</code>, <code>priority</code>, <code>idGroup</code>, <code>idUser</code>, dates). To find out which fields and
+operators each tool accepts, call <code>reference_data</code> with
+<code>types: ["filter_fields"]</code>.</p>
+<h4 id="dates">Dates<a class="headerlink" href="#dates" title="Permanent link">¶</a></h4>
+<p>Dates are sent as <code>YYYY-MM-DD</code>. The server also accepts an ISO 8601 date and
+time and keeps the date. In ranges, the upper bound includes the whole day when
+the tool declares it so (<code>createdTo</code>, <code>lastActivityTo</code>). An invalid date returns
+<code>isError</code> with the field name.</p>
+<h4 id="identifiers-and-reference-data">Identifiers and reference data<a class="headerlink" href="#identifiers-and-reference-data" title="Permanent link">¶</a></h4>
+<p>Identifiers are the console's. They are not invented or derived from the name.
+Before filtering by status, priority, group, pipeline or stage, request the
+tables from <code>reference_data</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">"jsonrpc"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.0"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tools/call"</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"reference_data"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"arguments"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">"types"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"ticket_statuses"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ticket_priorities"</span><span class="p">,</span><span class="w"> </span><span class="s2">"groups"</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="companies">Companies<a class="headerlink" href="#companies" title="Permanent link">¶</a></h3>
+<h4 id="company_search">company_search<a class="headerlink" href="#company_search" title="Permanent link">¶</a></h4>
+<p>Finds companies by text, tags, dates, billing or generic conditions. It does not
+return email or phone.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Name or comments.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>integer[]</td>
+<td>All tags must match.</td>
+</tr>
+<tr>
+<td><code>dateBegin</code>, <code>dateEnd</code></td>
+<td>date</td>
+<td>Last update, inclusive.</td>
+</tr>
+<tr>
+<td><code>createdFrom</code>, <code>createdTo</code></td>
+<td>date</td>
+<td>Creation date, inclusive.</td>
+</tr>
+<tr>
+<td><code>lastActivityFrom</code>, <code>lastActivityTo</code></td>
+<td>date</td>
+<td>Last activity, inclusive.</td>
+</tr>
+<tr>
+<td><code>minBilling</code>, <code>maxBilling</code></td>
+<td>integer</td>
+<td>Billing range.</td>
+</tr>
+<tr>
+<td><code>fieldConditions</code></td>
+<td>object[]</td>
+<td>Up to 10 conditions.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idCompany</code>, <code>name</code>, <code>createdAt</code>, <code>lastUpdate</code>, <code>lastActivityAt</code>, <code>country</code>, <code>manager</code>, <code>billing</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns <code>idCompany</code>, <code>name</code>, <code>idCompanyRole</code>, <code>country</code>, <code>manager</code>,
+<code>createdAt</code>, <code>lastActivityAt</code>, <code>activeContractDates</code> and <code>billing</code>.</p>
+<h4 id="company_get">company_get<a class="headerlink" href="#company_get" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idCompany</code></td>
+<td>integer ≥ 1</td>
+<td>Required.</td>
+</tr>
+<tr>
+<td><code>detail</code></td>
+<td>boolean</td>
+<td><code>false</code> by default. With <code>true</code>, adds address, <code>idTax</code>, comments, parent company, payment conditions, dates, billing and custom fields.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="activity_feed">activity_feed<a class="headerlink" href="#activity_feed" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idCompany</code>, <code>idUser</code></td>
+<td>integer / string</td>
+<td>Filter by company or salesperson.</td>
+</tr>
+<tr>
+<td><code>fromDate</code>, <code>toDate</code></td>
+<td>date</td>
+<td>Activity range.</td>
+</tr>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Free text.</td>
+</tr>
+<tr>
+<td><code>fieldConditions</code></td>
+<td>object[]</td>
+<td>Up to 10 conditions.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idCompanyActivity</code>, <code>createdAt</code>, <code>idCompany</code>, <code>idContact</code>, <code>idDeal</code>, <code>section</code>, <code>action</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns references to company, contact, deal, note, email, schedule, meeting,
+form, contract and invoice, without message bodies.</p>
+<h3 id="tickets">Tickets<a class="headerlink" href="#tickets" title="Permanent link">¶</a></h3>
+<h4 id="ticket_search">ticket_search<a class="headerlink" href="#ticket_search" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Title or description.</td>
+</tr>
+<tr>
+<td><code>idCompany</code></td>
+<td>integer</td>
+<td>Current company of the creator, not a historical snapshot.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>string</td>
+<td><code>NEW</code>, <code>UNCONFIRMED</code>, <code>ASSIGNED</code>, <code>REOPENED</code>, <code>VERIFIED</code>, <code>PENDING_THIRD_PERSON</code>, <code>CLOSED</code>, <code>NOTCLOSED</code>.</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td>string</td>
+<td><code>INFORMATIVE</code>, <code>LOW</code>, <code>MEDIUM</code>, <code>SERIOUS</code>, <code>VERY_SERIOUS</code>, <code>MAINTENANCE</code>.</td>
+</tr>
+<tr>
+<td><code>idGroup</code></td>
+<td>integer ≥ 0</td>
+<td>Group.</td>
+</tr>
+<tr>
+<td><code>idUser</code></td>
+<td>string</td>
+<td>Ticket owner.</td>
+</tr>
+<tr>
+<td><code>fromDate</code>, <code>toDate</code></td>
+<td>date</td>
+<td>Creation date, inclusive.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idIncidence</code>, <code>startDate</code>, <code>updateDate</code>, <code>closeDate</code>, <code>title</code>, <code>status</code>, <code>priority</code>, <code>idGroup</code>, <code>owner</code>, <code>idCreator</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns <code>idIncidence</code>, <code>idCompany</code>, <code>startDate</code>, <code>closeDate</code>, <code>updateDate</code>,
+<code>title</code>, <code>owner</code>, <code>status</code>, <code>priority</code>, <code>idGroup</code> and <code>resolution</code>. Visibility is
+enforced by the user's group ACL.</p>
+<h4 id="ticket_get">ticket_get<a class="headerlink" href="#ticket_get" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idIncidence</code></td>
+<td>integer ≥ 1</td>
+<td>Required.</td>
+</tr>
+<tr>
+<td><code>includeTracks</code></td>
+<td>boolean</td>
+<td><code>true</code> by default; includes up to <code>size</code> tracking entries.</td>
+</tr>
+<tr>
+<td><code>includeWorkunits</code></td>
+<td>boolean</td>
+<td><code>false</code> by default; includes work units.</td>
+</tr>
+<tr>
+<td><code>size</code></td>
+<td>integer 1–20</td>
+<td>Tracking or work unit rows.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns the ticket data (<code>idIncidence</code>, <code>idCompany</code>, <code>title</code>, <code>description</code>,
+<code>status</code>, <code>priority</code>, <code>owner</code>, <code>idGroup</code>, <code>idCreator</code>, <code>startDate</code>, <code>updateDate</code>,
+<code>closeDate</code>, <code>resolution</code>, <code>epilog</code>, <code>idParent</code>, <code>idIncidenceType</code>). Description
+and epilog are truncated to 4000 characters; tracking and work units to 2000.</p>
+<h3 id="contacts">Contacts<a class="headerlink" href="#contacts" title="Permanent link">¶</a></h3>
+<h4 id="contact_search">contact_search<a class="headerlink" href="#contact_search" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Name, email or description.</td>
+</tr>
+<tr>
+<td><code>idCompany</code></td>
+<td>integer</td>
+<td>Company.</td>
+</tr>
+<tr>
+<td><code>tags</code></td>
+<td>integer[]</td>
+<td>All tags must match.</td>
+</tr>
+<tr>
+<td><code>companyRoles</code></td>
+<td>integer[]</td>
+<td>Company roles.</td>
+</tr>
+<tr>
+<td><code>disabled</code></td>
+<td>boolean</td>
+<td>Filter disabled contacts.</td>
+</tr>
+<tr>
+<td><code>fieldConditions</code></td>
+<td>object[]</td>
+<td>Up to 10 conditions.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idContact</code>, <code>fullname</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>idCompany</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>It does not return email or phone. Returns <code>idContact</code>, <code>idCompany</code>,
+<code>companyName</code>, <code>fullname</code>, <code>position</code>, <code>disabled</code>, <code>manager</code>, <code>createdAt</code> and
+<code>updatedAt</code>.</p>
+<h4 id="contact_get">contact_get<a class="headerlink" href="#contact_get" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idContact</code></td>
+<td>integer ≥ 1</td>
+<td>Required.</td>
+</tr>
+<tr>
+<td><code>detail</code></td>
+<td>boolean</td>
+<td><code>false</code> by default. With <code>true</code>, adds email, phone, mobile, description, custom fields and newsletter subscription.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deals">Deals<a class="headerlink" href="#deals" title="Permanent link">¶</a></h3>
+<h4 id="deal_search">deal_search<a class="headerlink" href="#deal_search" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Name or description.</td>
+</tr>
+<tr>
+<td><code>idCompany</code>, <code>idOwner</code></td>
+<td>integer / string</td>
+<td>Company or salesperson.</td>
+</tr>
+<tr>
+<td><code>idPipeline</code>, <code>idStage</code></td>
+<td>integer</td>
+<td>Pipeline or stage.</td>
+</tr>
+<tr>
+<td><code>stages</code></td>
+<td>integer[]</td>
+<td>Several stages.</td>
+</tr>
+<tr>
+<td><code>createdFrom</code>, <code>createdTo</code></td>
+<td>date</td>
+<td>Creation.</td>
+</tr>
+<tr>
+<td><code>updatedFrom</code>, <code>updatedTo</code></td>
+<td>date</td>
+<td>Last update.</td>
+</tr>
+<tr>
+<td><code>fieldConditions</code></td>
+<td>object[]</td>
+<td>Up to 10 conditions.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idDeal</code>, <code>name</code>, <code>amount</code>, <code>closeDate</code>, <code>startDate</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>lastActivity</code>, <code>idOwner</code>, <code>idCompany</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns <code>idDeal</code>, <code>name</code>, <code>idOwner</code>, <code>idCompany</code>, <code>idPipeline</code>, <code>idStage</code>,
+<code>amount</code>, <code>closeDate</code>, <code>startDate</code>, <code>updatedAt</code> and <code>lastActivity</code>. It adds
+<code>aggregates.liveOperations</code> and <code>aggregates.forecast</code> for the same filter.</p>
+<h4 id="deal_get">deal_get<a class="headerlink" href="#deal_get" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idDeal</code></td>
+<td>integer ≥ 1</td>
+<td>Required.</td>
+</tr>
+<tr>
+<td><code>detail</code></td>
+<td>boolean</td>
+<td><code>false</code> by default. With <code>true</code>, adds description, custom fields and creation date.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes-email-and-schedules">Notes, email and schedules<a class="headerlink" href="#notes-email-and-schedules" title="Permanent link">¶</a></h3>
+<h4 id="note_list">note_list<a class="headerlink" href="#note_list" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idCompany</code>, <code>idContact</code>, <code>idDeal</code>, <code>idContract</code></td>
+<td>integer</td>
+<td>Object the note belongs to.</td>
+</tr>
+<tr>
+<td><code>idUser</code></td>
+<td>string</td>
+<td>Author.</td>
+</tr>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Note text.</td>
+</tr>
+<tr>
+<td><code>fromDate</code>, <code>toDate</code></td>
+<td>date</td>
+<td>Creation.</td>
+</tr>
+<tr>
+<td><code>fieldConditions</code></td>
+<td>object[]</td>
+<td>Up to 10 conditions.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idNote</code>, <code>createdAt</code>, <code>updatedAt</code>, <code>idCompany</code>, <code>idContact</code>, <code>idDeal</code>, <code>idUser</code>, <code>pinned</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Text is truncated to 1000 characters. Returns <code>idNote</code>, <code>idCompany</code>,
+<code>idContact</code>, <code>idDeal</code>, <code>idContract</code>, <code>idUser</code>, <code>note</code>, <code>pinned</code>, <code>createdAt</code> and
+<code>updatedAt</code>.</p>
+<h4 id="email_list">email_list<a class="headerlink" href="#email_list" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Subject.</td>
+</tr>
+<tr>
+<td><code>idCompany</code></td>
+<td>integer</td>
+<td>Company.</td>
+</tr>
+<tr>
+<td><code>idContacts</code></td>
+<td>integer[]</td>
+<td>Linked contacts.</td>
+</tr>
+<tr>
+<td><code>excludeCampaignEmails</code></td>
+<td>boolean</td>
+<td>Exclude campaign email.</td>
+</tr>
+<tr>
+<td><code>excludeScheduledEmails</code></td>
+<td>boolean</td>
+<td>Exclude scheduled email.</td>
+</tr>
+<tr>
+<td><code>fieldConditions</code></td>
+<td>object[]</td>
+<td>Up to 10 conditions.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idEmail</code>, <code>sentAt</code>, <code>subject</code>, <code>idCompany</code>, <code>idDeal</code>, <code>isSent</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>It does not return body or recipients. Returns <code>idEmail</code>, <code>idCompany</code>, <code>idDeal</code>,
+<code>subject</code>, <code>isSent</code>, <code>sentAt</code>, <code>createdBy</code>, <code>createdAt</code>, <code>statusDelivery</code>,
+<code>isScheduled</code> and <code>attachments</code>.</p>
+<h4 id="schedule_list">schedule_list<a class="headerlink" href="#schedule_list" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>idCompany</code>, <code>idContact</code>, <code>idDeal</code></td>
+<td>integer</td>
+<td>Related object.</td>
+</tr>
+<tr>
+<td><code>assignedTo</code></td>
+<td>string</td>
+<td>Assigned user.</td>
+</tr>
+<tr>
+<td><code>state</code></td>
+<td>string</td>
+<td><code>open</code>, <code>in_progress</code>, <code>completed</code>, <code>on_hold</code>, <code>cancelled</code>, <code>expired</code>.</td>
+</tr>
+<tr>
+<td><code>priority</code></td>
+<td>string</td>
+<td><code>low</code>, <code>medium</code>, <code>high</code>, <code>urgent</code>.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>string</td>
+<td><code>todo</code>, <code>mail</code>, <code>meeting</code>, <code>call</code>.</td>
+</tr>
+<tr>
+<td><code>freeSearch</code></td>
+<td>string</td>
+<td>Title or description.</td>
+</tr>
+<tr>
+<td><code>fromDate</code>, <code>toDate</code></td>
+<td>date</td>
+<td>Range according to <code>dateField</code>.</td>
+</tr>
+<tr>
+<td><code>dateField</code></td>
+<td>string</td>
+<td><code>expirationDate</code>, <code>resolutionDate</code> or <code>createdAt</code> (default).</td>
+</tr>
+<tr>
+<td><code>fieldConditions</code></td>
+<td>object[]</td>
+<td>Up to 10 conditions.</td>
+</tr>
+<tr>
+<td><code>sortField</code></td>
+<td>string</td>
+<td><code>idSchedule</code>, <code>title</code>, <code>expirationDate</code>, <code>resolutionDate</code>, <code>reminderDate</code>, <code>priority</code>, <code>state</code>, <code>type</code>, <code>assignedTo</code>, <code>createdAt</code>, <code>updatedAt</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Description is truncated to 1000 characters. Returns <code>idSchedule</code>, <code>title</code>,
+<code>description</code>, <code>type</code>, <code>priority</code>, <code>state</code>, <code>assignedTo</code>, <code>expirationDate</code>,
+<code>resolutionDate</code>, <code>reminderDate</code>, <code>idCompany</code>, <code>idDeal</code>, <code>idContact</code>,
+<code>createdBy</code>, <code>createdAt</code> and <code>updatedAt</code>.</p>
+<h3 id="web-tracking">Web tracking<a class="headerlink" href="#web-tracking" title="Permanent link">¶</a></h3>
+<h4 id="webtracking_summary">webtracking_summary<a class="headerlink" href="#webtracking_summary" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>groupBy</code></td>
+<td>string</td>
+<td>Required: <code>source</code>, <code>sourceCategory</code>, <code>campaign</code> or <code>month</code>.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td>string</td>
+<td>Exact source.</td>
+</tr>
+<tr>
+<td><code>sourceCategory</code></td>
+<td>string</td>
+<td><code>google_ads</code>, <code>chatgpt</code>, <code>direct</code>, <code>social</code>.</td>
+</tr>
+<tr>
+<td><code>campaign</code></td>
+<td>string</td>
+<td>Exact campaign.</td>
+</tr>
+<tr>
+<td><code>attribution</code></td>
+<td>object</td>
+<td>Exact UTM or click ID filter.</td>
+</tr>
+<tr>
+<td><code>fromDate</code>, <code>toDate</code></td>
+<td>date</td>
+<td>Visit date, inclusive.</td>
+</tr>
+</tbody>
+</table>
+<p>Returns <code>groupBy</code>, <code>value</code> and <code>totalLeads</code>, ordered by value. A contact may
+count in more than one group.</p>
+<h3 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">¶</a></h3>
+<h4 id="reference_data">reference_data<a class="headerlink" href="#reference_data" title="Permanent link">¶</a></h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>types</code></td>
+<td>string[]</td>
+<td>Reference groups. If omitted, returns all.</td>
+</tr>
+<tr>
+<td><code>idPipeline</code></td>
+<td>integer ≥ 1</td>
+<td>Filters the stages of one pipeline.</td>
+</tr>
+</tbody>
+</table>
+<p>Available groups: <code>ticket_statuses</code>, <code>ticket_priorities</code>, <code>groups</code>,
+<code>company_roles</code>, <code>deal_pipelines</code>, <code>deal_stages</code>, <code>schedule_types</code>,
+<code>schedule_priorities</code>, <code>schedule_states</code>, <code>stage_types</code>,
+<code>traffic_source_categories</code> and <code>filter_fields</code>.</p>
+<p><code>filter_fields</code> returns, per tool, the condition fields, operators, maximum
+conditions, sort fields and maximum sort fields. It is the way to discover
+filters before using them.</p>
+<h2 id="permissions-audit-and-limits">Permissions, audit and limits<a class="headerlink" href="#permissions-audit-and-limits" title="Permanent link">¶</a></h2>
+<h3 id="mcp-policy-and-product-acls">MCP policy and product ACLs<a class="headerlink" href="#mcp-policy-and-product-acls" title="Permanent link">¶</a></h3>
+<p>The MCP policy decides who can enter. Then each tool applies the product ACL:</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Permission checked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>company_search</code></td>
+<td><code>CR</code></td>
+</tr>
+<tr>
+<td><code>company_get</code></td>
+<td><code>CM</code></td>
+</tr>
+<tr>
+<td><code>activity_feed</code></td>
+<td><code>CR</code></td>
+</tr>
+<tr>
+<td><code>ticket_search</code></td>
+<td>Group ACL of the ticket list.</td>
+</tr>
+<tr>
+<td><code>ticket_get</code></td>
+<td><code>IR</code> plus the ticket group ACL.</td>
+</tr>
+<tr>
+<td><code>deal_search</code></td>
+<td><code>CR</code></td>
+</tr>
+<tr>
+<td><code>deal_get</code></td>
+<td><code>CR</code></td>
+</tr>
+<tr>
+<td><code>contact_search</code></td>
+<td><code>CM</code></td>
+</tr>
+<tr>
+<td><code>contact_get</code></td>
+<td><code>CM</code></td>
+</tr>
+<tr>
+<td><code>note_list</code></td>
+<td><code>CR</code></td>
+</tr>
+<tr>
+<td><code>email_list</code></td>
+<td><code>CR</code></td>
+</tr>
+<tr>
+<td><code>schedule_list</code></td>
+<td><code>CRM</code></td>
+</tr>
+<tr>
+<td><code>webtracking_summary</code></td>
+<td><code>CM</code></td>
+</tr>
+<tr>
+<td><code>reference_data</code></td>
+<td><code>CR</code></td>
+</tr>
+</tbody>
+</table>
+<p>A user allowed in MCP but without the product permission receives a
+<code>tools/call</code> with <code>isError: true</code> and the ACL message. There is no way to bypass
+the ticket group ACL: both the list and the detail apply it.</p>
+<h3 id="rate-limit">Rate limit<a class="headerlink" href="#rate-limit" title="Permanent link">¶</a></h3>
+<p>The limit is per token and per minute. The default is 60 requests per minute. All
+calls count, not only <code>tools/call</code>. When exceeded, the response is <code>429</code> with
+<code>Retry-After</code> and a JSON-RPC <code>-32002</code> error.</p>
+<p>The counter is stored in <code>tmcp_rate_limit</code> and cleaned up opportunistically. A
+value of <code>0</code> disables the limit; do not do that on an exposed installation.</p>
+<h3 id="audit">Audit<a class="headerlink" href="#audit" title="Permanent link">¶</a></h3>
+<p>Every tool call is recorded in <code>tmcp_audit</code> with:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Content</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id_user</code></td>
+<td>User who authorised the token.</td>
+</tr>
+<tr>
+<td><code>token_uuid</code></td>
+<td>Token UUID.</td>
+</tr>
+<tr>
+<td><code>tool</code></td>
+<td>Tool name.</td>
+</tr>
+<tr>
+<td><code>arguments</code></td>
+<td>Arguments, with secrets redacted and long texts trimmed.</td>
+</tr>
+<tr>
+<td><code>rows_returned</code></td>
+<td>Rows returned.</td>
+</tr>
+<tr>
+<td><code>duration_ms</code></td>
+<td>Duration.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>ok</code>, <code>error</code> or <code>denied</code>.</td>
+</tr>
+<tr>
+<td><code>error_code</code>, <code>error_message</code></td>
+<td>Failure reason, if any.</td>
+</tr>
+<tr>
+<td><code>ip</code></td>
+<td>Source IP.</td>
+</tr>
+<tr>
+<td><code>mcp_session</code></td>
+<td>Request identifier.</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td>Date.</td>
+</tr>
+</tbody>
+</table>
+<p>Arguments are redacted if the key contains <code>pass</code>, <code>token</code>, <code>secret</code>,
+<code>authorization</code>, <code>cookie</code> or <code>session</code>; texts are cut to 500 characters and the
+structure to three levels and 50 keys. Denied or rate-limited tool calls are
+also recorded.</p>
+<p>Administrators can see the calls under <code>Setup → Audit log → MCP</code>, a tab that
+only appears when MCP is enabled. The default retention is 90 days.</p>
+<h3 id="privacy-and-truncation">Privacy and truncation<a class="headerlink" href="#privacy-and-truncation" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What is trimmed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>company_search</code>, <code>contact_search</code></td>
+<td>Do not return email or phone.</td>
+</tr>
+<tr>
+<td><code>contact_get</code></td>
+<td>With <code>detail=true</code>, returns email, phone and mobile.</td>
+</tr>
+<tr>
+<td><code>email_list</code></td>
+<td>Does not return body or recipients.</td>
+</tr>
+<tr>
+<td><code>ticket_get</code></td>
+<td>Description and epilog to 4000 characters; tracking and work units to 2000.</td>
+</tr>
+<tr>
+<td><code>note_list</code></td>
+<td>Text to 1000 characters.</td>
+</tr>
+<tr>
+<td><code>schedule_list</code></td>
+<td>Description to 1000 characters.</td>
+</tr>
+</tbody>
+</table>
+<p>These limits are not configurable per tool. The goal is to keep an agent from
+dumping half the database into the model context.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Symptom</th>
+<th>Likely cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The client cannot discover OAuth (<code>404</code> on <code>/.well-known/...</code>).</td>
+<td>The documents are not published at the domain root or the proxy does not rewrite them.</td>
+<td>Check the <code>Discovery</code> tab and the web server rewrite.</td>
+</tr>
+<tr>
+<td><code>401</code> before the browser opens.</td>
+<td>The client IP is not in <code>api_acl</code>.</td>
+<td>Add the IP or range under <code>Setup → Setup → General setup</code>.</td>
+</tr>
+<tr>
+<td><code>403</code> when enabling MCP.</td>
+<td><code>Public MCP URL</code> is missing or the licence is invalid.</td>
+<td>Set the HTTPS URL ending in <code>/mcp</code> and check the licence.</td>
+</tr>
+<tr>
+<td><code>503</code> on the metadata.</td>
+<td><code>Public MCP URL</code> is empty.</td>
+<td>Set it; the OAuth issuer is never derived from <code>Host</code>.</td>
+</tr>
+<tr>
+<td>Consent is requested again and again.</td>
+<td>The authorisation expired (<code>Authorization lifetime</code>) or the refresh failed.</td>
+<td>Authorise again or extend the authorisation lifetime.</td>
+</tr>
+<tr>
+<td><code>429</code> with <code>Retry-After</code>.</td>
+<td>Per-token limit exceeded.</td>
+<td>Wait or raise <code>Requests per minute and token</code>.</td>
+</tr>
+<tr>
+<td>The client sees zero tools.</td>
+<td>User without MCP policy, without product permissions or a client without OAuth.</td>
+<td>Check the policy, the ACL and client compatibility.</td>
+</tr>
+<tr>
+<td><code>size</code> returns fewer rows than requested.</td>
+<td><code>Maximum rows per tool call</code> reduces the size below the requested value.</td>
+<td>Raise the setting up to 50 or paginate.</td>
+</tr>
+<tr>
+<td><code>size</code> greater than 50 returns an argument error.</td>
+<td>The schema limits <code>size</code> to 50.</td>
+<td>Request 50 or paginate.</td>
+</tr>
+<tr>
+<td><code>Unknown argument</code>.</td>
+<td>The client sends a parameter that is not in the schema.</td>
+<td>Check <code>tools/list</code> or <code>reference_data</code>.</td>
+</tr>
+<tr>
+<td>Tickets from a group do not appear.</td>
+<td>The user's group ACL.</td>
+<td>Check the user's groups; MCP does not bypass the ACL.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="relationship-with-api-v2">Relationship with API v2<a class="headerlink" href="#relationship-with-api-v2" title="Permanent link">¶</a></h2>
+<p>MCP and API v2 share the base, authentication, ACL and licence, but they are not
+the same:</p>
+<ul>
+<li>API v2 is the way to write and to integrate in general.</li>
+<li>MCP is a read-only façade for agents, with tools and schemas designed for a
+  model.</li>
+<li>An MCP OAuth token is only valid on <code>/mcp</code>.</li>
+<li>An API v2 token is also valid on <code>/mcp</code>, but it is not the recommended flow
+  for agents.</li>
+<li>The API v2 OpenAPI reference includes the <code>/mcp</code>, <code>/mcp/permission</code> and OAuth
+  routes; it is useful to generate clients and to check response codes.</li>
+</ul>
+<p>If you need to create tickets, update companies or run actions, use API v2 from
+chapter 11.1 with an API token and the user's permissions. MCP does not write.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": "develop", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

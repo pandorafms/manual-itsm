@@ -1541,6 +1541,8 @@
       
         
       
+        
+      
     
     
     
@@ -1764,6 +1766,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tasks
   
 
     
@@ -2065,6 +2095,8 @@
       
         
       
+        
+      
     
     
     
@@ -2168,14 +2200,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integration with Pandora FMS
+    3. MCP
   
 
     
@@ -2196,14 +2228,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integration with Pandora RC
+    4. Integration with Pandora FMS
   
 
     
@@ -2224,14 +2256,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. AI and chatbot
+    5. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. AI and chatbot
   
 
     
@@ -2260,6 +2320,8 @@
   
     
     
+      
+        
       
         
       
@@ -2348,6 +2410,34 @@
     
   
     2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Console extensions
   
 
     
@@ -3168,7 +3258,14 @@ be enabled or disabled:</p>
 <li>Task created, updated and closed.</li>
 <li>Change status updated and task status updated.</li>
 <li>Change work unit created and change task work unit created.</li>
+<li><strong>Task starts today</strong>: the task starts today.</li>
+<li><strong>Task ends today</strong>: the task ends today.</li>
 </ul>
+<p>The start and end notices are sent once a day by cron to the people involved in
+the change and skip tasks that have already been verified. They are delivered
+through the channel configured in the user's profile (email, notification or
+both) and use the <strong>Change task starts today</strong> and <strong>Change task ends today</strong>
+templates.</p>
 <p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../../assets/img/parte-05/change-notifications.png" data-desc-position="bottom"><img alt="Change notifications" src="../../../assets/img/parte-05/change-notifications.png"></a></p>
 <p>The texts are edited in <code>Setup → Email template setup</code>, filtering by change
 templates. There you will find the subjects and bodies used by those

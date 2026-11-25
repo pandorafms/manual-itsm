@@ -1442,6 +1442,8 @@
       
         
       
+        
+      
     
     
     
@@ -1665,6 +1667,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tâches
   
 
     
@@ -1966,6 +1996,8 @@
       
         
       
+        
+      
     
     
     
@@ -2069,14 +2101,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Intégration avec Pandora FMS
+    3. MCP
   
 
     
@@ -2097,14 +2129,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Intégration avec Pandora RC
+    4. Intégration avec Pandora FMS
   
 
     
@@ -2125,14 +2157,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. IA et chatbot
+    5. Intégration avec Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. IA et chatbot
   
 
     
@@ -2161,6 +2221,8 @@
   
     
     
+      
+        
       
         
       
@@ -2249,6 +2311,34 @@
     
   
     2. Maintenance et sauvegardes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extensions de console
   
 
     
@@ -2993,11 +3083,17 @@ Les sources configurables sont Support, Projects, Changes, CRM, People et
 Inventory ; les avis personnels apparaissent dans le centre, mais ne se
 configurent pas par canal. Les avis système (PHP, MySQL, cron, licence, base de
 données, fichiers, Chromium, API et Warp) sont gérés par l'administrateur et
-n'apparaissent que si le superviseur de console a activé ce groupe.</p>
+n'apparaissent que si le superviseur de console a activé ce groupe. La cloche
+s'actualise sans recharger la page et chaque avis renvoie au ticket, à la tâche,
+au changement ou à la note qui l'a produit.</p>
+<p>Les mentions s'écrivent <code>@utilisateur</code> dans une note, une unité de travail ou un
+commentaire. L'utilisateur mentionné reçoit une notification <code>Mention in a
+ticket</code>, <code>Mention in a work unit</code> ou <code>Company note mention</code>, selon l'origine, et
+peut ouvrir l'élément depuis la cloche.</p>
 <p>L'icône de chat de l'en-tête affiche les notifications du chat interne et son
 état. Ne confondez pas ce chat avec le chatbot du coin inférieur droit : le
 premier est une conversation entre utilisateurs ; le second est l'assistant IA,
-configuré au chapitre 11.5.</p>
+configuré au chapitre 11.6.</p>
 <p>Le menu latéral possède deux modes : classique, avec les libellés visibles, et
 replié, avec les icônes seules et des sous-menus volants. Le bouton situé à la
 fin du menu bascule entre les deux et la préférence est enregistrée dans le
@@ -3087,7 +3183,7 @@ actifs. Voici la liste par défaut d'un administrateur :</p>
 </tr>
 <tr>
 <td><strong>Support</strong></td>
-<td>Tickets, import CSV, types de ticket, modèles d'ordre de travail, étiquettes, équipes, SLA, règles de workflow, base de connaissances, téléchargements et chat.</td>
+<td>Tickets, import CSV, types de ticket, modèles de ticket, modèles d'ordre de travail, étiquettes, équipes, SLA, règles de workflow, base de connaissances, téléchargements et chat.</td>
 <td><a href="../../parte-3/3.1-tickets-e-incidencias/">3.1</a>, <a href="../../parte-3/3.2-flujo-de-trabajo-y-estados/">3.2</a>, <a href="../../parte-3/3.3-sla-escalado-y-calidad/">3.3</a>, <a href="../../parte-3/3.4-correo-y-soporte/">3.4</a>, <a href="../../parte-3/3.5-base-de-conocimiento/">3.5</a>, <a href="../../parte-3/3.6-wiki/">3.6</a>, <a href="../../parte-3/3.7-descargas-y-directorios/">3.7</a></td>
 </tr>
 <tr>
@@ -3107,8 +3203,8 @@ actifs. Voici la liste par défaut d'un administrateur :</p>
 </tr>
 <tr>
 <td><strong>CRM</strong></td>
-<td>Contacts, entreprises, contrats, factures, deals, quotes, produits et workflows.</td>
-<td><a href="../../parte-8/8.1-contactos/">8.1</a></td>
+<td>Contacts, entreprises, contrats, factures, deals, quotes, produits, workflows et tâches.</td>
+<td><a href="../../parte-8/8.1-contactos/">8.1</a>, <a href="../../parte-8/8.7-workflows/">8.7</a>, <a href="../../parte-8/8.8-tareas/">8.8</a></td>
 </tr>
 <tr>
 <td><strong>Marketing</strong></td>
@@ -3122,8 +3218,8 @@ actifs. Voici la liste par défaut d'un administrateur :</p>
 </tr>
 <tr>
 <td><strong>Setup</strong></td>
-<td>Configuration générale, visuelle, authentification, messagerie, gestionnaire de fichiers, news board, base de données, liens, événements, audit, journaux, traductions, sauvegardes et visibilité des menus.</td>
-<td><a href="../../parte-12/12.1-configuracion-avanzada/">12.1</a></td>
+<td>Configuration générale, visuelle, authentification, messagerie, gestionnaire de fichiers, news board, base de données, liens, événements, audit, journaux, traductions, sauvegardes, visibilité des menus et extensions de console.</td>
+<td><a href="../../parte-12/12.1-configuracion-avanzada/">12.1</a>, <a href="../../parte-12/12.3-extensiones-de-consola/">12.3</a></td>
 </tr>
 <tr>
 <td><strong>Warp update</strong></td>

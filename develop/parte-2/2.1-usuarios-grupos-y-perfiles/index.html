@@ -728,6 +728,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#impersonar-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impersonar usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1692,6 +1703,8 @@
       
         
       
+        
+      
     
     
     
@@ -1915,6 +1928,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tareas
   
 
     
@@ -2216,6 +2257,8 @@
       
         
       
+        
+      
     
     
     
@@ -2319,14 +2362,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integración con Pandora FMS
+    3. MCP
   
 
     
@@ -2347,14 +2390,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integración con Pandora RC
+    4. Integración con Pandora FMS
   
 
     
@@ -2375,14 +2418,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. IA y chatbot
+    5. Integración con Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. IA y chatbot
   
 
     
@@ -2411,6 +2482,8 @@
   
     
     
+      
+        
       
         
       
@@ -2499,6 +2572,34 @@
     
   
     2. Mantenimiento y copias de seguridad
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extensiones de consola
   
 
     
@@ -2991,6 +3092,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#impersonar-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impersonar usuarios
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3314,6 +3426,26 @@ acceso no depende solo del grupo, sino también de la empresa del usuario.</p>
 el acceso directo de la cabecera. Ahí puede ver su clave de API 1.0 en un código
 QR o generar un token para la API 2.0. Un usuario sin perfil asignado también
 puede entrar en esta opción.</p>
+<h3 id="impersonar-usuarios">Impersonar usuarios<a class="headerlink" href="#impersonar-usuarios" title="Permanent link">¶</a></h3>
+<p>Un administrador puede entrar en la consola <strong>como otro usuario</strong> para comprobar
+qué ve y qué puede hacer antes de conceder o retirar permisos. La acción está en
+la ficha del usuario, en la cabecera de <strong>General info</strong>: <strong>Impersonate user</strong>.
+Solo aparece a administradores y para usuarios válidos.</p>
+<p>Al confirmar, la sesión pasa a ser la del usuario suplantado y aparece una banda
+ámbar permanente con el usuario efectivo, el administrador real y el botón
+<strong>Stop impersonating</strong>. Todas las pestañas del navegador comparten la
+suplantación, porque la cookie de sesión es común. La sesión del administrador no
+se pierde: <strong>Stop impersonating</strong> la restaura y vuelve a la página de origen.</p>
+<p>No se puede suplantar a otro administrador, a un usuario deshabilitado, a una
+cuenta sin login, a uno mismo ni encadenar suplantaciones. Si el usuario destino
+deja de cumplir los requisitos durante la sesión (por ejemplo, si pasa a
+administrador), la consola restaura automáticamente al administrador.</p>
+<p>Las acciones realizadas durante la suplantación se registran en la auditoría con
+el administrador real y el usuario suplantado, y las trazas del usuario efectivo
+llevan el sufijo <code>[Impersonated by &lt;administrador&gt;]</code>. El inicio, el fin, el
+auto-corte y los intentos no autorizados quedan registrados en el log de
+auditoría. Si el administrador pulsa <strong>Logout</strong> mientras suplanta, primero se
+cierra la suplantación; un segundo <strong>Logout</strong> cierra su propia sesión.</p>
 <h2 id="tipos-de-usuario">Tipos de usuario<a class="headerlink" href="#tipos-de-usuario" title="Permanent link">¶</a></h2>
 <table>
 <thead>

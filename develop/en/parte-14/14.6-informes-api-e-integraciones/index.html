@@ -1347,6 +1347,8 @@
       
         
       
+        
+      
     
     
     
@@ -1570,6 +1572,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tasks
   
 
     
@@ -1871,6 +1901,8 @@
       
         
       
+        
+      
     
     
     
@@ -1974,14 +2006,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integration with Pandora FMS
+    3. MCP
   
 
     
@@ -2002,14 +2034,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integration with Pandora RC
+    4. Integration with Pandora FMS
   
 
     
@@ -2030,14 +2062,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. AI and chatbot
+    5. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. AI and chatbot
   
 
     
@@ -2066,6 +2126,8 @@
   
     
     
+      
+        
       
         
       
@@ -2154,6 +2216,34 @@
     
   
     2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Console extensions
   
 
     
@@ -2923,30 +3013,30 @@ credential. See <a href="../../parte-11/11.1-api-v2/">11.1 API v2</a>.</p>
 <p>Check the URL and token in Pandora FMS. FMS registers the node when communication
 works; it is not added by hand in ITSM. If it appears but does not progress, look at
 the cron and the connection status. See
-<a href="../../parte-11/11.3-integracion-con-pandora-fms/">11.3 Pandora FMS integration</a>.</p>
+<a href="../../parte-11/11.4-integracion-con-pandora-fms/">11.4 Pandora FMS integration</a>.</p>
 <h2 id="pandora-fms-does-not-create-tickets-in-itsm">Pandora FMS does not create tickets in ITSM<a class="headerlink" href="#pandora-fms-does-not-create-tickets-in-itsm" title="Permanent link">¶</a></h2>
 <p>Check that the token user still has <code>IM</code> and that the IP is still allowed. A profile
 change breaks the integration without warning. If the ticket is created but does not
 appear, check the queue and the group. See
-<a href="../../parte-11/11.3-integracion-con-pandora-fms/">11.3 Pandora FMS integration</a>.</p>
+<a href="../../parte-11/11.4-integracion-con-pandora-fms/">11.4 Pandora FMS integration</a>.</p>
 <h2 id="i-cannot-open-the-remote-connection-with-pandora-rc">I cannot open the remote connection with Pandora RC<a class="headerlink" href="#i-cannot-open-the-remote-connection-with-pandora-rc" title="Permanent link">¶</a></h2>
 <p><code>There was an error retrieving an authorization token</code> usually means credentials,
 host, port or TLS. The certificate must be valid; verification is not disabled. If
 the iframe is blank, <code>X-Frame-Options: SAMEORIGIN</code> is missing. See
-<a href="../../parte-11/11.4-integracion-con-pandora-rc/">11.4 Pandora RC integration</a>.</p>
+<a href="../../parte-11/11.5-integracion-con-pandora-rc/">11.5 Pandora RC integration</a>.</p>
 <h2 id="the-chat-does-not-connect">The chat does not connect<a class="headerlink" href="#the-chat-does-not-connect" title="Permanent link">¶</a></h2>
 <p>Check in this order: <code>Ws url</code>, the Node.js service, <code>Check chat server</code> and the
 certificates. If the chat is outside the console, use HTTPS and check that the
-public URL is reachable. See <a href="../../parte-11/11.5-ia-y-chatbot/">11.5 AI and chatbot</a>.</p>
+public URL is reachable. See <a href="../../parte-11/11.6-ia-y-chatbot/">11.6 AI and chatbot</a>.</p>
 <h2 id="the-ai-does-not-answer">The AI does not answer<a class="headerlink" href="#the-ai-does-not-answer" title="Permanent link">¶</a></h2>
 <p>Check the channel mode (<code>Manual</code>, <code>Semi-auto</code>, <code>Full-auto</code>), the engine URL and
 port, and that the <code>prediction_engine</code> service listens on port <code>6000</code>. If you use
 ChatGPT, check the API key and the model. See
-<a href="../../parte-11/11.5-ia-y-chatbot/">11.5 AI and chatbot</a>.</p>
+<a href="../../parte-11/11.6-ia-y-chatbot/">11.6 AI and chatbot</a>.</p>
 <h2 id="what-should-i-do-if-the-openai-api-key-leaks">What should I do if the OpenAI API key leaks?<a class="headerlink" href="#what-should-i-do-if-the-openai-api-key-leaks" title="Permanent link">¶</a></h2>
 <p>Rotate it in OpenAI, save it again in the channel and review recent usage. Do not
 share it between channels or paste it into tickets. See
-<a href="../../parte-11/11.5-ia-y-chatbot/">11.5 AI and chatbot</a>.</p>
+<a href="../../parte-11/11.6-ia-y-chatbot/">11.6 AI and chatbot</a>.</p>
 
 
 

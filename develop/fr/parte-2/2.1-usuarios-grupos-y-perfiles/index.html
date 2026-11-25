@@ -727,6 +727,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#usurper-des-utilisateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usurper des utilisateurs
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1691,6 +1702,8 @@
       
         
       
+        
+      
     
     
     
@@ -1914,6 +1927,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tâches
   
 
     
@@ -2215,6 +2256,8 @@
       
         
       
+        
+      
     
     
     
@@ -2318,14 +2361,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Intégration avec Pandora FMS
+    3. MCP
   
 
     
@@ -2346,14 +2389,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Intégration avec Pandora RC
+    4. Intégration avec Pandora FMS
   
 
     
@@ -2374,14 +2417,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. IA et chatbot
+    5. Intégration avec Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. IA et chatbot
   
 
     
@@ -2410,6 +2481,8 @@
   
     
     
+      
+        
       
         
       
@@ -2498,6 +2571,34 @@
     
   
     2. Maintenance et sauvegardes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Extensions de console
   
 
     
@@ -2990,6 +3091,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#usurper-des-utilisateurs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usurper des utilisateurs
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3316,6 +3428,28 @@ l'entreprise de l'utilisateur.</p>
 depuis le raccourci de l'en-tête. Il peut y voir sa clé API 1.0 dans un QR code ou
 générer un jeton pour l'API 2.0. Un utilisateur sans profil peut aussi accéder à
 cette option.</p>
+<h3 id="usurper-des-utilisateurs">Usurper des utilisateurs<a class="headerlink" href="#usurper-des-utilisateurs" title="Permanent link">¶</a></h3>
+<p>Un administrateur peut entrer dans la console <strong>en tant qu'autre utilisateur</strong>
+pour vérifier ce que celui-ci voit et peut faire avant d'accorder ou de retirer
+des permissions. L'action se trouve dans la fiche utilisateur, dans l'en-tête
+<strong>General info</strong> : <strong>Impersonate user</strong>. Elle n'apparaît qu'aux administrateurs et
+pour des utilisateurs valides.</p>
+<p>Après confirmation, la session devient celle de l'utilisateur usurpé et une
+bannière ambre permanente affiche l'utilisateur effectif, l'administrateur réel
+et le bouton <strong>Stop impersonating</strong>. Tous les onglets du navigateur partagent
+l'usurpation, car le cookie de session est commun. La session de l'administrateur
+n'est pas perdue : <strong>Stop impersonating</strong> la restaure et revient à la page
+d'origine.</p>
+<p>Vous ne pouvez pas usurper un autre administrateur, un utilisateur désactivé, un
+compte sans connexion, vous-même ni enchaîner les usurpations. Si l'utilisateur
+cible ne remplit plus les conditions pendant la session (par exemple s'il devient
+administrateur), la console restaure automatiquement l'administrateur.</p>
+<p>Les actions effectuées pendant l'usurpation sont enregistrées dans l'audit avec
+l'administrateur réel et l'utilisateur usurpé, et les traces de l'utilisateur
+effectif portent le suffixe <code>[Impersonated by &lt;administrateur&gt;]</code>. Le début, la
+fin, la restauration automatique et les tentatives non autorisées sont
+enregistrés dans le journal d'audit. Si l'administrateur clique sur <strong>Logout</strong> pendant l'usurpation,
+l'usurpation s'arrête d'abord ; un second <strong>Logout</strong> ferme sa propre session.</p>
 <h2 id="types-dutilisateur">Types d'utilisateur<a class="headerlink" href="#types-dutilisateur" title="Permanent link">¶</a></h2>
 <table>
 <thead>

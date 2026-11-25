@@ -727,6 +727,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#impersonate-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impersonate users
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1691,6 +1702,8 @@
       
         
       
+        
+      
     
     
     
@@ -1914,6 +1927,34 @@
     
   
     7. Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-8/8.8-tareas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Tasks
   
 
     
@@ -2215,6 +2256,8 @@
       
         
       
+        
+      
     
     
     
@@ -2318,14 +2361,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.3-integracion-con-pandora-fms/" class="md-nav__link">
+      <a href="../../parte-11/11.3-mcp/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    3. Integration with Pandora FMS
+    3. MCP
   
 
     
@@ -2346,14 +2389,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.4-integracion-con-pandora-rc/" class="md-nav__link">
+      <a href="../../parte-11/11.4-integracion-con-pandora-fms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    4. Integration with Pandora RC
+    4. Integration with Pandora FMS
   
 
     
@@ -2374,14 +2417,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../parte-11/11.5-ia-y-chatbot/" class="md-nav__link">
+      <a href="../../parte-11/11.5-integracion-con-pandora-rc/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    5. AI and chatbot
+    5. Integration with Pandora RC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-11/11.6-ia-y-chatbot/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. AI and chatbot
   
 
     
@@ -2410,6 +2481,8 @@
   
     
     
+      
+        
       
         
       
@@ -2498,6 +2571,34 @@
     
   
     2. Maintenance and backups
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../parte-12/12.3-extensiones-de-consola/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Console extensions
   
 
     
@@ -2990,6 +3091,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#impersonate-users" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Impersonate users
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3313,6 +3425,26 @@ depends not only on the group but also on the user's company.</p>
 <p>Any user can change their data from <strong>People → Edit my user</strong> or from the shortcut
 in the header. There they can see their API 1.0 key in a QR code or generate a
 token for API 2.0. A user with no profile can also access this menu option.</p>
+<h3 id="impersonate-users">Impersonate users<a class="headerlink" href="#impersonate-users" title="Permanent link">¶</a></h3>
+<p>An administrator can enter the console <strong>as another user</strong> to check what that
+user sees and can do before granting or removing permissions. The action is on
+the user form, in the <strong>General info</strong> header: <strong>Impersonate user</strong>. It only
+appears to administrators and for valid users.</p>
+<p>After confirmation, the session becomes the impersonated user's session and a
+permanent amber banner shows the effective user, the real administrator and the
+<strong>Stop impersonating</strong> button. Every browser tab shares the impersonation
+because the session cookie is shared. The administrator's session is not lost:
+<strong>Stop impersonating</strong> restores it and returns to the original page.</p>
+<p>You cannot impersonate another administrator, a disabled user, an account
+without login, yourself or a chained impersonation. If the target user stops
+meeting the requirements during the session (for example, if they become an
+administrator), the console automatically restores the administrator.</p>
+<p>Actions performed during impersonation are recorded in the audit log with the
+real administrator and the impersonated user, and the effective user's traces
+carry the suffix <code>[Impersonated by &lt;administrator&gt;]</code>. Start, stop, automatic
+restore and unauthorised attempts are recorded in the audit log. If the administrator
+clicks <strong>Logout</strong> while impersonating, impersonation stops first; a second
+<strong>Logout</strong> closes the administrator's own session.</p>
 <h2 id="user-types">User types<a class="headerlink" href="#user-types" title="Permanent link">¶</a></h2>
 <table>
 <thead>
